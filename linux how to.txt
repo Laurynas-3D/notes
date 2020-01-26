@@ -1,0 +1,8 @@
+hot to add a custom shortcut
+
+Settings -> Devices -> Keyboard Shortcuts
+Scroll down -> click add
+
+Name: Terminal
+Command: gnome-terminal
+Shortcut: CTRL+R

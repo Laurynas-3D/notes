@@ -1,0 +1,2 @@
+ markdown-preview
+Open a rendered version of the Markdown in the current editor with `ctrl-shift-m`.

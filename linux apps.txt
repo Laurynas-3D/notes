@@ -1,0 +1,18 @@
+Kali Linux
+
+anonsurf 
+
+https://github.com/Und3rf10w/kali-anonsurf
+
+-$ cd kali-anonsurf/
+-$ ./installer.sh
+-$ anonsurf start
+
+	-$ anonsurf --help
+	-$ anonsurf  start
+	-$ anonsurf  stop
+	-$ anonsurf restart
+	-$ anonsurf change
+	-$ anonsurf status
+	-$ anonsurf myip
+	

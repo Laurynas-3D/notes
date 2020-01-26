@@ -1,0 +1,21 @@
+first you open VIM you are in command mode
+
+:q		- quit VIM
+:w		- write current state (save)
+:wq		- write and quit (save and exit)
+:q!		- write without saving changes
+
+:set number	- turns on line numbers
+i		- enables insert mode, now you can write
+esc		- dwitch back to command mode
+dd		- delete a line / in insert mode
+3dd		- delete 3 lines / 
+u		- undo your last action
+CTRL+R		- redo
+/someWord	- search, forward slash at the begining + enter take your cursor there
+
+:%s/someWord/replaceWithNewWord/gc
+		- find and replace, 
+		g - for greedy, replace all / without replace only first occurence
+		c - for comfirm replace / asks for comfirmation
+		without "c" it will replace without confirmation prompt

@@ -1,0 +1,28 @@
+---------------Potocol Filters
+
+tcp
+udp
+http
+icmp	-ping packets
+
+udp.port==53 ||tcp.port==53
+
+---------------IP and Port Filtering
+
+tcp.port==53
+udp.port==53
+
+ip.addr==192.168.1.100 && (tcp.port==53 || udp.port==53)
+
+
+
+---------------Linux Firewall
+
+icmp	-ping packets
+
+iptables -I OUTPUT -p icmp -j DROP	- disables ping data send request back, no answer
+
+
+---------------Wireshark CLI
+
+ssh	- secured shell, encrypted traffic
