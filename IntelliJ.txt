@@ -1,0 +1,2 @@
+CTRL+SHIFT+V	- multiple paste
+Double SHIFT	- search everywhere
