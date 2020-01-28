@@ -1,2 +1,3 @@
 CTRL+SHIFT+V	- multiple paste
 Double SHIFT	- search everywhere
+CTRL+SHIFT+F12	- maximize editor pane
