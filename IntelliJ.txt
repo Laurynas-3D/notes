@@ -1,3 +1,5 @@
 CTRL+SHIFT+V	- multiple paste
 Double SHIFT	- search everywhere
 CTRL+SHIFT+F12	- maximize editor pane
+CTRL+SHIFT+ENTER - code constructs using statement completion.
+ 	       	Start typing a method declaration, a method call or a statement such as if, do-while, try-catch, or return.
