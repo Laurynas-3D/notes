@@ -1,5 +1,7 @@
 CTRL+SHIFT+V	- multiple paste
-Double SHIFT	- search everywhere
 CTRL+SHIFT+F12	- maximize editor pane
-CTRL+SHIFT+ENTER - code constructs using statement completion.
- 	       	Start typing a method declaration, a method call or a statement such as if, do-while, try-catch, or return.
+CTRL+SHIFT+ENTER - code constructs using statement completion. Start typing a method declaration, a method call or a statement such as if, do-while, try-catch, or return.
+CTRL+TAB	- loop through tabs / or java files
+
+SHIFT+F6 	- Rename / Multiple rename
+Double SHIFT	- search everywhere
