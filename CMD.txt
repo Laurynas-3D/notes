@@ -1,0 +1,3 @@
+netstat -ano
+tasklist | findstr 4768
+taskkill /f /t /im Tomcat9.exe
