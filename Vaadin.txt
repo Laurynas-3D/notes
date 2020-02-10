@@ -1,0 +1,24 @@
+SpringBoot application/@SpringUI in Vaadin version 11 not available
+
+@SpringUI - is not available
+import com.vaadin.spring.annotation.SpringUI; - does not work
+
+correct --->
+
+@UIScope
+import com.vaadin.flow.spring.annotation.UIScope;
+
+-------- Dependency for Vaadin 8 Web Apps
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-bom</artifactId>
+				<version>8.0.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
