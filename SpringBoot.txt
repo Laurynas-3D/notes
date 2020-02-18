@@ -1,0 +1,15 @@
+First, be sure that you added spring-boot-devtools as dependency:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
+
+Second, verify that the option check-box File->Setting –> Build, Execution, Deployment –> Compiler–>Build project automatically is selected.
+
+Last, press SHIFT+CTRL+A for Linux/Windows users or Command+SHIFT+A for Mac users, then type registry in the opened pop-up window. Scroll down to Registry... using the down arrow key and hit ENTER on Registry.... In the Registry window verify the option compiler.automake.allow.when.app.running is checked.
+
+The instructions above are taken from here
+
+https://mkyong.com/spring-boot/intellij-idea-spring-boot-template-reload-is-not-working/
