@@ -1,3 +1,5 @@
+consider to add /node_modules/ folder to .gitignore file. 
+
 Heroku update{
 
 If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
@@ -20,6 +22,8 @@ $ git commit -am "make it better"
 $ git push heroku master
 
 }
+
+qqqqqqqqqqqqqqqqqqqqq
 
 Heroku Create {
 If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
@@ -47,4 +51,16 @@ Existing Git repository
 For existing repositories, simply add the heroku remote
 
 $ heroku git:remote -a laurynas3d
+
+}
+
+Heroku install{
+
+to check if it work correctly
+type int cmd >
+heroku
+you should see commands list
+
+heroku needs environment variable in "User variables" under "Path" to install dir "C:\Program Files\heroku\bin"
+
 }
