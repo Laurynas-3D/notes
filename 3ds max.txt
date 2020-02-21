@@ -1,0 +1,11 @@
+NEW Discovered schortcuts
+
+SHIFT+S 	- Lines show toggle
+CTRL+SHIFT+S 	- Cameras show toggle
+
+
+16:9
+
+960x540
+1280x720
+
