@@ -1,4 +1,11 @@
-git repository creation
+Git Aliases
+
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.cm commit
+$ git config --global alias.st status
+
+CREATE REPOSITORY
 
 create a new repository on the command line
 	echo "# task_matrices" >> README.md
@@ -6,7 +13,7 @@ create a new repository on the command line
 	git status
 	git add README.md
 	git add .
-	git commit -m "20191212:1015"
+	git commit -m "20191212"
 	git remote add origin https://github.com/Laurynas-3D/task_matrices.git
 	git push -u origin master
 
@@ -15,13 +22,13 @@ create a new repository on the command line
 	git remote add origin https://github.com/Laurynas-3D/task_matrices.git
 	git push -u origin master
 
-git repository update
+REPOSITORY UPDATE
 	git status
 	git add .
-	git commit -m 20190325:1559
+	git commit -m 20190325
 	git push
 
-git repository download/clone
+REPOSITORY DOWNLOAD/CLONE
 	git clone https://github.com/Laurynas-3D/git-homework.git
 
 	// git clone command creates a folder, names it after repository name
@@ -81,7 +88,7 @@ Clear Entire Git Cache
 
 
 
-git checkout // for reverting previous versions of the file // never done that
+git checkout // for reverting previous versions of the file
 
 git diff // ???
 git blame // ???
@@ -101,8 +108,8 @@ git checkout master
 git merge another
 git branch -d another // deleting branch
 
-Please commit your changes or stash them before you merge.
 
+Please commit your changes or stash them before you merge.
 // this message is because local changes are made and git is preventing to loose them,
 
 choices are using git reset --hard
@@ -113,8 +120,6 @@ or discard local changes for a specific file, git checkout filename
 
 
 	----- Some Git Notes -----
-
-	:wq! - VIM EXIT
 
 	Github desktop, Gitkraken, Sourcetree - all these are GUI tools for git
 	Github, Bitsource - Services for hosting project
@@ -132,9 +137,8 @@ or discard local changes for a specific file, git checkout filename
 	.tar files -> Bitkeeper -> Git archives
 
 	touch - command creates a file
-
-	touch .ignore //create git ignore file
-		edit with notepad++
+	touch .ignore //create git ignore file; edit with notepad++
+		
 			.idea //folder
 			.file //some excluded file
 

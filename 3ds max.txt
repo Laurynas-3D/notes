@@ -1,8 +1,31 @@
-NEW Discovered schortcuts
-
+NEW Discovered shortcuts
 SHIFT+S 	- Lines show toggle
 CTRL+SHIFT+S 	- Cameras show toggle
 
+Shortcuts
+
+ALT+A	Attach (poly)
+ALT+D	Deatach (poly)
+ALT+Q	Quick Slice (poly)
+ALT+S	Cap (poly)
+ALT+C	Chamfer Edge (poly)
+ALT+F	Affect Pivot Mode
+ALT+M	UVW Map Modifier
+ALT+L	Last Render Vray Frame Buffer
+ALT+V	Layer Manager
+A	Move
+S	Scale
+R	Rotate
+W	Arc Rotate
+CTRL+I	Selection Invert
+Y	Slice (Poly)
+X	Snaps Toggle
+
+` - X Transform X Constraint
+1 - Y Transform Y Constraint
+2 - Z Transform Z Constraint 
+
+RESOLUTIONS
 
 16:9
 
