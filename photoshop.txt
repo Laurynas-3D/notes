@@ -1,0 +1,2 @@
+CTRL+SHIFT+U 	- take away all colors
+CTRL+I 		- invert
