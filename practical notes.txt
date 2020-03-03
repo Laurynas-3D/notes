@@ -1,0 +1,23 @@
+Practical notes
+
+
+http://www.discoverherein.com/springbootstarter+html.html
+
+
+    @RequestMapping("/")
+    public String home () {
+        return "gallery.html";
+    }
+
+base 64 images
+
+
+H2 database with spring boot
+
+https://www.baeldung.com/spring-boot-h2-database
+
+
+
+thyme leaf web tutorial 
+
+https://www.concretepage.com/thymeleaf/thymeleaf-javascript-inline-example-with-variable
