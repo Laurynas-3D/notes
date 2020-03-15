@@ -25,6 +25,27 @@ X	Snaps Toggle
 1 - Y Transform Y Constraint
 2 - Z Transform Z Constraint 
 
+
+Color Mapping:
+
+Expoonential:
+Color mapping = 1,1,2.2
+Save file = PNG / TIFF
+VFB = no need to calibrate
+Easy to handle in photoshop
+
+Linear
+Color mapping = 1,1,1
+Save file = OpenEXR / HDRI
+VFB = need to calibrate
+Calibration (Easy) = sRGB ON
+or
+Calibration (Manual) = Use color curve correction - ON;
+Calibration (Manual) = Curves ON; left pont drag to 0,6, right point = free point
+Easy to handle in AfterEffects, Fusion, Combustion
+
+https://vrayschool.com/linear-vs-exponential-workflow/
+
 RESOLUTIONS
 
 [16:9]
