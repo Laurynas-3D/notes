@@ -46,6 +46,8 @@ Easy to handle in AfterEffects, Fusion, Combustion
 
 https://vrayschool.com/linear-vs-exponential-workflow/
 
+PBR - Physically-Based Rendering
+
 RESOLUTIONS
 
 [16:9]
