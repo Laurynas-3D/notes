@@ -4,6 +4,33 @@ CTRL+SHIFT+S 	- Cameras show toggle
 
 Shortcuts
 
+A	Move / 2017
+S	Rotate / 2017
+D	Scale / 2017
+Alt+MMB	Arc Rotate / 2017 defaultz
+CTRL+I	Selection Invert / default
+Y	Slice (Poly) / 2017
+X	Global Search / max 2017 default
+SPACE	Snaps Toggle / 2017
+W,Z	Zoom Extents Selected
+Q	Zoom Extents All / max 2017 default
+Alt+Q	Isolate Selection / max 2017 default
+O	Connect (no dialog) (Poly) / 2017
+R	Right View / 2017 
+F12	Reset File (3Ds Max) / 2017
+N	Hide Unselected
+U	Unhide All
+H	Hide Selection
+
+
+` - X Transform X Constraint / max 2011
+1 - Y Transform Y Constraint / max 2011
+2 - Z Transform Z constraint /  max 2011
+
+` - Transform Gizmo X Constraint / max 2017
+1 - Transform Gizmo Y Constraint / max 2017
+2 - Transform Gizmo Z constraint /  max 2017
+
 ALT+A	Attach (poly)
 ALT+D	Deatach (poly)
 ALT+Q	Quick Slice (poly)
@@ -13,17 +40,19 @@ ALT+F	Affect Pivot Mode
 ALT+M	UVW Map Modifier
 ALT+L	Last Render Vray Frame Buffer
 ALT+V	Layer Manager
-A	Move
-S	Scale
-R	Rotate
-W	Arc Rotate
-CTRL+I	Selection Invert
-Y	Slice (Poly)
-X	Snaps Toggle
 
-` - X Transform X Constraint
-1 - Y Transform Y Constraint
-2 - Z Transform Z Constraint 
+Removed default shortcuts max 2017
+
+Selection Lock Toggle / SPACE
+Smart Scale / 
+Smart Place / Y
+Redraw all views / `
+Sub-Object Level 1 / 1
+Sub-Object Level 2 / 2
+Adaptive Degradation Toggle / O
+Ortographic User View / U
+Auto Key Mode Toggle / N
+Transform Type-In Dialog Toggle / F12
 
 
 Color Mapping:
