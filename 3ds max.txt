@@ -21,6 +21,7 @@ F12	Reset File (3Ds Max) / 2017
 N	Hide Unselected
 U	Unhide All
 H	Hide Selection
+K	Scene Explorer
 
 
 ` - X Transform X Constraint / max 2011
@@ -53,6 +54,7 @@ Adaptive Degradation Toggle / O
 Ortographic User View / U
 Auto Key Mode Toggle / N
 Transform Type-In Dialog Toggle / F12
+Set Keys / K
 
 
 Color Mapping:
