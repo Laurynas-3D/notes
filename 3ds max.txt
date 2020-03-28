@@ -79,7 +79,15 @@ https://vrayschool.com/linear-vs-exponential-workflow/
 
 PBR - Physically-Based Rendering
 
-RESOLUTIONS
+----VRay
+
+Progressive image sampler
+0.5 - Draft
+0.005 - Very high quality / Efficient
+
+Z Deph Elements / min 0 max 200
+
+----RESOLUTIONS
 
 [16:9]
 
