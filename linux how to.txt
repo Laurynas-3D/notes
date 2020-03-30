@@ -6,3 +6,6 @@ Scroll down -> click add
 Name: Terminal
 Command: gnome-terminal
 Shortcut: CTRL+R
+
+------
+

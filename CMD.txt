@@ -2,6 +2,53 @@ netstat -ano
 tasklist | findstr 4768
 taskkill /f /t /im Tomcat9.exe
 
+---- Delete corrupted Recycle Bin Folder
+
 https://recoverit.wondershare.com/deleted-recovery/fix-corrupted-recycle-bin-in-windows.html?gclid=Cj0KCQjwjoH0BRD6ARIsAEWO9DtGFD8LGr74S-DcpXbHCwIX3YymUO4L7Gty1CM0tHD9SBra0BQPhswaAifPEALw_wcB
 rd /s /q C:\$Recycle.bin
 rd /s /q D:\$Recycle.bin
+
+Fixing ‘You don’t currently have permission to access this folder’
+###
+---- Changing the Ownership of the Folder And Permissions
+
+
+    Right-click the affected folder, then select Properties.
+    Go to the Security tab and look for the user name or group section.
+    If you do not have access to that folder, click the Advanced button.
+    Once you are in the Advanced Security Settings window, go to the Owner section at the top, then click the Change link. Doing so should bring up the User or Group window.
+    Once the User or Group window is up, choose Advanced.
+    Enter your User Account name, then click Check Names. You can also click the Find Now button. Once you see the list of available accounts, choose your account, then click OK.
+    Remember to select the ‘Replace owner on subcontainers and objects’ option, then click OK to save the changes.
+
+
+---- Command Prompt to take ownership
+
+Windows Key+S.
+Command Prompt
+Run as Administrator 
+takeown /F “full path of folder or drive” /A /R /D Y
+
+---- Providing Permission to Everyone
+
+
+    Open File Explorer and right-click the affected folder.
+    Select Properties from the options.
+    Once the Properties window is up, go to the Security tab, then click the Edit button.
+    Select Add, then type “everyone” (no quotes).
+    Click Check Names, then click OK.
+    Go to the Allow section, then select Everyone.
+    Now, choose Full Control.
+    Click Apply and OK.
+
+--- How to reset NTFS permissions with ICACLS 
+
+There’s a simple way to solve this kind of problems without headaches, using the ICACLS command.
+Launch the command prompt as an Administrator and navigate through the tree of folders you need to fix.
+Then launch the command ICACLS * /T /Q /C /RESET.
+
+ICACLS will reset the permissions of all the folders, files and subfolders. After a while, depending on the number of file, the permissions will be fixed.
+Sometimes, you may need to take the ownership of a tree of folders. You can use the command takeown /R /F * before launching the ICACLS.
+Be careful, taking the owenership of system folders may break your operating systems.
+
+###
