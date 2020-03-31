@@ -79,13 +79,31 @@ https://vrayschool.com/linear-vs-exponential-workflow/
 
 PBR - Physically-Based Rendering
 
-----VRay
+----VRay Next
 
 Progressive image sampler
 0.5 - Draft
 0.005 - Very high quality / Efficient
 
 Z Deph Elements / min 0 max 200
+
+Vray Quick settings + DOF testing; bucket mode
+
+SH 1%	AA 4%	- 1,4s
+SH 1% 	AA 48%	- 55s
+SH 1%	AA 100% - 3min 22s / Production Quality
+SH 50%	AA 4%	- 4.2s
+SH 100% AA 4%	- 6.2s
+SH 100% AA 20%	- 43s
+SH 100% AA 32%	- 2min 16s / Production Quality
+SH 6%	AA 88%	- Production for DOF
+
+BF+LC bucket mode / Exterior
+
+SH 100%	AA 32% - 2min 24s
+Vray Camera Category - Auto Exposure / Settings
+VRAY HDRI / Inverse gamma option 0.7
+Vray Environment VrayAerialPerspective / Distace Fog
 
 ----RESOLUTIONS
 
