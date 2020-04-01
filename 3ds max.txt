@@ -89,6 +89,8 @@ Z Deph Elements / min 0 max 200
 
 Vray Quick settings + DOF testing; bucket mode
 
+Light Cache at least half of resolution
+
 SH 1%	AA 4%	- 1,4s
 SH 1% 	AA 48%	- 55s
 SH 1%	AA 100% - 3min 22s / Production Quality
