@@ -1,0 +1,24 @@
+----AI schortcuts
+
+V 	- Selection tool
+A	- Direct Selection tool
+P	- Pen Tool
+I	- Eye Dropper tool
+SHIFT+X - Swap fill and Stroke
+
+----Isometric Grid Setup
+
+Rectangular Grid tool
+grid size 1000 x 1000 px
+horizontal and vertical dividers 125 x 125
+Object -> Transform -> Rotate 45 degrees
+Window -> Transform -> H 57.74%
+Resize grid with ALT+FN+SHIFT drag left to right
+Object -> Arrange Send to back
+Object -> Lock Selection (CTRL+2)
+
+
+---- AI stuff
+
+CAPS Lock turns X in to Pen tool
+
