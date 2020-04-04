@@ -22,6 +22,7 @@ N	Hide Unselected
 U	Unhide All
 H	Hide Selection
 K	Scene Explorer
+I	Center Pivot
 
 
 ` - X Transform X Constraint / max 2011
@@ -55,6 +56,7 @@ Ortographic User View / U
 Auto Key Mode Toggle / N
 Transform Type-In Dialog Toggle / F12
 Set Keys / K
+Pan Viewport / Unassigned
 
 
 Color Mapping:
