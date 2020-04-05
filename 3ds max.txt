@@ -61,7 +61,7 @@ Pan Viewport / Unassigned
 
 Color Mapping:
 
-Expoonential:
+Exponential:
 Color mapping = 1,1,2.2
 Save file = PNG / TIFF
 VFB = no need to calibrate
