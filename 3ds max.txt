@@ -2,7 +2,7 @@ NEW Discovered shortcuts
 SHIFT+S 	- Lines show toggle
 CTRL+SHIFT+S 	- Cameras show toggle
 
-Shortcuts
+Shortcuts Most Used
 
 A	Move / 2017
 S	Rotate / 2017
@@ -23,6 +23,9 @@ U	Unhide All
 H	Hide Selection
 K	Scene Explorer
 I	Center Pivot
+CTRL+D  Detach (Poly)
+ALT+D	Select None
+SHIFT+F Show Safe Frames / max 2017 default
 
 
 ` - X Transform X Constraint / max 2011
@@ -57,6 +60,8 @@ Auto Key Mode Toggle / N
 Transform Type-In Dialog Toggle / F12
 Set Keys / K
 Pan Viewport / Unassigned
+CTRL+D / Select None
+ALT+D / Enable Axis Constraints in Snaps Toggle
 
 
 Color Mapping:
