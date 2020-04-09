@@ -2,6 +2,8 @@ netstat -ano
 tasklist | findstr 4768
 taskkill /f /t /im Tomcat9.exe
 
+shutdown /s /f /t 0 	//Traditional shutdown
+
 ---- Delete corrupted Recycle Bin Folder
 
 https://recoverit.wondershare.com/deleted-recovery/fix-corrupted-recycle-bin-in-windows.html?gclid=Cj0KCQjwjoH0BRD6ARIsAEWO9DtGFD8LGr74S-DcpXbHCwIX3YymUO4L7Gty1CM0tHD9SBra0BQPhswaAifPEALw_wcB
