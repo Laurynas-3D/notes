@@ -1,4 +1,4 @@
-hot to add a custom shortcut
+------ How to add a custom shortcut
 
 Settings -> Devices -> Keyboard Shortcuts
 Scroll down -> click add
@@ -7,5 +7,13 @@ Name: Terminal
 Command: gnome-terminal
 Shortcut: CTRL+R
 
-------
+------ The Video file cannot be played On Firefox
+
+sudo dnf install vlc
+
+------ Prevent Sleep on Lid Close in the Fedora 30 Terminal
+
+Login and sudo vi /etc/systemd/logind.conf
+Find the line HandleLidSwitch=ignore and uncomment it (remove the # at the beginning of the line). If for some reason the line isn’t there, add it to the bottom of the file. Write and quit.
+Restart the systemd daemon with sudo systemctl restart systemd-logind
 
