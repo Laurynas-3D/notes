@@ -4,6 +4,27 @@ taskkill /f /t /im Tomcat9.exe
 
 shutdown /s /f /t 0 	//Traditional shutdown
 
+Create a text file listing of the files
+    dir > listmyfolder.txt
+
+List all the JPEG pictures in a folder and its subfolders
+    dir /s *.jpg >listjpg.txt
+
+List all the MP3 files in a folder and its subfolders
+    dir /s *.mp3 >listmp3.txt
+
+Scan local network
+    arp -a
+
+Clear the screen
+    cls
+
+List all folder names in a text file
+    cmd >_
+dir /ad /b /s >"folderlist.txt"
+If you want the current directory only then remove the /s
+
+
 ---- Delete corrupted Recycle Bin Folder
 
 https://recoverit.wondershare.com/deleted-recovery/fix-corrupted-recycle-bin-in-windows.html?gclid=Cj0KCQjwjoH0BRD6ARIsAEWO9DtGFD8LGr74S-DcpXbHCwIX3YymUO4L7Gty1CM0tHD9SBra0BQPhswaAifPEALw_wcB
