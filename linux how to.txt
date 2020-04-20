@@ -1,3 +1,15 @@
+
+------ Resize logical partitions - reduce root / extend home
+We need to check logical disks mount paths
+
+df -h / sudo fdisk -l
+Or use Disks app
+First remove 30 GB from /root
+lvresize -L -30G --resizefs /dev/mapper/…(root)
+Add 30 GB to home partition
+lvresize -L +30G --resizefs /dev/mapper/…(home)
+
+
 ------ How to add a custom shortcut
 
 Settings -> Devices -> Keyboard Shortcuts
