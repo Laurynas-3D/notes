@@ -162,7 +162,10 @@ Vray Environment VrayAerialPerspective / Distace Fog
 4000x3000
 6400x4800
 
+-------------TIPS: 
 
+textures rendering, but not showing in mat editor or viewport 
+material editor the materials do not show the diffuse map
 
-
+Compact Material Editor: Material > Show Material in Viewport as >... without maps, and then choose Material > Show Material in Viewport as >... with maps to see whether the textures will get updated.
 
