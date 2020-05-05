@@ -5,6 +5,7 @@ A	- Direct Selection tool
 P	- Pen Tool
 I	- Eye Dropper tool
 SHIFT+X - Swap fill and Stroke
+Z	- Zoom
 
 ----Isometric Grid Setup
 
