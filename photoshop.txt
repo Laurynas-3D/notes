@@ -1,2 +1,11 @@
 CTRL+SHIFT+U 	- take away all colors
 CTRL+I 		- invert
+Z 		- zoom
+H		- hand tool
+SPACE / on hold	- hand tool
+X		- Switch Foreground/Background colors
+W		- Magic Wand tool
+V		- Move tool / Quick Selection tool
+B		- Brush tool / Pencil tool / Color Replacement tool / Mixer Brush tool
+G		- Gradient tool / Paint Bucket tool 
+\ (backslash)	- Toggle layer mask on/off as rubylith (layer mask must be selected)
