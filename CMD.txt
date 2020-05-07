@@ -75,3 +75,61 @@ Sometimes, you may need to take the ownership of a tree of folders. You can use 
 Be careful, taking the owenership of system folders may break your operating systems.
 
 ###
+
+----- ERROR LOADING OPERATING SYSTEM
+----- Fix Unmountable Boot Volume Error in Windows 10
+
+x:\Sources>	
+diskpart
+list disk
+select disk 0
+list vol
+select vol 1 // (Label System Reserved)
+assign letter=V:
+exit
+V:
+md \efi\microsoft\boot\
+cd /d v:\efi\microsoft\boot\
+bootrec /fixboot // (operation completed successfully)
+bcdboot c:\windows /l en-us /s v: /f all
+---restart your pc; run from usb stick
+x:\Sources>
+bootrec /fixmbr
+bootrec /fixboot
+bootrec /scanos
+bootrec /rebuildbcd
+(Add Installation ....) type A (for all)
+exit
+
+----- OPERATING SYSTEM WASN'T FOUND
+
+x:\Sources>
+diskpart
+list disk
+sel disk 0
+list vol
+sel vol 0 // That one with MB
+Active
+exit
+exit
+
+----
+
+x:\Sources>
+bootrec /rebuildbcd
+bootrec /fixmbr
+bootrec /fixboot
+
+----
+
+x:\Sources>
+bootsect /nt60 C:
+or
+bootsect /nt60 Sys
+or
+bootsect /nt60 ALL
+
+----
+
+sfc/scannow/offbootdir=C:\/offwindir=C:\windows
+chkdsk c: /r
