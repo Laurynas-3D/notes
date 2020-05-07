@@ -9,3 +9,11 @@ V		- Move tool / Quick Selection tool
 B		- Brush tool / Pencil tool / Color Replacement tool / Mixer Brush tool
 G		- Gradient tool / Paint Bucket tool 
 \ (backslash)	- Toggle layer mask on/off as rubylith (layer mask must be selected)
+
+
+
+------ invert pixels with alpha values
+
+Add a white filled layer behind your 'black icon on transparent' layer and also an empty layer above them both. On the empty layer, create a layer mask Layer > Layer Mask > Reveal All.
+
+Ctrl+A select all and Ctrl+Shift+C copy the combined image (All layers - should be a black icon on white bg). Now Alt+click the layer mask icon attached to your empty top layer (in layers panel). This will put you in direct edit mode for that layer mask. select all again and Ctrl+V paste the black and white result of the copy you just made. Exit out of direct layer editing by clicking on the layer instead. Now fill the empty layer with white and hide the other layers. This will result in your desired transparent icon on white background.
