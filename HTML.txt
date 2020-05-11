@@ -1,0 +1,10 @@
+
+The difference between an ID and a class is that an ID can be used to identify one element, whereas a class can be used to identify more than one.
+
+<div id="top">
+<h1>Chocolate curry</h1>
+<p class="intro">This is my recipe for making curry purely with chocolate</p>
+<p class="intro">Mmm mm mmmmm</p>
+</div>
+
+
