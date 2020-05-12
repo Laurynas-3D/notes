@@ -19,9 +19,23 @@ Name: Terminal
 Command: gnome-terminal
 Shortcut: CTRL+R
 
+
+------ How to disable all password prompts
+
+http://www.ubuntugeek.com/how-to-dis...in-ubuntu.html
+In terminal, run the command:
+sudo visudo
+Find the line that says
+%admin ALL=(ALL) ALL
+and change it to
+%admin ALL=(ALL) NOPASSWD: ALL
+Save and exit the file
+
+
 ------ The Video file cannot be played On Firefox
 
 sudo dnf install vlc
+
 
 ------ Prevent Sleep on Lid Close in the Fedora 30 Terminal
 
