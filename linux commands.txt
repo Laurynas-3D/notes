@@ -92,6 +92,16 @@ How to list installed packages order by size in CentOS/RHEL/Fedora Systems using
 
 rpm -qa --queryformat '%10{size} - %-25{name} \t %{version} \t %{os} \n' | sort -rh | head -25 | awk '{print $1/1024/1024, $2, $3, $4}'
 
+--------------------Fedora
+
+Upgrade distro over CLI
+
+sudo dnf upgrade --refresh
+reboot
+sudo dnf install dnf-plugin-system-upgrade
+sudo dnf system-upgrade download --refresh --releasever=32
+sudo dnf system-upgrade reboot
+
 --------------------Debian/Ubuntu
 
 How to list installed packages order by size in Debian/Ubuntu Systems using dpkg-query Command
