@@ -26,6 +26,7 @@ I	Center Pivot
 CTRL+D  Detach (Poly)
 ALT+D	Select None
 SHIFT+F Show Safe Frames / max 2017 default
+CTRL+E	UVW Map Modifier 
 
 
 ` - X Transform X Constraint / max 2011
@@ -46,7 +47,7 @@ ALT+M	UVW Map Modifier
 ALT+L	Last Render Vray Frame Buffer
 ALT+V	Layer Manager
 
-Removed default shortcuts max 2017
+Removed default shortcuts max 2017 or 2019
 
 Selection Lock Toggle / SPACE
 Smart Scale / 
@@ -62,7 +63,7 @@ Set Keys / K
 Pan Viewport / Unassigned
 CTRL+D / Select None
 ALT+D / Enable Axis Constraints in Snaps Toggle
-
+CTRL+E / Scale Cycle
 
 Color Mapping:
 
@@ -91,6 +92,10 @@ HRD - needs gamma correction 2.2 with floating point
 PBR - Physically-Based Rendering
 
 ----VRay Next
+
+Default Settings GI
+	Primary Engine BF
+	Secondary Engine LC
 
 Progressive image sampler
 0.5 - Draft
