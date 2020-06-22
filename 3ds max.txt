@@ -21,10 +21,10 @@ F12	Reset File (3Ds Max) / 2017
 N	Hide Unselected
 U	Unhide All
 H	Hide Selection
-K	Scene Explorer
+K	Select by name
 I	Center Pivot
 CTRL+D  Detach (Poly)
-ALT+D	Select None
+CTRL+F	Select None
 SHIFT+F Show Safe Frames / max 2017 default
 CTRL+E	UVW Map Modifier 
 
@@ -64,6 +64,7 @@ Pan Viewport / Unassigned
 CTRL+D / Select None
 ALT+D / Enable Axis Constraints in Snaps Toggle
 CTRL+E / Scale Cycle
+CTRL+F / Cycle Selection Method
 
 Color Mapping:
 
