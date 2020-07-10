@@ -1,1 +1,16 @@
 CTRL+TAB	- recent file
+CTRL+ALT+I 	- auto indent document // requires Indentator plugin
+
+
+Favorite themes
+	Dark Soda
+	Daughter of Obsidian
+	Monokai+
+	Scrimba theme
+	Solarized dark
+
+	Font size 13px
+	
+
+
+
