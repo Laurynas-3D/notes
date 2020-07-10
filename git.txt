@@ -1,3 +1,13 @@
+Git Update Over CLI
+
+$ git --version
+
+Since Git 2.16.1 you can use
+$ git update-git-for-windows
+
+In versions between 2.14.2 and 2.16.1, the command was
+$ git update
+
 Git Aliases
 
 $ git config --global alias.co checkout
@@ -143,18 +153,6 @@ or discard local changes for a specific file, git checkout filename
 			.file //some excluded file
 
 	touch .gitkeep // create empty file in empty directory to sync empty directories
-
-
-
-	Folder Structure
-
-	Repositories Folder
-			|
-			┣ My Repository
-			|		∟.git
-			|
-			┗ My Repository 02
-					∟.git
 
 
 ------------------------------

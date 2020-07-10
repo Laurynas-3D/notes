@@ -1,0 +1,22 @@
+----
+Excel shows formula but not result
+https://exceljet.net/excel-shows-formula-not-result
+
+Show Formulas is enabled / To check if Show Formulas is turned on, visit the Formula tab in the ribbon and check the Show Formulas button:
+
+Excel thinks your formula is text / First, you may have forgotten the equal sign. All formulas in Excel must begin with an equal sign (=). If you leave this out, Excel will simply treat the formula as text:
+
+Space before equal sign
+
+Formula wrapped in quotes / "=A1"
+
+Cell format set to Text
+
+Tip - Save formula in progress as text
+Although a broken formula is never fun, you can sometimes use the "formula as text problem" to your advantage, as a way to save work in progress on a tricky formula. Normally, if you try to enter a formula in an unfinished state, Excel will throw an error, stopping you from entering the formula. However, if you add a single apostrophe before the equal sign Excel will treat the formula as text and let you enter without complaint. The single quote reminds you that the formula has been intentionally converted to text:
+
+----
+Freeze panes to lock rows and columns
+Select View > Freeze Panes > Freeze First Column.
+
+
