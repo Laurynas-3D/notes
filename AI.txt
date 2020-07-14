@@ -5,7 +5,15 @@ A	- Direct Selection tool
 P	- Pen Tool
 I	- Eye Dropper tool
 SHIFT+X - Swap fill and Stroke
-Z	- Zoom
+Z	- Zoom Tool
+CTRL++  - Zoom In
+CTRL+-	- Zoom Out
+CTRL+0	- Fit Artboard In Window
+CTRL+Y	- Outline // Sceleton view
+
+---- TIPS
+
+PLACE - Import same 
 
 ----Isometric Grid Setup
 
