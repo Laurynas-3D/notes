@@ -10,6 +10,8 @@ CTRL++  - Zoom In
 CTRL+-	- Zoom Out
 CTRL+0	- Fit Artboard In Window
 CTRL+Y	- Outline // Sceleton view
+CTRL+SHIFT+P	- Perspective Grid
+
 
 ---- TIPS
 
