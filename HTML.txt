@@ -7,6 +7,29 @@ The difference between an ID and a class is that an ID can be used to identify o
 <p class="intro">Mmm mm mmmmm</p>
 </div>
 
+
+----QUICK START
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The HTML5</title>
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
+
+
 -----
 Neat footer with Flexbox solution / keep footer at bottom on pages without fixed position
 
