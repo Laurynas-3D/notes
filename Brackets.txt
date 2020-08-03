@@ -1,8 +1,14 @@
 CTRL+TAB	- recent file
 CTRL+ALT+I 	- auto indent document // requires Indentator plugin
 
+Plugins
+
+Autosave Files on Window Blur
+Indentator
+
 
 Favorite themes
+	OS X Style | Flat & Dark
 	Dark Soda
 	Daughter of Obsidian
 	Monokai+
