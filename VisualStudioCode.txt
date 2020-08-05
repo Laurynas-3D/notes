@@ -1,0 +1,13 @@
+----PLUGINS
+
+Auto Close Tag
+Auto Rename Tag
+Color Picker
+Highlight Matching Tag
+HTML Snippets
+Quokka.js
+Vetur
+
+----Color Themes
+
+OS X Flat Dark
