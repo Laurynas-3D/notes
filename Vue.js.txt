@@ -1,0 +1,7 @@
+Vue CLI Build - Blank Page
+Create a vue.config.js file in the project's root directory, containing the following:
+
+// vue.config.js
+module.exports = {
+publicPath:' '
+}

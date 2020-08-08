@@ -17,20 +17,27 @@ $ git config --global alias.st status
 
 CREATE REPOSITORY
 
-create a new repository on the command line
-	echo "# task_matrices" >> README.md
+Create a new repository on the command line
+	touch README.md
 	git init
-	git status
-	git add README.md
 	git add .
-	git commit -m "20191212"
+	git commit -m "first commit"
+	git remote add origin git@github.com:<username>/<reponame>.git
+	git push -u origin master
+
+	Push an existing repository from the command line
+
 	git remote add origin https://github.com/Laurynas-3D/task_matrices.git
 	git push -u origin master
 
-	or push an existing repository from the command line
+REMOVE all of the repository (.git), leaving only the working directory
+	
+	rm -rf .git
 
-	git remote add origin https://github.com/Laurynas-3D/task_matrices.git
-	git push -u origin master
+UNDO git rm
+
+	git reset HEAD
+	git checkout .
 
 REPOSITORY UPDATE
 	git status
