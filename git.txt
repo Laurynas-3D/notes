@@ -17,17 +17,17 @@ $ git config --global alias.st status
 
 CREATE REPOSITORY
 
-Create a new repository on the command line
+Create a new repository on the command line (works best without creating README.me)
 	touch README.md
 	git init
 	git add .
 	git commit -m "first commit"
-	git remote add origin git@github.com:<username>/<reponame>.git
+	git remote add origin https://github.com/Laurynas-3D/<repository-name>.git
 	git push -u origin master
 
 	Push an existing repository from the command line
 
-	git remote add origin https://github.com/Laurynas-3D/task_matrices.git
+	git remote add origin https://github.com/Laurynas-3D/<repository-name>.git
 	git push -u origin master
 
 REMOVE all of the repository (.git), leaving only the working directory
