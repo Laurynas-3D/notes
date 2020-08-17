@@ -1,3 +1,9 @@
+SHIFT+ALT+down	- Duplicate line
+
+----SETTINGS
+
+Render Indent Guide - Off
+
 ----PLUGINS
 
 Auto Close Tag

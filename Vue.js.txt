@@ -1,4 +1,15 @@
-Vue CLI Build - Blank Page
+----NOTES
+
+<router-link to="/about">About</router-link> // mostly used for internal links
+ <a href="https://...">link</a>  // used for external links
+
+without `v-bind:` or `:` tracks as string 
+with `v-bind:` or `:` tracks as javascript
+
+props:{} // to accept variables in a component through props:{}
+
+
+---Vue CLI Build - Blank Page
 Create a vue.config.js file in the project's root directory, containing the following:
 
 // vue.config.js
