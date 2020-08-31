@@ -1,0 +1,9 @@
+composer create-project laravel/laravel <projectname>
+
+root dir
+php artisan serve
+http://127.0.0.1:8000
+
+to create a controller, in terminal 'php artisan make:controller PagesController'
+
+Remember to restart with "php artisan serve" after changing your vendor/.env file

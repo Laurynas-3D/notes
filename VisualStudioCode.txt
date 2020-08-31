@@ -1,6 +1,24 @@
 SHIFT+ALT+down	- Duplicate line
 ! then TAB	- Create quick html 5 boilerplate
 
+
+----SETTINGS.json
+
+{
+    "workbench.colorTheme": "OS X Flat Dark",
+    "files.autoSave": "onFocusChange",
+    "editor.fontSize": 13,
+    "telemetry.enableTelemetry": false,
+    "window.zoomLevel": 0,
+    "editor.renderIndentGuides": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "git.enableSmartCommit": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "terminal.integrated.automationShell.linux": "",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+}
+
 ----SETTINGS
 
 Render Indent Guide - Off
