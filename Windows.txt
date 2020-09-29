@@ -1,0 +1,108 @@
+
+CTRL+C		- copy
+CTRL+V		- paste
+CTRL+X		- cut
+CTRL+Y		- redo
+CTRL+A 		- select all
+CTRL+SHIFT+V	- pastes without formatting
+CTRL+F		- find
+CTRL+F4		- close active current window
+
+F5		- refresh page
+CTRL+F5		- super refresh redownloads cache files
+F2 		- renames files or folders
+CTRL+SHIFT+ESC	- task manager
+ALT+TAB		- task switcher
+WINKEY+TAB	- task switcher plus extra functionality
+WINKEY+L	- lock computer
+WINKEY+ARROWS	- snap windows right or left half screen also works up and down
+WINKEY+D	- hides all windows, shows desktop
+WINKEY+1	- first program from launchbar, +2 second program and so on..
+
+CTRL+T		- new tab
+CTRL+SHIFT+T	- restores closed tab
+F11 		- togless full screen in browsers
+
+SHIFT+WINKEY+S	- screenshot snip & sketch tool
+CTRL+P		- change windows projection mode (screen control)
+WIN+O		- locks rotation
+CTRL+ALT+ARROWS - rotate screen around
+WINKEY+E 	- opens new windows explorer window
+WINKEY+I	- settings menu
+WINKEY+R	- open run box
+WINKEY+;	- opens EMOJI panel
+
+
+---------------------------
+Measure bandwidth between two computer in a LAN
+
+https://superuser.com/questions/1275043/measure-bandwidth-between-two-computer-in-a-lan
+https://iperf.fr/
+
+iPerf is designed to do exactly that and it is cross-platform. Download the version for your OS. On one of the computers run iperf -s (this is the server) and on the other run iperf -c <server hostname or IP> (this is the client). Then wait for the results. There are many options to tweak the measuring. Check iperf -hfor a complete list of options.
+
+
+---------------------------
+https://www.800error.com/
+
+How to fix Windows Update error 800error?
+
+1. Click Start and start typing on your keyboard for "services.msc"
+2. In your search results "services.msc" should show up. Open it with a click.
+3. A new windows will open containing all Windows services on your system.
+4. Search for "Windows Update"
+5. Right-click the "Windows Update" and then click Stop.
+
+We will now clean the Windows Update temporary cache folder:
+1. Hold your windows-key pressed and hit "R" key simultanous.
+2. A small new windows will appear.
+3. Type %windir%\SoftwareDistribution\DataStore in this new window and click OK.
+4. This will open Windows Explorer on the correct location.
+5. Delete all contents of this folder. (Hint: Use Ctrl + A to select all files and folders)
+
+Now we will start the Windows Update Service again:
+1. Switch back to the windows Services.
+2. Locate Windows Update.
+3. Right-click on it and choose Start.
+
+If the problem still persists, you can run the System File Checker (SFC) utility. This handy in-built tool will check your filesystem.
+1. Click Start and start typing on your keyboard for "cmd".
+2. In your search results cmd should show up with an black icon.
+3. Right-click it and select Run as administrator.
+4. If you are prompted for the admin password, enter the password and click OK.
+5. A new completely black windwos will open. You can type commands directly into this window.
+6. Type sfc/scannow and press Enter.
+7. This process will take a long time. You can minimize this black windows and work on.
+Come back to the black window after a time and check if the process finished.
+As soon as the SFC process finished, restart your computer. After the restart you search for Updates again.
+
+You are still facing the same issue?
+1. Restart your computer.
+
+Next thing is to clean Windows Update download path. These steps are only for expirienced user! If you mess up your computer with Regedit, you could loose your files! Take care or use a professional tool to investiagte your computer.
+1. Hold your windows-key pressed and hit "R" key simultanous.
+2. A small new windows will appear.
+3. Type regedit in this new windows and hit Enter.
+4. In the new windows you have a navigation on the left side. Use it to navigate to
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
+5. Once you found it, search for WUServer and WIStatusServer in the right hand pane.
+6. If they are not listet we cannot clean the download path. Othwerwise delete both.
+7. Restart your computer.
+
+Try to search for new Updates again.
+You are still facing this issue? I think this is not an usual problem and your computer should be checked by professional.
+Try to look for a solution here or search further in the search box below. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,10 @@
 SHIFT+ALT+down	- Duplicate line
 ! then TAB	- Create quick html 5 boilerplate
 
+https://code.visualstudio.com/docs/editor/integrated-terminal
 
 ----SETTINGS.json
+
 
 {
     "workbench.colorTheme": "OS X Flat Dark",
@@ -17,11 +19,13 @@ SHIFT+ALT+down	- Duplicate line
     "liveServer.settings.donotShowInfoMsg": true,
     "terminal.integrated.automationShell.linux": "",
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+//  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
 }
 
 ----SETTINGS
 
 Render Indent Guide - Off
+Title Scrollbar Sizing - large
 
 ----EXTENSIONS
 

@@ -1,0 +1,10 @@
+How to add phpMyAdmin
+
+Just download from its official site (https://www.phpmyadmin.net/downloads) and extract to {LARAGON_DIR}\etc\apps\phpMyAdmin.
+That's all.
+
+Note: After extracting, your folder will look like that:
+C:\laragon\etc\apps\phpMyAdmin
+
+Now, you can acess phpMyAdmin at:
+http://localhost/phpmyadmin
