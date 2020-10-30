@@ -1,0 +1,4 @@
+https://woocommerce.github.io/code-reference/hooks/hooks.html
+https://docs.woocommerce.com/document/introduction-to-hooks-actions-and-filters/
+https://woocommerce.github.io/code-reference/packages/WooCommerce-Functions.html
+https://github.com/woocommerce/woocommerce
