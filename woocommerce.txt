@@ -13,12 +13,12 @@ wp-content\plugins\woocommerce\templates\loop 			- controls main shop page loop 
 wp-content\plugins\woocommerce\templates\single-product		- single product page
 wp-content\plugins\woocommerce\templates\cart			- cart page, totals, shipping page
 wp-content\plugins\woocommerce\templates\notices\		- messages how it will be marked up on the site; success, error ect...
-wp-content/plugins/woocommerce/assets/css/woocommerce.scss	- main woocommerce style files
+wp-content\plugins\woocommerce\assets\css\woocommerce.scss	- main woocommerce style files
 
 
 ------- NOTES -------
 
-Best practise to make changes - copy plugin files to the active theme folder
+Best practice to make changes - copy plugin files to the active theme folder
 
 Plugin folder structure
 
@@ -34,6 +34,8 @@ wp-content\themes\storefront\woocommerce\loop\add-to-cart.php
 
 ------- SNIPPETS -------
 
+remove cross-sells
+
 print the function on front end, to figure out what is tied to given hook
 
 <?php 
@@ -48,6 +50,19 @@ wp-content\themes\storefront\functions.php
 // 3rd arg; priority
 remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 10);
 remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 10);
+
+remove shop page products sorting option
+remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+
+
+------- THINGS TO KNOW -------
+
+Your theme dows not declare WooCommerce suppor
+
+wp-content\themes\wootree\functions.php
+
+add_theme_support( 'woocommerce' ); // write this at the top
+
 
 
 
