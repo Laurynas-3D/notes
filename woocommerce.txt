@@ -12,11 +12,13 @@ https://github.com/woocommerce/woocommerce/tree/release/4.6/templates
 
 wp-content\plugins\woocommerce\templates\myaccount\		- customer login page
 wp-content\plugins\woocommerce\templates\loop\ 			- controls main shop page loop throuh product images, buttons, rating
-wp-content\plugins\woocommerce\templates\single-product\		- single product page
+wp-content\plugins\woocommerce\templates\single-product\	- single product page
 wp-content\plugins\woocommerce\templates\cart\			- cart page, totals, shipping page
 wp-content\plugins\woocommerce\templates\notices\		- messages how it will be marked up on the site; success, error ect...
 
 wp-content\plugins\woocommerce\templates\archive-product.php 	- template page controls main shop page
+wp-content\themes\storefront\woocommerce\content-single-product.php - - template controls single product page
+wp-content\themes\storefront\woocommerce\single-product.php	- template controls single product page
 
 wp-content\plugins\woocommerce\assets\css\woocommerce.scss	- main woocommerce style files
 
@@ -62,6 +64,16 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30
 
 remove shop page rating 
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
+#############################
+------- THINGS TO KNOW -------
+
+Your theme does not declare WooCommerce support
+
+wp-content\themes\wootree\functions.php
+
+add_theme_support( 'woocommerce' ); // write this at the top
+
 
 
 #############################
@@ -127,15 +139,33 @@ remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_lo
   text-align: center;
 }
 
+// this targets, single product page images ant thumbnails
+// multiple images will show like lightbox effect
+.woocommerce div.product div.images, .woocommerce-page div.product div.images {
+  float: right;
+  width: 100%;
+}
+.woocommerce div.product div.images a.woocommerce-main-image {
+  width: 80%;
+  float: left;
+  display: block;
+}
+.woocommerce div.product div.images div.thumbnails {
+  float: right;
+  width: 18%;
+  padding-top: 0;
+}
+.woocommerce div.product div.thumbnails a, .woocommerce-page div.product div.thumbnails a {
+  width: 100%
+}
+.single-product span.onsale {
+  top: 20px;
+  left: 0;
+  font-size: 1.6rem;
+}
 
-#############################
-------- THINGS TO KNOW -------
 
-Your theme dows not declare WooCommerce support
 
-wp-content\themes\wootree\functions.php
-
-add_theme_support( 'woocommerce' ); // write this at the top
 
 
 
