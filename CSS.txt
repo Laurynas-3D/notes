@@ -1,0 +1,5 @@
+/* disable arrows in quantity input field Firefox browser */
+
+.woocommerce form input.qty[type="number"] {
+	-moz-appearance: textfield;
+}
