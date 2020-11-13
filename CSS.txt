@@ -3,3 +3,30 @@
 .woocommerce form input.qty[type="number"] {
 	-moz-appearance: textfield;
 }
+
+--------------------------------------------------------
+https://stackoverflow.com/questions/952861/targeting-only-firefox-with-css
+/* target three different browser FF, Chrome, IE */
+
+<style type='text/css'>
+/*This will work for chrome */
+#categoryBackNextButtons
+{
+    width:490px;
+}
+/*This will work for firefox*/
+@-moz-document url-prefix() {
+    #categoryBackNextButtons{
+        width:486px;
+    }
+}
+</style>
+<!--[if IE]>
+<style type='text/css'>
+/*This will work for IE*/
+#categoryBackNextButtons
+{
+    width:486px;
+}
+</style>
+<![endif]-->

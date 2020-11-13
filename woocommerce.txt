@@ -74,6 +74,15 @@ wp-content\themes\wootree\functions.php
 
 add_theme_support( 'woocommerce' ); // write this at the top
 
+----------------------------------------------------
+// print all data about products in JSON
+
+global $wpdb;
+
+$all_product_data = $wpdb->get_results("SELECT ID,post_title,post_content,post_author,post_date_gmt FROM `" . $wpdb->prefix . "posts` where post_type='product' and post_status = 'publish'");
+
+print_r($all_product_data);
+
 
 
 #############################
