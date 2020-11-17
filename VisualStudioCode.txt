@@ -26,6 +26,7 @@ https://code.visualstudio.com/docs/editor/integrated-terminal
 
 Render Indent Guide - Off
 Title Scrollbar Sizing - large
+Tabsize - Indent Using Tabs - 2 
 
 ----EXTENSIONS
 
@@ -40,6 +41,8 @@ Quokka.js
 Vetur
 Better Comments
 Live Server
+Bracket Pair Colorizer
+
 
 ----Color / Icon Themes
 
