@@ -49,3 +49,6 @@ Bracket Pair Colorizer
 
 OS X Flat Dark
 Material Icon Theme 
+Cobalt2 	// Blue Tones 
+Night Owl 	// Darker more contrast blue tones
+Winter Is Coming // Dark blue  
