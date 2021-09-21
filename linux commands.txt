@@ -127,3 +127,148 @@ airmon-ng check <net_card_interface>
 airodump-ng <net_card_interface>		// SCAN for networks
 aireplay-ng -0 0 -a <mac_addr> <card_name> 	// DOS with deauth
 
+
+################# LINUX APPS ################# 
+
+
+----------------------------------------------
+Building and Installing the OneDrive Free Client
+
+https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md
+
+----------------------------------------------
+Bluetooth manager blueman
+
+sudo apt-get install blueman
+
+----------------------------------------------
+Take and edit screenshots in Linux with Flameshot
+
+sudo apt install flameshot
+
+----------------------------------------------
+f3 - Fight Flash Fraud
+f3 is a simple tool that tests flash cards capacity and performance to see if they live up to claimed specifications.
+https://fight-flash-fraud.readthedocs.io/en/stable/
+https://github.com/AltraMayor/f3
+
+----------------------------------------------
+Proxy Web browsing (Ubuntu, Kali Linux)
+
+anonsurf 
+
+https://github.com/Und3rf10w/kali-anonsurf
+
+-$ cd kali-anonsurf/
+-$ ./installer.sh
+-$ anonsurf start
+
+	-$ anonsurf --help
+	-$ anonsurf  start
+	-$ anonsurf  stop
+	-$ anonsurf restart
+	-$ anonsurf change
+	-$ anonsurf status
+	-$ anonsurf myip
+
+
+################# LINUX HOW-TO ################# 
+
+
+------ Linux Zip utility
+
+first zip files 
+
+-v : verbose mode
+-s : split mode (k - kylobytes, m - megabytes, g - gygabytes)
+-r : recursive mode (include all files in that dir)
+-0 : compression level (0 least, 6 default, 9 best)
+
+zip -v -s 1m -r zip-file.zip foldername-to-archive
+
+
+second concatenate files
+
+cat zip.z* > full.zip
+
+
+third unzip
+
+unzip full.zip (does not work)
+decompress in file manager
+
+
+------ cURL 
+sudo apt-get install curl
+
+GET:
+with JSON:
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://hostname/resource
+
+POST:
+curl --data "param1=value1&param2=value2" http://hostname/resource
+
+
+Pretty-printing the curl results:
+For JSON:
+If you use npm and nodejs, you can install json package by running this command:
+
+npm install -g json
+
+Usage:
+
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://hostname/resource | json
+
+https://stackoverflow.com/questions/14978411/http-post-and-get-using-curl-in-linux
+
+
+------ Bluetooth Keyboard connectivity issues
+
+sudo apt-get install blueman
+
+modprobe btusb // if blueman app does not solve the problem
+
+------ Resize logical partitions - reduce root / extend home
+
+We need to check logical disks mount paths
+
+df -h / sudo fdisk -l
+Or use Disks app
+First remove 30 GB from /root
+lvresize -L -30G --resizefs /dev/mapper/…(root)
+Add 30 GB to home partition
+lvresize -L +30G --resizefs /dev/mapper/…(home)
+
+
+------ How to add a custom shortcut
+
+Settings -> Devices -> Keyboard Shortcuts
+Scroll down -> click add
+
+Name: Terminal
+Command: gnome-terminal
+Shortcut: CTRL+R
+
+
+------ How to disable all password prompts
+
+http://www.ubuntugeek.com/how-to-dis...in-ubuntu.html
+In terminal, run the command:
+sudo visudo
+Find the line that says
+%admin ALL=(ALL) ALL
+and change it to
+%admin ALL=(ALL) NOPASSWD: ALL
+Save and exit the file
+
+
+------ The Video file cannot be played On Firefox
+
+sudo dnf install vlc
+
+
+------ Prevent Sleep on Lid Close in the Fedora 30 Terminal
+
+Login and sudo vi /etc/systemd/logind.conf
+Find the line HandleLidSwitch=ignore and uncomment it (remove the # at the beginning of the line). If for some reason the line isn’t there, add it to the bottom of the file. Write and quit.
+Restart the systemd daemon with sudo systemctl restart systemd-logind
