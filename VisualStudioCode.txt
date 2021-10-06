@@ -52,3 +52,19 @@ Material Icon Theme
 Cobalt2 	// Blue Tones 
 Night Owl 	// Darker more contrast blue tones
 Winter Is Coming // Dark blue  
+
+
+
+-------------------------------------
+DELL XPS
+
+----SETTINGS.json
+
+{
+    "workbench.colorTheme": "Night Owl",
+    "files.autoSave": "onFocusChange",
+    "editor.renderIndentGuides": false,
+    "php.validate.executablePath": "C:\\laragon\\bin\\php\\php-7.4.19-Win32-vc15-x64\\php.exe",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "material-icon-theme"
+}
