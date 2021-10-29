@@ -8,3 +8,7 @@ C:\laragon\etc\apps\phpMyAdmin
 
 Now, you can acess phpMyAdmin at:
 http://localhost/phpmyadmin
+
+
+TERMINAL startup command
+-cur_console:f -cur_console:d:C:\laragon\www " cmd /k "%ConEmuDir%\..\init.bat"

@@ -1,9 +1,26 @@
-composer create-project laravel/laravel <projectname>
+php -v				// display php version
+mysql -V			// display mysql version
+mysql -u root			// mysq monitor \q - quit; \? - help
+composer -v			// display composer version
+	
 
-root dir
-php artisan serve
-http://127.0.0.1:8000
+composer create-project laravel/laravel <project-name> // Start Laravel project
+laravel new <project-name>	// Start Laravel project if you can access laravel globally
+cd <project-name> 
+php artisan serve		// http://127.0.0.1:8000
+
+rm -rf <project-name>		// delete project
+
+
 -----
+
+dd('file does not exist...');	// die and dump
+ddd('file does not exist...');	// die dump and debug
+abort(404);			// gives 404 error page
+
+base_path() 			// path to your project
+app_path() 			// app directory
+resource_path() 		// resources directory
 
 npm run watch
 

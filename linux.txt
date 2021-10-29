@@ -1,18 +1,5 @@
 
---------------------Network
 
-ifconfig			- list detailed all network interfaces available
-iwconfig			- list detailed all wireless interfaces available
-nmcli device status		- list available devices and their status
-nmcli dev wifi			- list wifi with / SSID, signal strenght, security type, channel
-sudo iwlist scan 		- list wifi networks detailed 
-ip link show			- list network interfaces
-route				- displays or modifies the IP routing table
-nmap 192.168.1.1 -vv		-
-nmap localhost			- scans for open ports 
-
-aireplay-ng -0 0 -a <mac_addr> <card_name> - DOS with deauth
-airodump-ng <net_card_interface> - 
 
 
 --------------------Basics 
@@ -58,8 +45,12 @@ lsusb				- list usb devices
 lsblk				- list information about block devices / tree view
 pwd				- print working directory
 cp				- copy file / (cp ~/.bashrc bashrc.txt)
+
 pushd				- saves current working directory in memory so it can be returned quickly
 popd				- returns to the path at the top of directory stack
+
+rm <file-name.txt>		- remove/delete one file at a time
+rm -rf <folder-name>		- remove/delete recursively directory
 top				- RAM and CPU usage monitor
 less <readme.md>		- see in terminal file contents, for many rows better / CANT edit/
 cat <filename.txt>		- see in terminal file contents, for tiny files better 
@@ -86,6 +77,21 @@ nslookip linuxquestions.org 	- check website IP
 ping linuxquestions.org 	- ping to website. 
 
 
+--------------------Network
+
+ifconfig			- list detailed all network interfaces available
+iwconfig			- list detailed all wireless interfaces available
+nmcli device status		- list available devices and their status
+nmcli dev wifi			- list wifi with / SSID, signal strenght, security type, channel
+sudo iwlist scan 		- list wifi networks detailed 
+ip link show			- list network interfaces
+route				- displays or modifies the IP routing table
+nmap 192.168.1.1 -vv		-
+nmap localhost			- scans for open ports 
+
+aireplay-ng -0 0 -a <mac_addr> <card_name> - DOS with deauth
+airodump-ng <net_card_interface> - 
+
 --------------------CentOS/RHEL/Fedora
 
 How to list installed packages order by size in CentOS/RHEL/Fedora Systems using rpm Command
@@ -103,7 +109,7 @@ sudo dnf system-upgrade download --refresh --releasever=32
 sudo dnf system-upgrade reboot
 
 
-Virtual Box Shared folder add user
+Virtual Box Shared folder add user (on ubuntu insert guest additions cd image, in Devices menu)
 sudo usermod -aG <group> <user>
 sudo usermod -aG vboxsf laurynas
 
