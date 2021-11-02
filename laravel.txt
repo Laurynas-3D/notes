@@ -29,3 +29,27 @@ npm run watch
 to create a controller, in terminal 'php artisan make:controller PagesController'
 
 Remember to restart with "php artisan serve" after changing your vendor/.env file
+
+-----
+
+Blade Templating Engine
+
+https://laravel.com/docs/8.x/blade
+
+<?php echo $post->title; ?> 
+is same as this
+{{ $post->title; }}
+
+
+<?php foreach ($posts as $post) : ?>
+is same as this
+@foreach ($posts as $post)
+@endforeach
+
+
+Displaying Unescaped Data
+Hello, {!! $name !!}. // ect. get rid of <p> tag at beginning and the end
+
+@dd($loop)
+
+<article class="{{ $loop->even ? 'mb-6' : '' }} ">
