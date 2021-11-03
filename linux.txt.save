@@ -1,0 +1,285 @@
+
+
+
+
+--------------------Basics 
+
+apt list --upgradable		- list upgradable Linux packages / debian
+apt-get update			- get updates / debian 
+apt-get upgrade			- install updates / debian
+apt-get dist-upgrade		- distro update to newer version
+apt-get update && apt-get dist-upgrade - two commands in line, executed one after another
+
+dnf update			- get Linux packages updates / RedHat
+
+
+--------------------Linux Shell Navigation CLI / Basics
+
+echo $SHELL
+CTRL+D				- close current shell session
+CTRL+L				- clears screen (clear command)
+CTRL+A				- goes to beggining on the line
+CTRL+E				- goes to an end on the line
+ALT+F				- one word forward (words delimited by whitespace and symbols)
+ALT+B				- one word backwards (words delimited by whitespace and symbols)
+history				- shows yours shell history
+CTRL+R				- reverse search of history, type to find most recent matches
+CTRL+G				- after typing in reverse history lets you out and lets continue write command
+
+
+--------------------Other Popular Commands
+
+uname -a			- prints Linux version
+sudo hostname <device_name>	- change computer name 
+
+reboot				- reboots machine
+poweroff			- power off machine
+su				- enter root mode 
+exit				- exit root mode
+clear				- clear the screen
+ls				- list folder contents
+ls -l				- long list with permissions
+ls -lh				- long list with human readable file size
+lsmod				- Show the status of modules in the Linux Kernel
+lsusb				- list usb devices
+lsblk				- list information about block devices / tree view
+pwd				- print working directory
+cp				- copy file / (cp ~/.bashrc bashrc.txt)
+
+pushd				- saves current working directory in memory so it can be returned quickly
+popd				- returns to the path at the top of directory stack
+
+rm <file-name.txt>		- remove/delete one file at a time
+rm -rf <folder-name>		- remove/delete recursively directory
+top				- RAM and CPU usage monitor
+less <readme.md>		- see in terminal file contents, for many rows better / CANT edit/
+cat <filename.txt>		- see in terminal file contents, for tiny files better 
+nano <filename.txt>		- opens file editor 
+chmod +x <filename.txt> 	- make executable
+./filename.txt 			- run executable file
+touch <filename.txt>		- create file
+locate <filename.nse>		- finds file or something
+locate <*.txt>			- finds with wildcard
+tail -f <filename.txt>		- live feed, instance changes in a file in terminal
+makepasswd			- generate simple password
+makepasswd --chars 16		- generate password with 16 chars
+makepasswd --chars 16 --count 7 - generate 7 passwords with 16 chars
+service <service> start		- 
+service <service> stop		- 
+service <service> restart	-
+service <service> status	- 
+
+cal				- Simple ASCI calendar
+fortune				- displays a pseudorandom message from a database of quotations
+fdisk -l			- list partitions
+
+nslookip linuxquestions.org 	- check website IP
+ping linuxquestions.org 	- ping to website. 
+
+
+--------------------Network
+
+ifconfig			- list detailed all network interfaces available
+iwconfig			- list detailed all wireless interfaces available
+nmcli device status		- list available devices and their status
+nmcli dev wifi			- list wifi with / SSID, signal strenght, security type, channel
+sudo iwlist scan 		- list wifi networks detailed 
+ip link show			- list network interfaces
+route				- displays or modifies the IP routing table
+nmap 192.168.1.1 -vv		-
+nmap localhost			- scans for open ports 
+
+aireplay-ng -0 0 -a <mac_addr> <card_name> - DOS with deauth
+airodump-ng <net_card_interface> - 
+
+--------------------CentOS/RHEL/Fedora
+
+How to list installed packages order by size in CentOS/RHEL/Fedora Systems using rpm Command
+
+rpm -qa --queryformat '%10{size} - %-25{name} \t %{version} \t %{os} \n' | sort -rh | head -25 | awk '{print $1/1024/1024, $2, $3, $4}'
+
+--------------------Fedora
+
+Upgrade distro over CLI
+
+sudo dnf upgrade --refresh
+reboot
+sudo dnf install dnf-plugin-system-upgrade
+sudo dnf system-upgrade download --refresh --releasever=32
+sudo dnf system-upgrade reboot
+
+
+Virtual Box Shared folder add user (on ubuntu insert guest additions cd image, in Devices menu)
+sudo usermod -aG <group> <user>
+sudo usermod -aG vboxsf laurynas
+
+--------------------Debian/Ubuntu
+
+How to list installed packages order by size in Debian/Ubuntu Systems using dpkg-query Command
+
+dpkg-query --show --showformat='${Installed-Size}\t${Package}\n' | sort -rh | head -25 | awk '{print $1/1024, $2}'
+
+--------------------DKali Goodies
+
+ParrotSec's anonsurf and stealth, ported to work with Kali Linux.
+https://github.com/Und3rf10w/kali-anonsurf
+
+--------------------ROUTINES
+
+ifconfig <net_card_interface> down
+iwconfig <net_card_interface> mode monitor
+ifconfig <net_card_interface> up
+airmon-ng check <net_card_interface> 
+kill 1234 	// Network Manager first
+kill 1234	// dhclient
+kill 1234	// wpa_supplicant
+kill 1234	// everything whats left
+airmon-ng check <net_card_interface> 
+airodump-ng <net_card_interface>		// SCAN for networks
+aireplay-ng -0 0 -a <mac_addr> <card_name> 	// DOS with deauth
+
+
+################# LINUX APPS ################# 
+
+
+----------------------------------------------
+Building and Installing the OneDrive Free Client
+
+https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md
+
+----------------------------------------------
+Bluetooth manager blueman
+
+sudo apt-get install blueman
+
+----------------------------------------------
+Take and edit screenshots in Linux with Flameshot
+
+sudo apt install flameshot
+
+----------------------------------------------
+f3 - Fight Flash Fraud
+f3 is a simple tool that tests flash cards capacity and performance to see if they live up to claimed specifications.
+https://fight-flash-fraud.readthedocs.io/en/stable/
+https://github.com/AltraMayor/f3
+
+----------------------------------------------
+Proxy Web browsing (Ubuntu, Kali Linux)
+
+anonsurf 
+
+https://github.com/Und3rf10w/kali-anonsurf
+
+-$ cd kali-anonsurf/
+-$ ./installer.sh
+-$ anonsurf start
+
+	-$ anonsurf --help
+	-$ anonsurf  start
+	-$ anonsurf  stop
+	-$ anonsurf restart
+	-$ anonsurf change
+	-$ anonsurf status
+	-$ anonsurf myip
+
+
+################# LINUX HOW-TO ################# 
+
+
+------ Linux Zip utility
+
+first zip files 
+
+-v : verbose mode
+-s : split mode (k - kylobytes, m - megabytes, g - gygabytes)
+-r : recursive mode (include all files in that dir)
+-0 : compression level (0 least, 6 default, 9 best)
+
+zip -v -s 1m -r zip-file.zip foldername-to-archive
+
+
+second concatenate files
+
+cat zip.z* > full.zip
+
+
+third unzip
+
+unzip full.zip (does not work)
+decompress in file manager
+
+
+------ cURL 
+sudo apt-get install curl
+
+GET:
+with JSON:
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://hostname/resource
+
+POST:
+curl --data "param1=value1&param2=value2" http://hostname/resource
+
+
+Pretty-printing the curl results:
+For JSON:
+If you use npm and nodejs, you can install json package by running this command:
+
+npm install -g json
+
+Usage:
+
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://hostname/resource | json
+
+https://stackoverflow.com/questions/14978411/http-post-and-get-using-curl-in-linux
+
+
+------ Bluetooth Keyboard connectivity issues
+
+sudo apt-get install blueman
+
+modprobe btusb // if blueman app does not solve the problem
+
+------ Resize logical partitions - reduce root / extend home
+
+We need to check logical disks mount paths
+
+df -h / sudo fdisk -l
+Or use Disks app
+First remove 30 GB from /root
+lvresize -L -30G --resizefs /dev/mapper/…(root)
+Add 30 GB to home partition
+lvresize -L +30G --resizefs /dev/mapper/…(home)
+
+
+------ How to add a custom shortcut
+
+Settings -> Devices -> Keyboard Shortcuts
+Scroll down -> click add
+
+Name: Terminal
+Command: gnome-terminal
+Shortcut: CTRL+R
+
+
+------ How to disable all password prompts
+
+http://www.ubuntugeek.com/how-to-dis...in-ubuntu.html
+In terminal, run the command:
+sudo visudo
+Find the line that says
+%admin ALL=(ALL) ALL
+and change it to
+%admin ALL=(ALL) NOPASSWD: ALL
+Save and exit the file
+
+
+------ The Video file cannot be played On Firefox
+
+sudo dnf install vlc
+
+
+------ Prevent Sleep on Lid Close in the Fedora 30 Terminal
+
+Login and sudo vi /etc/systemd/logind.conf
+Find the line HandleLidSwitch=ignore and uncomment it (remove the # at the beginning of the line). If for some reason the line isn’t there, add it to the bottom of the file. Write and quit.
+Restart the systemd daemon with sudo systemctl restart systemd-logind
