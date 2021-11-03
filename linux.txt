@@ -1,7 +1,6 @@
 
 
 
-
 --------------------Basics 
 
 apt list --upgradable		- list upgradable Linux packages / debian
@@ -92,11 +91,13 @@ nmap localhost			- scans for open ports
 aireplay-ng -0 0 -a <mac_addr> <card_name> - DOS with deauth
 airodump-ng <net_card_interface> - 
 
+
 --------------------CentOS/RHEL/Fedora
 
 How to list installed packages order by size in CentOS/RHEL/Fedora Systems using rpm Command
 
 rpm -qa --queryformat '%10{size} - %-25{name} \t %{version} \t %{os} \n' | sort -rh | head -25 | awk '{print $1/1024/1024, $2, $3, $4}'
+
 
 --------------------Fedora
 
@@ -113,11 +114,13 @@ Virtual Box Shared folder add user (on ubuntu insert guest additions cd image, i
 sudo usermod -aG <group> <user>
 sudo usermod -aG vboxsf laurynas
 
+
 --------------------Debian/Ubuntu
 
 How to list installed packages order by size in Debian/Ubuntu Systems using dpkg-query Command
 
 dpkg-query --show --showformat='${Installed-Size}\t${Package}\n' | sort -rh | head -25 | awk '{print $1/1024, $2}'
+
 
 --------------------DKali Goodies
 
