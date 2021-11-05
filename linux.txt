@@ -293,6 +293,10 @@ Find the line HandleLidSwitch=ignore and uncomment it (remove the # at the begin
 Restart the systemd daemon with sudo systemctl restart systemd-logind
 
 
+------Installing MySQL
+
+sudo apt install mysql-server
+
 ------Install Older php on Ubuntu
 
 1: add the PPA maintained by Ondrej Surý
