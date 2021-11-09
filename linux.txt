@@ -14,7 +14,8 @@ dnf update			- get Linux packages updates / RedHat
 
 --------------------Linux Shell Navigation CLI / Basics
 
-echo $SHELL
+echo $SHELL			- bash location
+which bash			- bash location
 CTRL+D				- close current shell session
 CTRL+L				- clears screen (clear command)
 CTRL+A				- goes to beggining on the line
