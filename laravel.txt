@@ -12,7 +12,7 @@ php artisan serve		// http://127.0.0.1:8000
 rm -rf <project-name>		// delete project
 
 
------
+----------
 
 dd('file does not exist...');	// die and dump
 ddd('file does not exist...');	// die dump and debug
@@ -24,13 +24,13 @@ resource_path() 		// resources directory
 
 npm run watch
 
------
+----------
 
 to create a controller, in terminal 'php artisan make:controller PagesController'
 
 Remember to restart with "php artisan serve" after changing your vendor/.env file
 
------
+----------
 
 Blade Templating Engine
 
@@ -53,3 +53,10 @@ Hello, {!! $name !!}. // ect. get rid of <p> tag at beginning and the end
 @dd($loop)
 
 <article class="{{ $loop->even ? 'mb-6' : '' }} ">
+
+
+----------
+
+php artisan make:model StickersClientDetailsCheck -m 
+
+https://demonuts.com/insert-form-data-into-database-using-laravel/
