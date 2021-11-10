@@ -57,6 +57,25 @@ Hello, {!! $name !!}. // ect. get rid of <p> tag at beginning and the end
 
 ----------
 
+php artisan tinker
+$user = new User;
+$user->name = 'Laurynas';
+$user->email = 'laurynas@email.lt';
+$user->password = bcrypt('secret');
+$user->save();
+
+User::find(1);
+User::all();
+
+$users = User::all();
+$users->pluck('name');
+$users->map(function($user) {return $user->name;});
+
+$users->first();
+$users[0];
+
+----------
+
 php artisan make:model StickersClientDetailsCheck -m 
 
 https://demonuts.com/insert-form-data-into-database-using-laravel/
