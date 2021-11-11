@@ -6,6 +6,8 @@ composer -v			// display composer version
 php artisan --version	
 
 
+
+
 composer create-project laravel/laravel <project-name> // Start Laravel project
 laravel new <project-name>	// Start Laravel project if you can access laravel globally
 cd <project-name> 
@@ -78,6 +80,27 @@ $users->map(function($user) {return $user->name;});
 $users->first();
 $users[0];
 
+
+php artisan tinker
+
+App\Models\Post::count();
+App\Models\Post::all();
+
+$post = new App\Models\Post;
+$post->title = 'My First Post';
+$post->exerpt = 'First post Body exerpt';
+$post->body = 'First post Body';
+$post->save();
+
+use App\Models\Post;
+Post::count();
+Post::all();
+Post::first();
+Post::find(1);
+
+$post->title;
+$post->body;
+$post->author->name;
 ----------
 
 CREATE MODEL WITH MIGRATION
@@ -88,6 +111,8 @@ https://demonuts.com/insert-form-data-into-database-using-laravel/
 
 
 CREATE MIGRATION IN EXISTING TABLE
+
+php artisan help make:migration
 
 php artisan make:migration add_retail_price_to_products_stores_table --table=products_stores
 
