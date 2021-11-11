@@ -1,8 +1,10 @@
 php -v				// display php version
 mysql -V			// display mysql version
-mysql -u root			// mysq monitor \q - quit; \? - help
+mysql -u root		// mysq monitor \q - quit; \? - help
 composer -v			// display composer version
-	
+
+php artisan --version	
+
 
 composer create-project laravel/laravel <project-name> // Start Laravel project
 laravel new <project-name>	// Start Laravel project if you can access laravel globally
@@ -57,6 +59,8 @@ Hello, {!! $name !!}. // ect. get rid of <p> tag at beginning and the end
 
 ----------
 
+ADD ENTRIES MANUALY OVER TINKER
+
 php artisan tinker
 $user = new User;
 $user->name = 'Laurynas';
@@ -76,6 +80,27 @@ $users[0];
 
 ----------
 
+CREATE MODEL WITH MIGRATION
+
 php artisan make:model StickersClientDetailsCheck -m 
 
 https://demonuts.com/insert-form-data-into-database-using-laravel/
+
+
+CREATE MIGRATION IN EXISTING TABLE
+
+php artisan make:migration add_retail_price_to_products_stores_table --table=products_stores
+
+php artisan migrate:status
+
+php artisan migrate
+
+----------
+
+
+
+php artisan make:seeder RetailSeeder
+
+php artisan db:seed --class=RetailSeeder
+
+----------
