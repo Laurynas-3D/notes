@@ -1,11 +1,11 @@
 
-
 mysql -u debian-sys-maint -p
 
 
-
 CREATE DATABASE worhan;
-
 USE worhan
+source <file-name>.sql
 
-source worhan_wholesale_2021_11_04_10_13_51.sql
+-------
+
+alter table posts AUTO_INCREMENT=6

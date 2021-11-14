@@ -1,10 +1,33 @@
-php -v				// display php version
-mysql -V			// display mysql version
+php -v			// display php version
+mysql -V		// display mysql version
 mysql -u root		// mysq monitor \q - quit; \? - help
-composer -v			// display composer version
+composer -v		// display composer version
 
-php artisan --version	
+php artisan --version	// display Laravel framework version	
 
+
+
+PROJECT STARTUP NOTES (required php ver 7.2)
+
+git clone <project-name>
+mysql -u <user-name> -p <pass>
+create database <db-name>
+use <db-name>
+source <sql-dump-file-in-same-dir>.sql
+quit
+copy .env file details for local environment
+npm install
+composer update
+php artisan migrate:status
+php artisan migrate (if required)
+npm run production
+php artisan tinker
+User::find(2)
+$u = App\Admin\User::find(2);
+$u->password = bcrypt('secret');
+$u->save();
+php artisan serve
+http://127.0.0.1:8000/admin/login
 
 
 
@@ -18,8 +41,8 @@ rm -rf <project-name>		// delete project
 
 ----------
 
-dd('file does not exist...');	// die and dump
-ddd('file does not exist...');	// die dump and debug
+dd('$variable');		// die and dump
+ddd('$variable');		// die dump and debug
 abort(404);			// gives 404 error page
 
 base_path() 			// path to your project
@@ -58,10 +81,10 @@ Hello, {!! $name !!}. // ect. get rid of <p> tag at beginning and the end
 
 <article class="{{ $loop->even ? 'mb-6' : '' }} ">
 
+<?= $post->body; ?>
 
 ----------
 
-ADD ENTRIES MANUALY OVER TINKER
 
 php artisan tinker
 $user = new User;
@@ -101,6 +124,55 @@ Post::find(1);
 $post->title;
 $post->body;
 $post->author->name;
+
+$post->fresh(); 	\\ gives fresh post instance; it is like undo; 
+
+$post-> update(['exerpt' => 'Changed']);
+
+$post = App\Models\Post::first();
+$post->body;
+$post->body = '<p>' . $post->body . '</p>';
+$post->save();
+
+php artisan tinker
+use App\Models\Post;
+Post::create(['title' => 'My Third Post', 'exerpt' => 'somethig about third post', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.']);
+
+php artisan make:model Category -m
+php artisan tinker
+use App\Models\Category
+$c = new Category;
+$c->name = 'Personal';
+$c->slug = 'personal';
+$c->save();
+
+php artisan tinker
+$post = App\Models\Post::first();
+$post->category(); 	//this returns instance
+$post->category; 	// access as property
+$post->category->name; 
+
+php artisan tinker
+App\Models\Category::first()
+
+
+
+php artisan db:seed --class=PostsSeed
+php artisan db:seed --class=CategoriesSeed
+
+php artisan db:seed
+
+
+php artisan tinker
+App\Models\User::first()
+App\Models\User::first()-posts
+
+App\Models\Post::first()
+App\Models\Post::first()->user
+App\Models\Post::with('user')->first();
+
+Last Episode 27
+
 ----------
 
 CREATE MODEL WITH MIGRATION
@@ -128,4 +200,13 @@ php artisan make:seeder RetailSeeder
 
 php artisan db:seed --class=RetailSeeder
 
+
 ----------
+
+Laravel Clockwork
+
+or native logging
+
+    Illuminate\Support\Facades\DB::listen(function ($query){
+        logger($query->sql, $query->bindings);
+    });

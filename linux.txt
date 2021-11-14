@@ -53,6 +53,7 @@ popd				- returns to the path at the top of directory stack
 
 rm <file-name.txt>		- remove/delete one file at a time
 rm -rf <folder-name>		- remove/delete recursively directory
+mv <filename> <new-filename>	- rename file, in same directory
 top				- RAM and CPU usage monitor
 less <readme.md>		- see in terminal file contents, for many rows better / CANT edit/
 cat <filename.txt>		- see in terminal file contents, for tiny files better 
