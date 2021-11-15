@@ -165,13 +165,29 @@ php artisan db:seed
 
 php artisan tinker
 App\Models\User::first()
-App\Models\User::first()-posts
+App\Models\User::first()->posts
 
 App\Models\Post::first()
 App\Models\Post::first()->user
 App\Models\Post::with('user')->first();
 
-Last Episode 27
+
+php artisan tinker
+App\Models\User::factory()->create();
+App\Models\Post::factory()->create();
+App\Models\Post::first();
+App\Models\Post::with('user')->first();
+App\Models\Post::with('user', 'category')->first();
+php artisan db:seed
+php artisan migrate:fresh --seed
+
+
+php artisan tinker
+App\Models\Post::factory()->create();
+
+Unfinished lesson 29
+
+
 
 ----------
 
