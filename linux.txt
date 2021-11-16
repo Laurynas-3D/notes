@@ -374,3 +374,10 @@ https://www.how2shout.com/linux/how-to-install-postman-on-ubuntu-20-04-lts-linux
 change application name with single word
 /opt/active-collab-timer$ ./Active
 sudo apt-get install libgconf-2-4
+
+change path in config file to open from search
+/usr/share/applications$ sudo nano activecollab-timer.desktop
+Exec=/opt/active-collab-timer/Active
+
+
+
