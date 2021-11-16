@@ -1,0 +1,45 @@
+
+mysql -u debian-sys-maint -p
+
+
+CREATE DATABASE worhan;
+USE worhan
+source <file-name>.sql
+
+-------
+
+alter table posts AUTO_INCREMENT=6
+
+-------
+
+USE <db-name>;
+
+SELECT <column-name> FROM <table-name>
+or
+SELECT * FROM <table-name>				//selects everything
+FROM <table-name>
+WHERE <column-name> = 1
+ORDER BY <column-name>
+
+SELECT <column-name>, <column-name> FROM <table-name>
+
+SELECT first_name, last_name, points, points + 10
+FROM <customers>
+
+SELECT 
+	first_name, 
+	last_name, 
+	points, 
+	(points + 10)*100 AS discount_factor	// aliasing
+FROM <customers>
+
+SELECT 
+	first_name, 
+	last_name, 
+	points, 
+	(points + 10)*100 AS "discount factor"	// with whitespace in name
+FROM <customers>
+
+
+
+
