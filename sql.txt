@@ -73,3 +73,41 @@ Db::getInstance()->execute('
 //correct UPDATE
 db::getInstance()->update('client_manager', array('employee_id' => $idEmployee), 'customer_id = '.$idCustomer);
 
+
+
+
+-----------
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+
+
+SELECT ps_product.id_product, ps_category_lang.id_category
+FROM ps_product
+LEFT JOIN ps_category_lang ON ps_product.id_product = ps_category_lang.id_category
+-- ORDER BY Customers.CustomerName;
+
+
+SELECT `id_product`, `ean13`, `upc`, `reference` 
+FROM ps_product 
+LEFT JOIN `ps_category_lang` cl 
+ON cl.id_category = ps_product.id_category_default
+AND `id_lang` = 3;
+
+-- WHERE `id_lang` = 3;
+
+
+
+SELECT ps_product.id_product, ps_product.id_category_default, ps_product.ean13, ps_product.upc, ps_product.reference, ps_category_lang.id_category, ps_category_lang.name, ps_category_lang.id_lang
+FROM ps_product
+LEFT JOIN ps_category_lang ON ps_product.id_category_default = ps_category_lang.id_category;
+
+
+SELECT ps_product.id_product, ps_product.id_category_default, ps_product.ean13, ps_product.upc, ps_product.reference, ps_category_lang.name, ps_category_lang.id_lang
+FROM ps_product
+LEFT JOIN ps_category_lang ON ps_product.id_category_default = ps_category_lang.id_category
+AND ps_category_lang.id_lang = 3;
+
