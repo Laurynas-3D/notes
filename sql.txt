@@ -8,7 +8,7 @@ source <file-name>.sql
 
 -------
 
-alter table posts AUTO_INCREMENT=6
+alter table posts AUTO_INCREMENT = 6
 
 -------
 
@@ -16,7 +16,7 @@ USE <db-name>;
 
 SELECT <column-name> FROM <table-name>
 or
-SELECT * FROM <table-name>				//selects everything
+SELECT * FROM <table-name>					//selects everything
 FROM <table-name>
 WHERE <column-name> = 1
 ORDER BY <column-name>
@@ -41,5 +41,35 @@ SELECT
 FROM <customers>
 
 
+------- PRESTA
 
+<?php
+
+// correct create TABLE with some columns
+return Db::getInstance()->execute('
+            CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'client_manager` (
+            `client_manager_id` int(11) NOT NULL AUTO_INCREMENT,
+            `customer_id` int(10) unsigned NOT NULL,
+            `employee_id` int(10) unsigned NOT NULL,
+            PRIMARY KEY  (`client_manager_id`)
+            ) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8;');
+
+
+
+// correct GET single value
+// return from TABLE client_manager 
+return (int)Db::getInstance()->getValue('SELECT `employee_id` FROM `'._DB_PREFIX_.'client_manager` WHERE `customer_id` = '.$customerId);
+
+
+
+//correct INSERT
+Db::getInstance()->execute('
+			INSERT INTO `' . _DB_PREFIX_ . 'client_manager` (`id`, `customer_id`, `employee_id`) 
+            VALUES (NULL, '. $idCustomer.', ' . $idEmployee . ');');
+
+
+
+
+//correct UPDATE
+db::getInstance()->update('client_manager', array('employee_id' => $idEmployee), 'customer_id = '.$idCustomer);
 

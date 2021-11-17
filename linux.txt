@@ -195,6 +195,49 @@ https://github.com/Und3rf10w/kali-anonsurf
 
 ################# LINUX HOW-TO ################# 
 
+------ DOCKER
+
+docker ps 		// list containers running
+docker ps -a 	// list containers all
+
+
+START CONTAINER
+cd <project-directory>
+docker-compose up
+
+
+NEW CONTAINER
+after git clone
+copy make_env.sh file
+./make_env.sh
+make_env.sh
+docker-compose up --build -d
+defines.inc.php set '_PS_MODE_DEV_', true
+from parameters.dist.php copy to parameters.php ->
+docker-compose.yml check user:
+    user: "${UID}:${GID}" # <= .Read from env
+connect to presta admin panel links with port in README.md -> 
+	in admin panel Shop Parameters > Traffic & SEO > Set shop URL click Save
+
+defines.inc.php set '_PS_MODE_DEV_', false
+
+
+
+---
+
+FORCE RECREATE
+force recreate image container from image
+docker-compose up --build -d --force-recreate
+
+STOP CONTAINER
+docker stop <name>
+docker stop skonis_mariadb_1
+docker stop skonis_phpmyadmin_1
+docker stop skonis_prestashop_1
+
+
+
+
 
 ------ Linux Zip utility
 
@@ -249,6 +292,7 @@ sudo apt-get install blueman
 
 modprobe btusb // if blueman app does not solve the problem
 
+
 ------ Resize logical partitions - reduce root / extend home
 
 We need to check logical disks mount paths
@@ -298,6 +342,7 @@ Restart the systemd daemon with sudo systemctl restart systemd-logind
 ------Installing MySQL
 
 sudo apt install mysql-server
+
 
 ------Install Older php on Ubuntu
 
