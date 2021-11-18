@@ -40,6 +40,50 @@ SELECT
 	(points + 10)*100 AS "discount factor"	// with whitespace in name
 FROM <customers>
 
+SELECT DISTINCT <column-name>
+FROM <table-name>
+
+SELECT * FROM <table-name> 
+WHERE <column-name> > 3000
+
+SELECT * FROM <table-name> 
+WHERE <column-name> != 'LT'
+
+SELECT * FROM <table-name> 
+WHERE <column-name> > '1990-01-01'
+AND <table-name> > 1000
+
+SELECT * FROM <table-name> 
+WHERE <column-name> > '1990-01-01'
+OR <table-name> > 1000
+
+SELECT * FROM <table-name> 
+WHERE <column-name> > '1990-01-01'
+OR <table-name> > 1000
+AND <table-name> = "LT"  		// AND condition always evaluates first
+
+SELECT * FROM <table-name> 
+WHERE <column-name> > '1990-01-01' OR 
+(<table-name> > 1000 AND <table-name> = "LT")  	
+
+SELECT * FROM <table-name> 
+WHERE NOT <column-name> > '1990-01-01' OR 
+(<table-name> > 1000 AND <table-name> = "LT")  	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ------- PRESTA
 
