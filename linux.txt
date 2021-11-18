@@ -203,7 +203,9 @@ docker ps -a 	// list containers all
 
 START CONTAINER
 cd <project-directory>
-docker-compose up
+docker-compose up 		// start container
+docker-compose up -d 	// start container with deatached service
+
 
 
 NEW CONTAINER
@@ -226,8 +228,7 @@ defines.inc.php set '_PS_MODE_DEV_', false
 ---
 
 FORCE RECREATE
-force recreate image container from image
-docker-compose up --build -d --force-recreate
+docker-compose up --build -d --force-recreate	//force recreate image container from image
 
 STOP CONTAINER
 docker stop <name>
@@ -236,6 +237,14 @@ docker stop skonis_phpmyadmin_1
 docker stop skonis_prestashop_1
 
 
+
+------ DOCKER/SYMFONY ERROR
+
+The stream or file "/var/www/MONPROJET/var/log/dev.log" could not be opened: failed
+
+sudo chown -R www-data:www-data /var/www/html
+sudo chown -R www-data:www-data /var/www/
+sudo chown -R www-data:www-data var/
 
 
 
