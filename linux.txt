@@ -8,6 +8,7 @@ apt-get update			- get updates / debian
 apt-get upgrade			- install updates / debian
 apt-get dist-upgrade		- distro update to newer version
 apt-get update && apt-get dist-upgrade - two commands in line, executed one after another
+apt list --installed | wc -l	- display installed packages and pass it to word count with count lines flag
 
 dnf update			- get Linux packages updates / RedHat
 
@@ -25,14 +26,22 @@ ALT+B				- one word backwards (words delimited by whitespace and symbols)
 history				- shows yours shell history
 CTRL+R				- reverse search of history, type to find most recent matches
 CTRL+G				- after typing in reverse history lets you out and lets continue write command
+CTRL+K				- Terminal - deletes line
+CTRL+A				- Terminal - takes to beggining of the line
+CTRL-Y				- Terminal - return deleted text
+snap list			- Terminal - displays information for each Snapshot copy on a storage system
+sudo snap remove <pkg-name>	- uninstall snap package
+
 
 
 --------------------Other Popular Commands
 
 uname -a			- prints Linux version
+uname -r			- prints kernel version
 hostname			- shows computer name
 sudo hostname <device_name>	- change computer name 
 neofetch			- fetch system information
+htop				- display system load in terminal 
 
 reboot				- reboots machine
 poweroff			- power off machine
@@ -50,6 +59,12 @@ cp				- copy file / (cp ~/.bashrc bashrc.txt)
 
 pushd				- saves current working directory in memory so it can be returned quickly
 popd				- returns to the path at the top of directory stack
+
+cat -n <file-name>		- show file contents in terminal, with line numbers
+locate <something>		- search and display results in terminal
+df -h				- display file system disk space usage, h is for human readable format
+alias				- display alias'es and some basic info
+alias neo=neofetch		- create alias for neofetch tool 
 
 rm <file-name.txt>		- remove/delete one file at a time
 rm -rf <folder-name>		- remove/delete recursively directory
@@ -147,6 +162,25 @@ kill 1234	// everything whats left
 airmon-ng check <net_card_interface> 
 airodump-ng <net_card_interface>		// SCAN for networks
 aireplay-ng -0 0 -a <mac_addr> <card_name> 	// DOS with deauth
+
+################# BASH ################# 
+
+
+-----Auto Install App
+<file-name>.sh
+#! /bin/bash
+
+
+# install Sublime 
+echo "Installing Sublime: "
+sleep 1
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sleep 1
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sleep 1
+sudo apt-get update
+sleep 1
+sudo apt-get install sublime-text
 
 
 ################# LINUX APPS ################# 

@@ -185,7 +185,8 @@ php artisan migrate:fresh --seed
 php artisan tinker
 App\Models\Post::factory()->create();
 
-Unfinished lesson 29
+Unfinished lesson 29 
+bug with author id posts
 
 
 

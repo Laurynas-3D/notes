@@ -62,13 +62,114 @@ WHERE <column-name> > '1990-01-01'
 OR <table-name> > 1000
 AND <table-name> = "LT"  		// AND condition always evaluates first
 
-SELECT * FROM <table-name> 
+SELECT * 
+FROM <table-name> 
 WHERE <column-name> > '1990-01-01' OR 
 (<table-name> > 1000 AND <table-name> = "LT")  	
 
-SELECT * FROM <table-name> 
-WHERE NOT <column-name> > '1990-01-01' OR 
-(<table-name> > 1000 AND <table-name> = "LT")  	
+
+SELECT * 
+FROM <table-name> 
+WHERE NOT (<column-name> > '1990-01-01' OR <table-name> > 1000)
+
+cleaner approach
+
+SELECT * 
+FROM <table-name> 
+WHERE <column-name> <= '1990-01-01' AND <table-name> <= 1000 
+
+
+SELECT *
+FROM <table-name>
+WHERE column-name> = 6 AND <column-name> * <column-name> > 30
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> = 'LT' OR <column-name> = 'LV' OR <column-name> = 'EE'
+
+shorter way
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> IN ('LT', 'FL', 'GA')
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> NOT IN ('LT', 'FL', 'GA')
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> >= 1000 AND <= 3000
+
+shorter way
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> BETWEEN 1000 AND 3000
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> LIKE 'b%' 	// this gives where first character starts with 'b' and any other character after that, does not matter is it upper case or lower
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> LIKE '%b%'	// any number of characters before or after 'b'
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> LIKE '_y'	// where is axactly two characters long and last one is 'b'
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> LIKE 'b____y'	// where is axactly first char is  'b' four any chars and last one is 'y'
+-- % any number of characters
+-- _ single character
+
+
+SELECT
+FROM customers
+WHERE address LIKE '%trail%' OR
+	  address LIKE '%avenue%'
+
+
+SELECT
+FROM customers
+WHERE phone LIKE '%9'
+
+
+SELECT
+FROM customers
+WHERE phone NOT LIKE '%9'
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> REGEXP '^something' 	// ^ sign to present a beggining of a string
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> REGEXP 'something$' 	// $ sign to present a end of a string
+
+
+SELECT *
+FROM <table-name>
+WHERE <column-name> REGEXP 'string1|str2' 	// | (pipe) sign to show one or other string in search fields
+
+
+
+
+
+
+
+
 
 
 
