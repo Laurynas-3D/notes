@@ -1,12 +1,38 @@
-1. Number - Floating point numbers, for decimals and integers.
-2. String - Sequence of characters, used for text.
-3. Boolean - Logical data type that can be only true or false.
-4. Undefined - Data type of a variable that does not have a value yet.
-5. Null - Also means 'non existent'.
+products = document.getElementsByClassName("ppr-product-price");
+console.log(products[3]);
 
-js has dynamic typing: datatypes are automaticaly assigns to variables.
+function getPrice(products){
+    let sum = 0;
+    Array.from(products).forEach((product) => {
+        sum += parseFloat(product.dataset.price);
+    })
+    return Math.round(sum * 100) / 100
+}
+
+console.log(getPrice(products));
 
 
-AND (&&) => true if ALL are true
-OR (||) => true if ONE is true
-NOT (!) => inverts true/false value
+
+
+checkBox = document.getElementsByClassName("form-checkbox");
+index = -1;
+sum = 0;
+Array.from(checkBox).forEach((checkbox) => {
+    index++;
+    if (checkbox.checked == true){
+        //console.log(index);
+        //console.log(products[index].dataset.price);
+        sum += parseFloat(products[index].dataset.price);
+    }
+})
+console.log(sum);
+
+console.log('JS end');
+
+$('document').ready(function() {
+    $("p").click(function(){
+        alert("The paragraph was clicked.");
+    });
+});
+
+

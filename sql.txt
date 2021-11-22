@@ -256,3 +256,63 @@ FROM ps_product
 LEFT JOIN ps_category_lang ON ps_product.id_category_default = ps_category_lang.id_category
 AND ps_category_lang.id_lang = 3;
 
+
+INSERT VALUE
+
+Db::getInstance()->execute('
+    INSERT INTO ' . _DB_PREFIX_ . 'product_deposit_product (`id_product_deposit_deposit`, `id_product`)
+    VALUES (' . $idDeposit. ', ' . $idProduct . ')'
+);
+
+
+
+
+UPDATE VALUE
+
+UPDATE `ps_product_deposit_product` 
+SET `id_product_deposit_deposit` = '2' 
+WHERE `ps_product_deposit_product`.`id_product_deposit_deposit` = '1' 
+AND `ps_product_deposit_product`.`id_product` = 132; 
+
+
+GET VALUE
+
+SELECT id_product 
+FROM ps_product_deposit_product 
+WHERE `id_product` = 132;
+
+
+SELECT id_product_deposit_deposit 
+FROM ps_product_deposit_product 
+WHERE `id_product` = 132;
+
+
+
+INSERT INTO `ps_product_deposit_product` (`id_product_deposit_deposit`, `id_product`) VALUES ('2', '555');
+DELETE FROM `ps_product_deposit_product` WHERE `ps_product_deposit_product`.`id_product_deposit_deposit` = 2 AND `ps_product_deposit_product`.`id_product` = 555
+
+
+
+
+DELETE FROM `ps_product_deposit_product` WHERE `ps_product_deposit_product`.`id_product` = 555
+
+return  Db::getInstance()->execute('
+DELETE FROM `' . _DB_PREFIX_ . 'product_deposit_product` 
+WHERE `id_product` = ' . (int) $idProduct);
+
+
+GET PRICE
+
+SELECT `id_product` , `price`
+FROM `ps_product_deposit_product` pdp
+LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
+LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
+WHERE id_lang = 1;
+
+SELECT `price`
+FROM `ps_product_deposit_product` pdp
+LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
+LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
+WHERE id_lang = 1
+AND `id_product` = 555;
+
