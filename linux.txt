@@ -45,40 +45,46 @@ htop				- display system load in terminal
 
 reboot				- reboots machine
 poweroff			- power off machine
-su				- enter root mode 
+su					- enter root mode 
 exit				- exit root mode
 clear				- clear the screen
-ls 				- list folder contents
+ls 					- list folder contents
 ls -l				- long list with permissions
 ls -lh				- long list with human readable file size
 lsmod				- Show the status of modules in the Linux Kernel
 lsusb				- list usb devices
 lsblk				- list information about block devices / tree view
-pwd				- print working directory
-cp				- copy file / (cp ~/.bashrc bashrc.txt)
 
+pwd					- print working directory
 pushd				- saves current working directory in memory so it can be returned quickly
 popd				- returns to the path at the top of directory stack
 
-cat -n <file-name>		- show file contents in terminal, with line numbers
-locate <something>		- search and display results in terminal
-df -h				- display file system disk space usage, h is for human readable format
-alias				- display alias'es and some basic info
-alias neo=neofetch		- create alias for neofetch tool 
-
+cp					- copy file / (cp ~/.bashrc bashrc.txt)
+nano <filename.txt>		- opens file editor 
 rm <file-name.txt>		- remove/delete one file at a time
 rm -rf <folder-name>		- remove/delete recursively directory
 mv <filename> <new-filename>	- rename file, in same directory
-top				- RAM and CPU usage monitor
 less <readme.md>		- see in terminal file contents, for many rows better / CANT edit/
 cat <filename.txt>		- see in terminal file contents, for tiny files better 
-nano <filename.txt>		- opens file editor 
 chmod +x <filename.txt> 	- make executable
-./filename.txt 			- run executable file
 touch <filename.txt>		- create file
 locate <filename.nse>		- finds file or something
-locate <*.txt>			- finds with wildcard
+./filename.txt 			- run executable file
 tail -f <filename.txt>		- live feed, instance changes in a file in terminal
+cat -n <file-name>		- show file contents in terminal, with line numbers
+locate <something>		- search and display results in terminal
+
+df -h					- display file system disk space usage, h is for human readable format
+alias					- display alias'es and some basic info
+alias neo=neofetch		- create alias for neofetch tool 
+
+less /etc/passwd 		- Get a List of All Users using the /etc/passwd File
+awk -F: '{ print $1}' /etc/passwd - display only the username
+cut -d: -f1 /etc/passwd 		- display only the username
+
+
+top						- RAM and CPU usage monitor
+locate <*.txt>			- finds with wildcard
 
 passwd				- change current user password
 makepasswd			- generate simple password
