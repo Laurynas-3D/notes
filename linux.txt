@@ -59,10 +59,10 @@ pwd					- print working directory
 pushd				- saves current working directory in memory so it can be returned quickly
 popd				- returns to the path at the top of directory stack
 
-cp					- copy file / (cp ~/.bashrc bashrc.txt)
+cp						- copy file / (cp ~/.bashrc bashrc.txt)
 nano <filename.txt>		- opens file editor 
 rm <file-name.txt>		- remove/delete one file at a time
-rm -rf <folder-name>		- remove/delete recursively directory
+rm -rf <folder-name>			- remove/delete recursively directory
 mv <filename> <new-filename>	- rename file, in same directory
 less <readme.md>		- see in terminal file contents, for many rows better / CANT edit/
 cat <filename.txt>		- see in terminal file contents, for tiny files better 
@@ -78,16 +78,16 @@ df -h					- display file system disk space usage, h is for human readable format
 alias					- display alias'es and some basic info
 alias neo=neofetch		- create alias for neofetch tool 
 
-less /etc/passwd 		- Get a List of All Users using the /etc/passwd File
-awk -F: '{ print $1}' /etc/passwd - display only the username
-cut -d: -f1 /etc/passwd 		- display only the username
+less /etc/passwd 					- Get a List of All Users using the /etc/passwd File
+awk -F: '{ print $1}' /etc/passwd 	- display only the username
+cut -d: -f1 /etc/passwd 			- display only the username
 
 
-top						- RAM and CPU usage monitor
+top						- RAM and CPU usage monitor (not beautifull)
 locate <*.txt>			- finds with wildcard
 
-passwd				- change current user password
-makepasswd			- generate simple password
+passwd						- change current user password
+makepasswd					- generate simple password
 makepasswd --chars 16		- generate password with 16 chars
 makepasswd --chars 16 --count 7 - generate 7 passwords with 16 chars
 
@@ -96,12 +96,12 @@ service <service> stop		-
 service <service> restart	-
 service <service> status	- 
 
-cal				- Simple ASCI calendar
+cal					- Simple ASCI calendar
 fortune				- displays a pseudorandom message from a database of quotations
 fdisk -l			- list partitions
 
 nslookip linuxquestions.org 	- check website IP
-ping linuxquestions.org 	- ping to website. 
+ping linuxquestions.org 		- ping to website. 
 
 
 --------------------Network
@@ -262,6 +262,12 @@ connect to presta admin panel links with port in README.md ->
 	in admin panel Shop Parameters > Traffic & SEO > Set shop URL click Save
 
 defines.inc.php set '_PS_MODE_DEV_', false
+
+
+IMPORTANT FILES
+docker-compose.yml
+parameters.php
+
 
 
 
