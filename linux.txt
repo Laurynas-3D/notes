@@ -45,7 +45,7 @@ htop				- display system load in terminal
 
 reboot				- reboots machine
 poweroff			- power off machine
-su					- enter root mode 
+su				- enter root mode 
 exit				- exit root mode
 clear				- clear the screen
 ls 					- list folder contents
@@ -55,11 +55,11 @@ lsmod				- Show the status of modules in the Linux Kernel
 lsusb				- list usb devices
 lsblk				- list information about block devices / tree view
 
-pwd					- print working directory
+pwd				- print working directory
 pushd				- saves current working directory in memory so it can be returned quickly
 popd				- returns to the path at the top of directory stack
 
-cp						- copy file / (cp ~/.bashrc bashrc.txt)
+cp				- copy file / (cp ~/.bashrc bashrc.txt)
 nano <filename.txt>		- opens file editor 
 rm <file-name.txt>		- remove/delete one file at a time
 rm -rf <folder-name>			- remove/delete recursively directory
@@ -74,34 +74,37 @@ tail -f <filename.txt>		- live feed, instance changes in a file in terminal
 cat -n <file-name>		- show file contents in terminal, with line numbers
 locate <something>		- search and display results in terminal
 
-df -h					- display file system disk space usage, h is for human readable format
-alias					- display alias'es and some basic info
+df -h				- display file system disk space usage, h is for human readable format
+alias				- display alias'es and some basic info
 alias neo=neofetch		- create alias for neofetch tool 
 
-less /etc/passwd 					- Get a List of All Users using the /etc/passwd File
+less /etc/passwd 			- Get a List of All Users using the /etc/passwd File
 awk -F: '{ print $1}' /etc/passwd 	- display only the username
-cut -d: -f1 /etc/passwd 			- display only the username
+cut -d: -f1 /etc/passwd 		- display only the username
 
 
-top						- RAM and CPU usage monitor (not beautifull)
+top				- RAM and CPU usage monitor (not beautifull)
 locate <*.txt>			- finds with wildcard
 
-passwd						- change current user password
-makepasswd					- generate simple password
+passwd				- change current user password
+makepasswd			- generate simple password
 makepasswd --chars 16		- generate password with 16 chars
 makepasswd --chars 16 --count 7 - generate 7 passwords with 16 chars
+
+uptime				- return system running time
+uptime -p 			- return system running time 
 
 service <service> start		- 
 service <service> stop		- 
 service <service> restart	-
 service <service> status	- 
 
-cal					- Simple ASCI calendar
+cal				- Simple ASCI calendar
 fortune				- displays a pseudorandom message from a database of quotations
 fdisk -l			- list partitions
 
 nslookip linuxquestions.org 	- check website IP
-ping linuxquestions.org 		- ping to website. 
+ping linuxquestions.org 	- ping to website. 
 
 
 --------------------Network
