@@ -1,4 +1,5 @@
 
+alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
 
 
 --------------------Basics 
@@ -92,7 +93,13 @@ makepasswd --chars 16		- generate password with 16 chars
 makepasswd --chars 16 --count 7 - generate 7 passwords with 16 chars
 
 uptime				- return system running time
-uptime -p 			- return system running time 
+uptime -p 			- return system running time
+uptime > file.txt		- write output to file
+uptime >> file.txt		- write output to file and append data
+(date && uptime -p) >> test.txt	- write two output lines in to file with append
+(date "+%Y-%m-%d %H:%M:%S " && uptime -p)	- format date with uptime
+
+last				- show log of computer login logout
 
 service <service> start		- 
 service <service> stop		- 
@@ -105,6 +112,13 @@ fdisk -l			- list partitions
 
 nslookip linuxquestions.org 	- check website IP
 ping linuxquestions.org 	- ping to website. 
+
+
+
+--------------------ALIAS
+
+alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
+
 
 
 --------------------Network
@@ -178,7 +192,6 @@ aireplay-ng -0 0 -a <mac_addr> <card_name> 	// DOS with deauth
 -----Auto Install App
 <file-name>.sh
 #! /bin/bash
-
 
 # install Sublime 
 echo "Installing Sublime: "
@@ -254,11 +267,10 @@ docker-compose up -d 	// start container with deatached service
 NEW CONTAINER
 after git clone
 copy make_env.sh file
-./make_env.sh
-make_env.sh
+run "./make_env.sh"
 docker-compose up --build -d
 defines.inc.php set '_PS_MODE_DEV_', true
-from parameters.dist.php copy to parameters.php ->
+run "cp app/config/parameters.php.dist app/config/parameters.php"
 docker-compose.yml check user:
     user: "${UID}:${GID}" # <= .Read from env
 connect to presta admin panel links with port in README.md -> 
