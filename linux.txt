@@ -1,6 +1,8 @@
 
 alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
 
+(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt
+
 
 --------------------Basics 
 
