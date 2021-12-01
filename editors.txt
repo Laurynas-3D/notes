@@ -1,0 +1,167 @@
+
+--------------SUBLIME
+
+CTRL+SHIFT+P	- Command pallete
+
+
+
+personal preferences
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"save_on_focus_lost": true,
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"theme": "Default Dark.sublime-theme",
+	"scroll_past_end":true,
+}
+
+
+--------------PHP STORM
+
+Double Shift 	- Search Everywhere
+		- Quickly find any file, action, class, symbol, tool window, 
+		- or setting in PhpStorm, in your project, and in the current Git repository.
+		
+Ctrl+Shift+A	- Find Action
+		- Find a command and execute it, open a tool window, or search for a setting.
+
+Alt+Enter	- Show Context Actions
+		- Quick-fixes for highlighted errors and warnings, intention actions for improving and optimizing your code.
+
+F2		- Navigate between code issues
+
+Shift+F2	- Jump to the next or previous highlighted error.
+	
+Ctrl+E		- View recent files
+		- Select a recently opened file from the list.
+
+Ctrl+W		- Extend or shrink selection
+
+Ctrl+Shift+W	- Increase or decrease the scope of selection according to specific code constructs.
+	
+
+Ctrl+/		- Add/remove line or block comment
+
+Ctrl+Shift+/	- Comment out a line or block of code.
+	
+
+Alt+F7		- Find Usages
+		- Show all places where a code element is used across your project.
+
+
+--------------VISUAL STUDIO CODE
+
+SHIFT+ALT+down	- Duplicate line
+! then TAB	- Create quick html 5 boilerplate
+
+https://code.visualstudio.com/docs/editor/integrated-terminal
+
+----SETTINGS.json
+
+
+{
+    "workbench.colorTheme": "OS X Flat Dark",
+    "files.autoSave": "onFocusChange",
+    "editor.fontSize": 13,
+    "telemetry.enableTelemetry": false,
+    "window.zoomLevel": 0,
+    "editor.renderIndentGuides": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "git.enableSmartCommit": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "terminal.integrated.automationShell.linux": "",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+//  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "json.maxItemsComputed": 8000,
+}
+
+----SETTINGS
+
+Render Indent Guide - Off
+Title Scrollbar Sizing - large
+Tabsize - Indent Using Tabs - 2 
+
+----EXTENSIONS
+
+Auto Close Tag
+Auto Rename Tag
+Color Picker
+Guides
+Highlight Matching Tag
+HTML Snippets
+indent-rainbow
+Quokka.js
+Vetur
+Better Comments
+Live Server
+Bracket Pair Colorizer
+
+
+----Color / Icon Themes
+
+OS X Flat Dark
+Material Icon Theme 
+Cobalt2 	// Blue Tones 
+Night Owl 	// Darker more contrast blue tones
+Winter Is Coming // Dark blue  
+
+
+
+-----
+DELL XPS
+
+----SETTINGS.json
+
+{
+    "workbench.colorTheme": "Night Owl",
+    "files.autoSave": "onFocusChange",
+    "editor.renderIndentGuides": false,
+    "php.validate.executablePath": "C:\\laragon\\bin\\php\\php-7.4.19-Win32-vc15-x64\\php.exe",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "material-icon-theme"
+}
+
+--------------ATOM
+
+ markdown-preview
+Open a rendered version of the Markdown in the current editor with `ctrl-shift-m`.
+
+
+--------------IntelliJ
+
+CTRL+SHIFT+NUMBER	- Create bookmark with comments 
+      CTRL+NUMBER 	- Jump to created bookmark
+	      F11	- Clear bookmark
+CTRL+SHIFT+V	  	- multiple paste
+CTRL+SHIFT+F12	  	- maximize editor pane
+CTRL+SHIFT+ENTER  	- code constructs using statement completion. Start typing a method declaration, a method call or a statement such as if, do-while, try-catch, or return.
+CTRL+TAB		- loop through tabs / or java files
+
+SHIFT+F6 		- Rename / Multiple rename
+Double SHIFT		- search everywhere
+
+
+-------------VIM
+
+first you open VIM you are in command mode
+
+:q		- quit VIM
+:w		- write current state (save)
+:wq		- write and quit (save and exit)
+:q!		- write without saving changes
+
+:set number	- turns on line numbers
+i		- enables insert mode, now you can write
+esc		- dwitch back to command mode
+dd		- delete a line / in insert mode
+3dd		- delete 3 lines / 
+u		- undo your last action
+CTRL+R		- redo
+/someWord	- search, forward slash at the begining + enter take your cursor there
+
+:%s/someWord/replaceWithNewWord/gc
+		- find and replace, 
+		g - for greedy, replace all / without replace only first occurence
+		c - for comfirm replace / asks for comfirmation
+		without "c" it will replace without confirmation prompt
