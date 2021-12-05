@@ -15,10 +15,15 @@ Git Aliases
 	git config --global alias.cm commit
 	git config --global alias.st status
 
-STORE USER NAME AND PSW
+STORE USER NAME AND PSW / REMEMBER PASSWORD
 
 	git config --global credential.helper store 
 	// Make Git store the username and password and it will never ask for them. After push and entering credentials
+	
+	$ git config credential.helper store
+	$ git push http://example.com/repo.git
+	Username: <type your username>
+	Password: <type your password>
 
 CREATE REPOSITORY
 

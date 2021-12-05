@@ -186,7 +186,22 @@ php artisan tinker
 App\Models\Post::factory()->create();
 
 Unfinished lesson 29 
-bug with author id posts
+cant find out why in routes $author->posts comes as null;
+
+lessonn 30
+
+php artisan tinker
+// this also throws error
+App\Models\Post::factory(3)->create(['category_id'] => 1);
+
+php artisan migrate:fresh --seed
+
+App\Models\Post::take(2)->get();
+
+// disable eager loading
+App\Models\Post::without('author')->first();
+
+App\Models\Post::without(['author', category])->first();
 
 
 
