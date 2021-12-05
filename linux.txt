@@ -33,7 +33,9 @@ CTRL+K				- Terminal - deletes line
 CTRL+A				- Terminal - takes to beggining of the line
 CTRL-Y				- Terminal - return deleted text
 snap list			- Terminal - displays information for each Snapshot copy on a storage system
-sudo snap remove <pkg-name>	- uninstall snap package
+dpkg -l				- show installed packages list
+sudo snap remove <pkg-name>	- uninstall snap package / delete /remove
+sudo apt remove <pkg-name> 	- uninstall package / delete / remove
 
 
 
