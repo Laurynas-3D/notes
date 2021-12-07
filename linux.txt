@@ -1,8 +1,9 @@
 
 alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
 
-(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt
 
+tlog	- (date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt
+dup 	- docker-compose up -d
 
 --------------------Basics 
 
