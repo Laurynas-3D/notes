@@ -1,3 +1,21 @@
+
+
+
+------------------ThreeJs
+
+npm init vite
+	project-name
+	vanilla
+	vanilla
+cd second
+npm install
+npm install three
+npm run dev
+
+
+------------------Snippets
+
+
 products = document.getElementsByClassName("ppr-product-price");
 console.log(products[3]);
 
