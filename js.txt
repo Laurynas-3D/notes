@@ -1,5 +1,6 @@
 
-
+npm audit
+npm fix
 
 ------------------ThreeJs
 
@@ -12,6 +13,137 @@ npm install
 npm install three
 npm run dev
 
+GSAP library
+npm install --save gsap		// --save flag writes dependency in package.json file then later 
+				// with npm install will come all dependecies
+npm install --save gsap@3.5.1 	// to get particular version
+
+------------------ThreeJs Playground
+
+import './style.css'
+
+console.log('start');
+
+import * as THREE from 'three';
+import gsap from 'gsap';
+
+import{OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+
+/*
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#bg'),
+});
+*/
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+renderer.setPixelRatio(window.devicePixelRatio);
+
+camera.position.setZ(50);
+camera.position.setX(0);
+camera.position.setY(0);
+
+// renderer.render(scene, camera);
+
+// Geometry
+const geoTorus = new THREE.TorusGeometry(10,3,16,100);
+const geoBox = new THREE.BoxGeometry(5,5,5);
+
+// const material = new THREE.MeshBasicMaterial({color: 0xFF6347, wireframe: true});
+const matTorus = new THREE.MeshStandardMaterial({color: 0xFF6347});
+const matBox = new THREE.MeshStandardMaterial({color: 0xFF6347});
+
+const torus = new THREE.Mesh(geoTorus, matTorus);
+const box = new THREE.Mesh(geoBox, matBox);
+
+box.position.set(0, -15, 0);
+
+
+// Lights
+const poinLight = new THREE.PointLight(0xffffff);
+const poinLight2 = new THREE.PointLight(0xffffff, 0.5);
+const ambientLight = new THREE.AmbientLight(0xb0e3ff, 0.25);
+
+poinLight.position.set(15, 15, 15);
+poinLight2.position.set(-20, -20, -20);
+
+
+// Helpers
+const lightHelper = new THREE.PointLightHelper(poinLight);
+const lightHelper2 = new THREE.PointLightHelper(poinLight2);
+const gridHelper = new THREE.GridHelper(200,50);
+const helpAxes = new THREE.AxesHelper(20);
+
+
+const controls = new OrbitControls(camera, renderer.domElement);
+
+scene.add(torus, box);
+scene.add(poinLight);
+scene.add(poinLight2);
+scene.add(ambientLight);
+scene.add(lightHelper);
+scene.add(lightHelper2);
+scene.add(helpAxes);
+scene.add(gridHelper);
+
+
+console.log(box.position.length()); // distance to the camera
+console.log(box.position.distanceTo(camera.position)); // distance between camera and box
+//box.position.normalize(); // it will take the vector between box and camera and reduce it to 1
+
+//torus.rotation.reorder('YXZ') // reorder rotation axes
+
+console.log(box);
+
+// first method to control speed
+let time = Date.now()
+
+// second method to control speed
+const clock = new THREE.Clock()
+
+
+gsap.to(box.position, {duration: 1, delay:1, x:8})
+gsap.to(box.position, {duration: 1, delay:2, x:0})
+
+
+function animate(){
+  requestAnimationFrame(animate);
+
+  // first method to control speed
+  const currentTime = Date.now();
+  const deltaTime = currentTime - time
+  time = currentTime
+  //console.log(deltaTime);
+  // one of the solutions control animation speed
+  // then animation speed is not attached to framerate
+  torus.rotation.x += 0.001 * deltaTime;
+  torus.rotation.y += 0.001 * deltaTime;
+  torus.rotation.z += 0.01 * deltaTime;
+
+  // second method to control speed
+  const elapsedTime = clock.getElapsedTime();
+  // box.position.y = elapsedTime * Math.PI * 2;
+  //box.position.y = Math.sin(elapsedTime);
+  //box.position.x = Math.cos(elapsedTime);
+  
+  
+  
+  renderer.render(scene, camera);
+}
+
+
+
+//torus.position.set(0,100,0)
+//camera.lookAt(torus.position) // lock camera target to something
+
+animate();
 
 ------------------Snippets
 
