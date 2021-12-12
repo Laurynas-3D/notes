@@ -4,6 +4,8 @@ npm fix
 
 ------------------ThreeJs
 
+Project with VITE
+
 npm init vite
 	project-name
 	vanilla
@@ -13,26 +15,63 @@ npm install
 npm install three
 npm run dev
 
+
+Project with Webpack
+npm install
+// in src folder should be
+	index.html
+	script.js
+	style.css
+npm run dev
+
+
+
+
+
 GSAP library
-npm install --save gsap		// --save flag writes dependency in package.json file then later 
-				// with npm install will come all dependecies
+npm install --save gsap		
+// --save flag writes dependency in package.json file then later 
+// with npm install will come all dependecies
 npm install --save gsap@3.5.1 	// to get particular version
+import gsap from 'gsap';
+
+
+dat.GUI library
+npm install --save dat.gui
+import * as dat from 'dat.gui';
+npm i --save-dev @types/dat.gui
+
 
 ------------------ThreeJs Playground
 
 import './style.css'
 
-console.log('start');
-
 import * as THREE from 'three';
 import gsap from 'gsap';
-
+// import * as dat from 'dat.gui';
+const dat = require('dat.gui');
 import{OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+
+//
+// Debug
+//
+
+console.log(dat);
+
+const gui = new dat.GUI();
+
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
 
+const sizes = {
+  width: 800,
+  height: 800
+}
+
+//Canvas
+const canvas = document.querySelector('canvas#bg');
 
 /*
 const renderer = new THREE.WebGLRenderer({
@@ -40,33 +79,50 @@ const renderer = new THREE.WebGLRenderer({
 });
 */
 
+//
+// SETUP
+//
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-renderer.setPixelRatio(window.devicePixelRatio);
+// to get mutch better quality in the renderer
+// render as many pixes as much screen supports
+//renderer.setPixelRatio(window.devicePixelRatio);
 
-camera.position.setZ(50);
-camera.position.setX(0);
-camera.position.setY(0);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+camera.position.setZ(50, 0, 0);
 
 // renderer.render(scene, camera);
 
+//
 // Geometry
+//
 const geoTorus = new THREE.TorusGeometry(10,3,16,100);
 const geoBox = new THREE.BoxGeometry(5,5,5);
 
+//
+// Materials
+//
 // const material = new THREE.MeshBasicMaterial({color: 0xFF6347, wireframe: true});
 const matTorus = new THREE.MeshStandardMaterial({color: 0xFF6347});
-const matBox = new THREE.MeshStandardMaterial({color: 0xFF6347});
+const matBox = new THREE.MeshStandardMaterial({
+  color: "#509bd4",
+  wireframe: true
+});
 
+//
+// Objects
+//
 const torus = new THREE.Mesh(geoTorus, matTorus);
 const box = new THREE.Mesh(geoBox, matBox);
 
 box.position.set(0, -15, 0);
 
-
+//
 // Lights
+//
 const poinLight = new THREE.PointLight(0xffffff);
 const poinLight2 = new THREE.PointLight(0xffffff, 0.5);
 const ambientLight = new THREE.AmbientLight(0xb0e3ff, 0.25);
@@ -74,8 +130,9 @@ const ambientLight = new THREE.AmbientLight(0xb0e3ff, 0.25);
 poinLight.position.set(15, 15, 15);
 poinLight2.position.set(-20, -20, -20);
 
-
+//
 // Helpers
+//
 const lightHelper = new THREE.PointLightHelper(poinLight);
 const lightHelper2 = new THREE.PointLightHelper(poinLight2);
 const gridHelper = new THREE.GridHelper(200,50);
@@ -83,24 +140,23 @@ const helpAxes = new THREE.AxesHelper(20);
 
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
 
 scene.add(torus, box);
-scene.add(poinLight);
-scene.add(poinLight2);
-scene.add(ambientLight);
-scene.add(lightHelper);
-scene.add(lightHelper2);
-scene.add(helpAxes);
-scene.add(gridHelper);
+scene.add(poinLight, poinLight, ambientLight);
+scene.add(lightHelper, lightHelper2);
+scene.add(helpAxes, gridHelper);
 
 
-console.log(box.position.length()); // distance to the camera
-console.log(box.position.distanceTo(camera.position)); // distance between camera and box
+//console.log(box.position.length()); // distance to the camera
+//console.log(box.position.distanceTo(camera.position)); // distance between camera and box
+
 //box.position.normalize(); // it will take the vector between box and camera and reduce it to 1
 
 //torus.rotation.reorder('YXZ') // reorder rotation axes
 
-console.log(box);
+var event = Event;
+console.log(event);
 
 // first method to control speed
 let time = Date.now()
@@ -109,12 +165,67 @@ let time = Date.now()
 const clock = new THREE.Clock()
 
 
+// move the box once
 gsap.to(box.position, {duration: 1, delay:1, x:8})
 gsap.to(box.position, {duration: 1, delay:2, x:0})
 
 
+// Debug
+gui.add(box.position, 'y')
+
+
+//
+// CURSOR
+//
+const cursor = {
+  x: 0,
+  y: 0
+}
+
+// to update camera position
+window.addEventListener('mousemove', (event) => {
+
+  cursor.x = event.clientX / sizes.width - 0.5 
+  cursor.y = - (event.clientY / sizes.height - 0.5)
+
+  // console.log(cursor.x)
+})
+
+//
+// Fullscreen Controls
+
+window.addEventListener('dblclick', () => {
+
+  // TODO: does not go to full screen for some reason.
+  if (!document.fullscreenElement) {
+    canvas.requestFullscreen();
+  }
+  else{
+    document.exitFullscreen();
+  }
+})
+
+//
+// animation function, request one frame to render
+//
 function animate(){
   requestAnimationFrame(animate);
+
+  // to update Orbit controls damping.
+  controls.update();
+
+  // no Orbit controls will work with auto camera position update
+
+  // Update camera position v1
+  // camera.position.x = cursor.x * 30
+  // camera.position.y = cursor.y * 30
+  // camera.lookAt(new THREE.Vector3()) // look at the middle of the scene staticly
+
+  // Update camera position to go full revolution
+  // camera.position.x = Math.sin(cursor.x * 5) * 35 // value 35 is to look from further away
+  // camera.position.z = Math.cos(cursor.x * 5) * 35 // value 5 rotation angle
+  // camera.position.y = cursor.y * 3
+  // camera.lookAt(new THREE.Vector3()) // look at the middle of the scene staticly
 
   // first method to control speed
   const currentTime = Date.now();
