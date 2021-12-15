@@ -184,13 +184,11 @@ WHERE <column-name> REGEXP 'string1|str2' 	// | (pipe) sign to show one or other
 
 
 
-
-
 ------- PRESTA
 
 <?php
 
-// correct create TABLE with some columns
+// CREATE TABLE 
 return Db::getInstance()->execute('
             CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'client_manager` (
             `client_manager_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -201,63 +199,15 @@ return Db::getInstance()->execute('
 
 
 
-// correct GET single value
-// return from TABLE client_manager 
+//  GET single value
 return (int)Db::getInstance()->getValue('SELECT `employee_id` FROM `'._DB_PREFIX_.'client_manager` WHERE `customer_id` = '.$customerId);
 
 
 
-//correct INSERT
+// INSERT
 Db::getInstance()->execute('
 			INSERT INTO `' . _DB_PREFIX_ . 'client_manager` (`id`, `customer_id`, `employee_id`) 
             VALUES (NULL, '. $idCustomer.', ' . $idEmployee . ');');
-
-
-
-
-//correct UPDATE
-db::getInstance()->update('client_manager', array('employee_id' => $idEmployee), 'customer_id = '.$idCustomer);
-
-
-
-
------------
-
-SELECT Customers.CustomerName, Orders.OrderID
-FROM Customers
-LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
-ORDER BY Customers.CustomerName;
-
-
-
-SELECT ps_product.id_product, ps_category_lang.id_category
-FROM ps_product
-LEFT JOIN ps_category_lang ON ps_product.id_product = ps_category_lang.id_category
--- ORDER BY Customers.CustomerName;
-
-
-SELECT `id_product`, `ean13`, `upc`, `reference` 
-FROM ps_product 
-LEFT JOIN `ps_category_lang` cl 
-ON cl.id_category = ps_product.id_category_default
-AND `id_lang` = 3;
-
--- WHERE `id_lang` = 3;
-
-
-
-SELECT ps_product.id_product, ps_product.id_category_default, ps_product.ean13, ps_product.upc, ps_product.reference, ps_category_lang.id_category, ps_category_lang.name, ps_category_lang.id_lang
-FROM ps_product
-LEFT JOIN ps_category_lang ON ps_product.id_category_default = ps_category_lang.id_category;
-
-
-SELECT ps_product.id_product, ps_product.id_category_default, ps_product.ean13, ps_product.upc, ps_product.reference, ps_category_lang.name, ps_category_lang.id_lang
-FROM ps_product
-LEFT JOIN ps_category_lang ON ps_product.id_category_default = ps_category_lang.id_category
-AND ps_category_lang.id_lang = 3;
-
-
-INSERT VALUE
 
 Db::getInstance()->execute('
     INSERT INTO ' . _DB_PREFIX_ . 'product_deposit_product (`id_product_deposit_deposit`, `id_product`)
@@ -266,33 +216,29 @@ Db::getInstance()->execute('
 
 
 
-
-UPDATE VALUE
-
-UPDATE `ps_product_deposit_product` 
-SET `id_product_deposit_deposit` = '2' 
-WHERE `ps_product_deposit_product`.`id_product_deposit_deposit` = '1' 
-AND `ps_product_deposit_product`.`id_product` = 132; 
+// UPDATE
+db::getInstance()->update('client_manager', array('employee_id' => $idEmployee), 'customer_id = '.$idCustomer);
 
 
-GET VALUE
+// GET ARRAY VALUES with executeS string 
+public function getOrderList($dateFrom, $dateTo){
+    
+    return Db::getInstance()->executeS('
+    SELECT `id_order`
+    FROM `'._DB_PREFIX_.'orders`
+    WHERE `date_add` BETWEEN "'. $dateFrom.'" AND "'.$dateTo .'";');
+}
 
-SELECT id_product 
-FROM ps_product_deposit_product 
-WHERE `id_product` = 132;
 
 
-SELECT id_product_deposit_deposit 
-FROM ps_product_deposit_product 
-WHERE `id_product` = 132;
+
+-----------
 
 
 
 INSERT INTO `ps_product_deposit_product` (`id_product_deposit_deposit`, `id_product`) VALUES ('2', '555');
+
 DELETE FROM `ps_product_deposit_product` WHERE `ps_product_deposit_product`.`id_product_deposit_deposit` = 2 AND `ps_product_deposit_product`.`id_product` = 555
-
-
-
 
 DELETE FROM `ps_product_deposit_product` WHERE `ps_product_deposit_product`.`id_product` = 555
 
@@ -301,18 +247,10 @@ DELETE FROM `' . _DB_PREFIX_ . 'product_deposit_product`
 WHERE `id_product` = ' . (int) $idProduct);
 
 
-GET PRICE
-
-SELECT `id_product` , `price`
-FROM `ps_product_deposit_product` pdp
-LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
-LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
-WHERE id_lang = 1;
-
-SELECT `price`
-FROM `ps_product_deposit_product` pdp
-LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
-LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
-WHERE id_lang = 1
-AND `id_product` = 555;
+GET TERMINAL NAME
+SELECT CONCAT (pl.`name`, " / ", pl.`street`, " / ", pl.`city`) AS "result"
+FROM `ps_orders` AS o
+LEFT JOIN `ps_kg_dpd_parcels_cart` AS pc ON ( o.id_cart = pc.id_cart)
+LEFT JOIN `ps_kg_dpd_parcels_list` AS pl ON ( pc.dpd_parcel_id = pl.id_paketshop)
+WHERE `id_order` = 2033;
 

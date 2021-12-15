@@ -1,3 +1,4 @@
+echo "alias hello='echo hello'" >> ~/.bashrc
 
 alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
 
