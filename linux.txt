@@ -1,12 +1,14 @@
-echo "alias hello='echo hello'" >> ~/.bashrc
 
-alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
+(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> /home/laurynas/repos/time.txt
 
+
+echo "alias hello='echo hello'" >> ~/.bashrc	- save to bash 
+alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> /home/laurynas/repos/time.txt'
 
 tlog	- (date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt
 dup 	- docker-compose up -d
 
---------------------Basics 
+#--------------------Basics 
 
 apt list --upgradable		- list upgradable Linux packages / debian
 apt-get update			- get updates / debian 
@@ -17,8 +19,11 @@ apt list --installed | wc -l	- display installed packages and pass it to word co
 
 dnf update			- get Linux packages updates / RedHat
 
+POP_OS
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && flatpak update -y
 
---------------------Linux Shell Navigation CLI / Basics
+
+#--------------------Linux Shell Navigation CLI / Basics
 
 echo $SHELL			- bash location
 which bash			- bash location
@@ -41,7 +46,7 @@ sudo apt remove <pkg-name> 	- uninstall package / delete / remove
 
 
 
---------------------Other Popular Commands
+#--------------------Other Popular Commands
 
 uname -a			- prints Linux version
 uname -r			- prints kernel version
@@ -192,7 +197,8 @@ airmon-ng check <net_card_interface>
 airodump-ng <net_card_interface>		// SCAN for networks
 aireplay-ng -0 0 -a <mac_addr> <card_name> 	// DOS with deauth
 
-################# BASH ################# 
+
+#------------------- BASH #-------------------
 
 
 -----Auto Install App
@@ -211,10 +217,11 @@ sleep 1
 sudo apt-get install sublime-text
 
 
-################# LINUX APPS ################# 
+#------------------- LINUX APPS #------------------- 
 
 
 ----------------------------------------------
+
 Building and Installing the OneDrive Free Client
 
 https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md
@@ -266,7 +273,7 @@ docker ps -a 	// list containers all
 START CONTAINER
 cd <project-directory>
 docker-compose up 		// start container
-docker-compose up -d 	// start container with deatached service
+docker-compose up -d 	// start container with detached service
 
 
 
@@ -320,7 +327,7 @@ sudo chown -R www-data:www-data var/
 first zip files 
 
 -v : verbose mode
--s : split mode (k - kylobytes, m - megabytes, g - gygabytes)
+-s : split mode (k - kilobytes, m - megabytes, g - gigabytes)
 -r : recursive mode (include all files in that dir)
 -0 : compression level (0 least, 6 default, 9 best)
 
