@@ -1,24 +1,31 @@
-echo "alias hello='echo hello'" >> ~/.bashrc
 
-alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
+(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> /home/laurynas/repos/time.txt
 
+
+echo "alias hello='echo hello'" >> ~/.bashrc	- save to bash 
+alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> /home/laurynas/repos/time.txt'
 
 tlog	- (date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt
 dup 	- docker-compose up -d
 
---------------------Basics 
+#--------------------Basics 
 
+
+apt-get update			- get updates / debian
 apt list --upgradable		- list upgradable Linux packages / debian
-apt-get update			- get updates / debian 
 apt-get upgrade			- install updates / debian
-apt-get dist-upgrade		- distro update to newer version
-apt-get update && apt-get dist-upgrade - two commands in line, executed one after another
+apt full-upgrade		- Removes old packages if needed to perform the upgrade of packages to their latest versions
+apt-get dist-upgrade		- distro update to newest version
+apt-get update && apt-get dist-upgrade - upgrade distro, might need to full upgrade before this one
 apt list --installed | wc -l	- display installed packages and pass it to word count with count lines flag
 
 dnf update			- get Linux packages updates / RedHat
 
+POP_OS
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && flatpak update -y
 
---------------------Linux Shell Navigation CLI / Basics
+
+#--------------------Linux Shell Navigation CLI / Basics
 
 echo $SHELL			- bash location
 which bash			- bash location
@@ -41,7 +48,7 @@ sudo apt remove <pkg-name> 	- uninstall package / delete / remove
 
 
 
---------------------Other Popular Commands
+#--------------------Other Popular Commands
 
 uname -a			- prints Linux version
 uname -r			- prints kernel version
@@ -192,7 +199,8 @@ airmon-ng check <net_card_interface>
 airodump-ng <net_card_interface>		// SCAN for networks
 aireplay-ng -0 0 -a <mac_addr> <card_name> 	// DOS with deauth
 
-################# BASH ################# 
+
+#------------------- BASH #-------------------
 
 
 -----Auto Install App
@@ -211,10 +219,11 @@ sleep 1
 sudo apt-get install sublime-text
 
 
-################# LINUX APPS ################# 
+#------------------- LINUX APPS #------------------- 
 
 
 ----------------------------------------------
+
 Building and Installing the OneDrive Free Client
 
 https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md
@@ -266,7 +275,7 @@ docker ps -a 	// list containers all
 START CONTAINER
 cd <project-directory>
 docker-compose up 		// start container
-docker-compose up -d 	// start container with deatached service
+docker-compose up -d 	// start container with detached service
 
 
 
@@ -320,7 +329,7 @@ sudo chown -R www-data:www-data var/
 first zip files 
 
 -v : verbose mode
--s : split mode (k - kylobytes, m - megabytes, g - gygabytes)
+-s : split mode (k - kilobytes, m - megabytes, g - gigabytes)
 -r : recursive mode (include all files in that dir)
 -0 : compression level (0 least, 6 default, 9 best)
 
@@ -381,6 +390,38 @@ First remove 30 GB from /root
 lvresize -L -30G --resizefs /dev/mapper/…(root)
 Add 30 GB to home partition
 lvresize -L +30G --resizefs /dev/mapper/…(home)
+
+
+
+------ Increase swap file size
+
+In the following example, we’ll extend the swap space available in the /swapfile from 4 GB to 8 GB.
+
+Turn off all swap processes 
+sudo swapoff -a
+
+2. Resize the swap
+sudo dd if=/dev/zero of=/swapfile bs=1G count=8
+
+	if = input file
+	of = output file
+	bs = block size
+	count = multiplier of blocks
+
+3. Change permission
+sudo chmod 600 /swapfile
+
+4. Make the file usable as swap
+sudo mkswap /swapfile
+
+5. Activate the swap file
+sudo swapon /swapfile
+
+6. Edit /etc/fstab and add the new swapfile if it isn’t already there
+/swapfile none swap sw 0 0
+
+7. Check the amount of swap available
+grep SwapTotal /proc/meminfo
 
 
 ------ How to add a custom shortcut
@@ -496,6 +537,8 @@ https://www.how2shout.com/linux/how-to-install-postman-on-ubuntu-20-04-lts-linux
 
 change application name with single word
 /opt/active-collab-timer$ ./Active
+
+install library
 sudo apt-get install libgconf-2-4
 
 change path in config file to open from search

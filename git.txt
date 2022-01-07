@@ -15,7 +15,7 @@ Git Aliases
 	git config --global alias.cm commit
 	git config --global alias.st status
 
-STORE USER NAME AND PSW / REMEMBER PASSWORD
+STORE USER NAME AND PSW / REMEMBER PASSWORD or TOKEN
 
 	git config --global credential.helper store 
 	// Make Git store the username and password and it will never ask for them. After push and entering credentials
