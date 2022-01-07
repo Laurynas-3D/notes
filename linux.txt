@@ -326,7 +326,17 @@ sudo chown -R www-data:www-data var/
 
 ------ Linux Zip utility
 
-first zip files 
+-> Option with single zip file
+
+zip -v -r -9 backup/documents.zip /home/laurynas/Pictures/ && zip -v -r -9 backup/downloads.zip /home/laurynas/Downloads/
+
+-v : verbose mode
+-r : recursive mode (include all files in that dir)
+-0 : compression level (0 least, 6 default, 9 best)
+
+
+-> Option with files split
+1. Zip files 
 
 -v : verbose mode
 -s : split mode (k - kilobytes, m - megabytes, g - gigabytes)
@@ -336,12 +346,12 @@ first zip files
 zip -v -s 1m -r zip-file.zip foldername-to-archive
 
 
-second concatenate files
+2. Concatenate files
 
 cat zip.z* > full.zip
 
 
-third unzip
+3. Unzip
 
 unzip full.zip (does not work)
 decompress in file manager
