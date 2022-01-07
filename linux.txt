@@ -375,6 +375,8 @@ We need to check logical disks mount paths
 
 df -h / sudo fdisk -l
 Or use Disks app
+
+sudo apt install lvm2
 First remove 30 GB from /root
 lvresize -L -30G --resizefs /dev/mapper/…(root)
 Add 30 GB to home partition
