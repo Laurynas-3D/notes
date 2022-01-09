@@ -328,7 +328,7 @@ sudo chown -R www-data:www-data var/
 
 -> Option with single zip file
 
-zip -v -r -9 backup/documents.zip /home/laurynas/Pictures/ && zip -v -r -9 backup/downloads.zip /home/laurynas/Downloads/
+zip -v -r -9 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -9 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -9 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/ && zip -v -r -9 /home/laurynas/backup/repos.zip /home/laurynas/repos/
 
 -v : verbose mode
 -r : recursive mode (include all files in that dir)
