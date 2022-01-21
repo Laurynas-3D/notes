@@ -184,6 +184,8 @@ WHERE <column-name> REGEXP 'string1|str2' 	// | (pipe) sign to show one or other
 
 
 
+
+
 ------- PRESTA
 
 <?php
@@ -245,6 +247,24 @@ DELETE FROM `ps_product_deposit_product` WHERE `ps_product_deposit_product`.`id_
 return  Db::getInstance()->execute('
 DELETE FROM `' . _DB_PREFIX_ . 'product_deposit_product` 
 WHERE `id_product` = ' . (int) $idProduct);
+
+
+GET PRICE
+
+SELECT `id_product` , `price`
+FROM `ps_product_deposit_product` pdp
+LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
+LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
+WHERE id_lang = 1;
+
+SELECT `price`
+FROM `ps_product_deposit_product` pdp
+LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
+LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
+WHERE id_lang = 1
+AND `id_product` = 555;
+
+
 
 
 GET TERMINAL NAME

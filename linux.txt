@@ -21,6 +21,8 @@ apt list --installed | wc -l	- display installed packages and pass it to word co
 
 dnf update			- get Linux packages updates / RedHat
 
+sudo snap refresh		- 
+
 POP_OS
 sudo apt update && sudo apt upgrade -y && flatpak update -y
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && flatpak update -y
@@ -438,7 +440,6 @@ grep SwapTotal /proc/meminfo
 --- Optional
 https://stackoverflow.com/questions/44950904/swap-file-returns-to-original-size-after-reboot
 8. After restart swap file is not enabled
-sudo mkswap /swapfile  // mkswap: /swapfile: warning: wiping old swap signature. maybe you dont need this one
 sudo swapon /swapfile 
 
 
