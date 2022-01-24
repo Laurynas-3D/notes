@@ -53,6 +53,8 @@ dpkg -l				- show installed packages list
 sudo snap remove <pkg-name>	- uninstall snap package / delete /remove
 sudo apt remove <pkg-name> 	- uninstall package / delete / remove
 
+chmod +x /path/to/your/file 	- make executable
+
 
 
 #--------------------Other Popular Commands
