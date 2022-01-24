@@ -18,6 +18,10 @@ apt full-upgrade		- Removes old packages if needed to perform the upgrade of pac
 apt-get dist-upgrade		- distro update to newest version
 apt-get update && apt-get dist-upgrade - upgrade distro, might need to full upgrade before this one
 apt list --installed | wc -l	- display installed packages and pass it to word count with count lines flag
+sudo apt list --installed | grep php - show php packages only
+
+flatpak --user uninstall glimpse
+sudo apt-get purge glimpse
 
 dnf update			- get Linux packages updates / RedHat
 
