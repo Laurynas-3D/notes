@@ -217,6 +217,18 @@ Db::getInstance()->execute('
 );
 
 
+Db::getInstance()->execute('
+                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store` (`id_store_carrier_store`, `id_store`, `active`, `date_add`, `date_upd`) 
+                    VALUES ('.$key.', '.$store['id_store'].', 1, "'.date("Y-m-d H:i:s").'", "'.date("Y-m-d H:i:s").'");');
+
+Db::getInstance()->execute('
+                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store_lang` (`id_store_carrier_store`, `id_lang`, `pickup_time`) 
+                    VALUES ('.$key.', 1, "");');
+Db::getInstance()->execute('
+                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store_lang` (`id_store_carrier_store`, `id_lang`, `pickup_time`) 
+                    VALUES ('.$key.', 2, "");');
+
+
 
 // UPDATE
 db::getInstance()->update('client_manager', array('employee_id' => $idEmployee), 'customer_id = '.$idCustomer);
