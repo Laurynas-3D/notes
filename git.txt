@@ -17,13 +17,17 @@ Git Aliases
 
 STORE USER NAME AND PSW / REMEMBER PASSWORD or TOKEN
 
-	git config --global credential.helper store 
 	// Make Git store the username and password and it will never ask for them. After push and entering credentials
-	
+	git config --global credential.helper store
+	git push http://example.com/repo.git
+	Username: <type-your-username>
+	Password: <type-your-password>
+
+	// remember in specific repository
 	$ git config credential.helper store
 	$ git push http://example.com/repo.git
-	Username: <type your username>
-	Password: <type your password>
+	Username: <type-your-username>
+	Password: <type-your-password>
 
 CREATE REPOSITORY
 
