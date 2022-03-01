@@ -455,6 +455,7 @@ sudo nano /etc/rc.local
 
 #!/bin/sh -e
 swapon /swapfile
+chmod 666 /var/run/docker.sock
 exit 0
 
 CTRL+O  -save

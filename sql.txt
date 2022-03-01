@@ -1,7 +1,16 @@
 
-mysql -u debian-sys-maint -p
+
+sudo mysql -u <user-name> -p <password>
+
+---CREATE NEW USER
+mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+mysql> FLUSH PRIVILEGES;
 
 
+
+
+---IMPORT DB DUMP
 CREATE DATABASE worhan;
 USE worhan
 source <file-name>.sql
