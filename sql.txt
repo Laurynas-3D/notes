@@ -188,69 +188,223 @@ WHERE <column-name> REGEXP 'string1|str2' 	// | (pipe) sign to show one or other
 
 
 
-
-
-
-
-
-
-
 ------- PRESTA
 
 <?php
 
 // CREATE TABLE 
 return Db::getInstance()->execute('
-            CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'client_manager` (
+            CREATE TABLE IF NOT EXISTS `'. _DB_PREFIX_ .'client_manager` (
             `client_manager_id` int(11) NOT NULL AUTO_INCREMENT,
             `customer_id` int(10) unsigned NOT NULL,
             `employee_id` int(10) unsigned NOT NULL,
             PRIMARY KEY  (`client_manager_id`)
-            ) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8;');
+            ) ENGINE='. _MYSQL_ENGINE_ .' DEFAULT CHARSET=utf8;');
 
 
+CREATE TABLE IF NOT EXISTS `ss_pp_product_delivery_carrier` (
+            `id_pp_product_delivery_carrier` int(11) NOT NULL AUTO_INCREMENT,
+            PRIMARY KEY  (`id_pp_product_delivery_carrier`)
+            ) DEFAULT CHARSET=utf8;
 
-//  GET single value
-return (int)Db::getInstance()->getValue('SELECT `employee_id` FROM `'._DB_PREFIX_.'client_manager` WHERE `customer_id` = '.$customerId);
+CREATE TABLE IF NOT EXISTS `ss_pp_product_delivery_carrier_shop` (
+            `id_pp_product_delivery_carrier` int(11) NOT NULL AUTO_INCREMENT,
+            `id_shop` INT(11) NOT NULL,
+            PRIMARY KEY  (`id_pp_product_delivery_carrier`, `id_shop`)
+            ) DEFAULT CHARSET=utf8;
 
-
-
-// INSERT
-Db::getInstance()->execute('
-			INSERT INTO `' . _DB_PREFIX_ . 'client_manager` (`id`, `customer_id`, `employee_id`) 
-            VALUES (NULL, '. $idCustomer.', ' . $idEmployee . ');');
-
-Db::getInstance()->execute('
-    INSERT INTO ' . _DB_PREFIX_ . 'product_deposit_product (`id_product_deposit_deposit`, `id_product`)
-    VALUES (' . $idDeposit. ', ' . $idProduct . ')'
-);
-
-
-Db::getInstance()->execute('
-                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store` (`id_store_carrier_store`, `id_store`, `active`, `date_add`, `date_upd`) 
-                    VALUES ('.$key.', '.$store['id_store'].', 1, "'.date("Y-m-d H:i:s").'", "'.date("Y-m-d H:i:s").'");');
-
-Db::getInstance()->execute('
-                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store_lang` (`id_store_carrier_store`, `id_lang`, `pickup_time`) 
-                    VALUES ('.$key.', 1, "");');
-Db::getInstance()->execute('
-                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store_lang` (`id_store_carrier_store`, `id_lang`, `pickup_time`) 
-                    VALUES ('.$key.', 2, "");');
+CREATE TABLE IF NOT EXISTS `ss_pp_product_delivery_carrier_lang` (
+            `id_pp_product_delivery_carrier` int(11) NOT NULL AUTO_INCREMENT,
+            `id_lang` INT(11) NOT NULL,
+            PRIMARY KEY  (`id_pp_product_delivery_carrier`, `id_lang`)
+            ) DEFAULT CHARSET=utf8;
 
 
+//UPDATE All column values
+UPDATE table SET column = NULL;
 
-// UPDATE
-db::getInstance()->update('client_manager', array('employee_id' => $idEmployee), 'customer_id = '.$idCustomer);
 
+// GET single value
+return (int)Db::getInstance()->getValue('SELECT `employee_id` FROM `'. _DB_PREFIX_ .'client_manager` WHERE `customer_id` = '.(int) $customerId);
 
-// GET ARRAY VALUES with executeS string 
+// GET single value WITH PSQL
+$customerId = Db::getInstance()->getValue('
+    SELECT `id_customer`
+    FROM `'. _DB_PREFIX_ .'address`
+    WHERE `phone_mobile` = "'.pSQL($phone).'"
+    ;');
+
+// GET ARRAY VALUES  
 public function getOrderList($dateFrom, $dateTo){
     
     return Db::getInstance()->executeS('
     SELECT `id_order`
-    FROM `'._DB_PREFIX_.'orders`
-    WHERE `date_add` BETWEEN "'. $dateFrom.'" AND "'.$dateTo .'";');
+    FROM `'. _DB_PREFIX_ .'orders`
+    WHERE `date_add` BETWEEN "'. $dateFrom .'" AND "'. $dateTo .'"
+    ;');
 }
+
+
+$orderDetails = Db::getInstance()->getRow('
+    SELECT `id_order`, `id_cart`, `secure_key`, `current_state`, `total_paid`, `payment`
+    FROM `'. _DB_PREFIX_ .'orders`
+    WHERE `id_order` = "'.(int) $orderId .'"
+    ;');
+
+
+
+// INSERT
+Db::getInstance()->insert('configuration', [
+    'id_shop_group' => NULL,
+    'id_shop' => NULL,
+    'name' => "PPFREEDELIVERYPRODUCT_CART_RULE",
+    'value' => $cartRule->id,
+    'date_add' => $timeNow,
+    'date_upd' => $timeNow,
+]);
+
+
+Db::getInstance()->execute('
+			INSERT INTO `'. _DB_PREFIX_ .'client_manager` (`id`, `customer_id`, `employee_id`) 
+            VALUES (NULL, '.(int) $idCustomer .', ' .(int) $idEmployee . ')
+            ;');
+
+Db::getInstance()->execute('
+    INSERT INTO '. _DB_PREFIX_ .'product_deposit_product (`id_product_deposit_deposit`, `id_product`)
+    VALUES ('.(int) $idDeposit .', '.(int) $idProduct .')'
+);
+
+Db::getInstance()->execute('
+                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store` (`id_store_carrier_store`, `id_store`, `active`, `date_add`, `date_upd`) 
+                    VALUES ('.$key.', '.(int) $store['id_store'].', 1, "'.date("Y-m-d H:i:s").'", "'.date("Y-m-d H:i:s").'");');
+
+Db::getInstance()->execute('
+                    INSERT INTO `'._DB_PREFIX_.'store_carrier_store_lang` (`id_store_carrier_store`, `id_lang`, `pickup_time`) 
+                    VALUES ('.$key.', 1, "");');
+                    
+Db::getInstance()->execute('
+                    INSERT INTO `'._DB_PREFIX_.'ppproductvideo` (`id_ppproductvideo`, `id_product`, `video_link`) 
+                    VALUES (0, '.(int) $productId .', "'. $videoLink .'");');
+
+
+
+// UPDATE
+Db::getInstance()->update('client_manager', array('employee_id' => (int) $idEmployee), 'customer_id = '.(int) $idCustomer);
+
+
+// UPDATE WITH WHERE AND
+Db::getInstance()->update(
+    'product_shop',
+    array('active' => (int) $state),
+    '`id_product` = ' . (int) $idProduct . ' AND `id_shop` = ' . (int) $shopId
+);
+
+
+//DELETE
+Db::getInstance()->delete('pp_product_delivery_product', 'id_product = ' .(int) $productId);
+
+// DELETE WITH AND
+Db::getInstance()->delete('pp_product_delivery_product', '`id_product` = ' .(int) $productId .' AND `id_pp_product_delivery` = '.(int) $result, 1);
+
+
+
+//WITH TERNARY #1
+public static function getIdByProduct($productId, $combinationId = 0){
+
+    $context = Context::getContext();
+    $shopId = $context->shop->id;
+    $langId = $context->language->id;
+
+    $combinationId = ($combinationId) ? "AND fdp.`id_combination` = " . (int) $combinationId : "";
+
+    return Db::getInstance()->getValue('
+        SELECT fdp.`id_pp_free_delivery_product`
+        FROM `' . _DB_PREFIX_ . 'pp_free_delivery_product` AS fdp
+        LEFT JOIN `' . _DB_PREFIX_ . 'pp_free_delivery_product_lang` AS fdpl 
+            ON (fdp.`id_pp_free_delivery_product` = fdpl.`id_pp_free_delivery_product` 
+                AND fdpl.`id_lang` = ' . (int) $langId . ' 
+                AND fdpl.`id_shop` = ' . (int) $shopId . ')
+        LEFT JOIN `'._DB_PREFIX_.'pp_free_delivery_product_shop` AS fdps 
+            ON (fdp.`id_pp_free_delivery_product` = fdps.`id_pp_free_delivery_product`)
+        WHERE fdp.`id_product` = ' . (int) $productId . '
+        ' . $combinationId . '
+        ;');
+}
+
+//WITH TERNARY #2
+public static function getManufacturers($active = true, $idShop = 0)
+{
+    $context = Context::getContext();
+
+    if (!$idShop) {
+        $idShop = (int) $context->shop->id;
+    }
+
+    $langId = $context->language->id;
+    $where = $active ? ' WHERE m.`active` = "1" ' : '';
+
+    return Db::getInstance()->executeS('
+        SELECT  m.`id_manufacturer`, m.`name`
+        FROM `'._DB_PREFIX_.'manufacturer` AS m
+        LEFT JOIN `'._DB_PREFIX_.'manufacturer_lang` AS ml ON (m.`id_manufacturer` = ml.`id_manufacturer`
+            AND ml.`id_lang` = '.(int) $langId .')
+        LEFT JOIN `'._DB_PREFIX_.'manufacturer_shop` AS ms ON (m.`id_manufacturer` = ms.`id_manufacturer`
+            AND ms.`id_shop` = '.(int) $idShop .')
+        '.$where.'
+        ORDER BY m.`id_manufacturer` ASC
+    ');
+}
+
+
+
+
+//WITH DELETE INSERT OR UPDATE LOGIC
+
+    public function hookActionProductUpdate($params) {
+
+        if (Tools::isSubmit('ppproductdelivery_select')){
+
+            $ppproductdeliveryId = Tools::getValue('ppproductdelivery_select');
+            
+            $productId = $params['id_product'];
+
+            if (!$productId){
+                return;
+            }
+
+            $defaultId = PpProductDeliveryDelivery::getDefaultDeliveryId();
+
+            if ($defaultId == $ppproductdeliveryId){
+                return;
+            }
+
+            $result = Db::getInstance()->getValue('
+                SELECT `id_pp_product_delivery` 
+                FROM `'. _DB_PREFIX_ .'pp_product_delivery_product` 
+                WHERE `id_product` = '.(int) $productId .'
+                ');
+            
+
+            if (!empty($result) && $ppproductdeliveryId == "0"){
+                return Db::getInstance()->delete('pp_product_delivery_product',
+                    '`id_product` = ' .(int) $productId .' AND `id_pp_product_delivery` = '.(int) $result, 1);
+            }
+
+            if (empty($result) && $ppproductdeliveryId != "0"){
+
+                return Db::getInstance()->insert('pp_product_delivery_product', [
+                    'id_pp_product_delivery' => (int) $ppproductdeliveryId,
+                    'id_product' => (int) $productId,
+                ]);
+
+            } else if (!empty($result) && $ppproductdeliveryId != "0"){
+
+                return Db::getInstance()->update('pp_product_delivery_product',
+                    array('id_pp_product_delivery' => (int) $ppproductdeliveryId), 'id_product = '.(int) $productId);
+
+            }
+        }
+    }
 
 
 
@@ -269,21 +423,6 @@ return  Db::getInstance()->execute('
 DELETE FROM `' . _DB_PREFIX_ . 'product_deposit_product` 
 WHERE `id_product` = ' . (int) $idProduct);
 
-
-GET PRICE
-
-SELECT `id_product` , `price`
-FROM `ps_product_deposit_product` pdp
-LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
-LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
-WHERE id_lang = 1;
-
-SELECT `price`
-FROM `ps_product_deposit_product` pdp
-LEFT JOIN `ps_product_deposit_deposit` pdd ON (pdd.id_product_deposit_deposit = pdp.id_product_deposit_deposit)
-LEFT JOIN `ps_product_deposit_deposit_lang` pddl ON (pdd.id_product_deposit_deposit = pddl.id_product_deposit_deposit)
-WHERE id_lang = 1
-AND `id_product` = 555;
 
 
 

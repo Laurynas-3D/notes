@@ -590,4 +590,5 @@ sudo nano activecollab-timer.desktop
 Exec=/opt/active-collab-timer/Active
 
 
-
+------Programs Dock / 
+Settings > Desktop > Dock > Icon Click Action -> Launch, Minimize, or Preview Windows
