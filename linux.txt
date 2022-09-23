@@ -592,3 +592,27 @@ Exec=/opt/active-collab-timer/Active
 
 ------Programs Dock / 
 Settings > Desktop > Dock > Icon Click Action -> Launch, Minimize, or Preview Windows
+
+
+------Aliases
+add to end of the file
+/home/laurynas/.bashrc
+
+# my custom aliases
+alias dcu='docker-compose up -d'
+alias up='cd ..'
+
+alias stopfortakas='docker stop fortakas_prestashop_1 && docker stop fortakas_phpmyadmin_1 && docker stop fortakas_mariadb_1'
+alias stopgeros='docker stop geros_prestashop_1 && docker stop geros_phpmyadmin_1 && docker stop geros_mariadb_1'
+alias stopgrillman='docker stop grillman_phpmyadmin_1 && docker stop grillman_prestashop_1 && docker stop grillman_mariadb_1'
+alias stopbipa='docker stop bipa_prestashop_1 && docker stop bipa_phpmyadmin_1 && docker stop bipa_mariadb_1'
+alias stopdanija='docker stop danija_prestashop_1 && docker stop danija_phpmyadmin_1 && docker stop danija_mariadb_1'
+alias stopamspauda='docker stop amspauda_prestashop_1 && docker stop amspauda_phpmyadmin_1 && docker stop amspauda_mariadb_1'
+alias stopreshape='docker stop reshape_prestashop_1 && docker stop reshape_phpmyadmin_1 && docker stop reshape_mariadb_1'
+alias stopinhair='docker stop inhair_mariadb_1 && docker stop inhair_phpmyadmin_1 && docker stop inhair_prestashop_1'
+alias stopmarabika='docker stop marabika_prestashop_1 && docker stop marabika_phpmyadmin_1 && docker stop marabika_mariadb_1'
+alias stopfjb='docker stop fjb_prestashop_1 && docker stop fjb_phpmyadmin_1 && docker stop fjb_mariadb_1'
+alias stopskonis='docker stop skonis_prestashop_1 && docker stop skonis_phpmyadmin_1 && docker stop skonis_phpmyadmin_1'
+alias stopniekorimto='docker stop niekorimto_mariadb_1 && docker stop niekorimto_phpmyadmin_1 && docker stop niekorimto_prestashop_1'
+alias stopslides='docker stop slides_prestashop_1 && docker stop slides_phpmyadmin_1 && docker stop slides_mariadb_1'
+
