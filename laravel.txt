@@ -11,6 +11,7 @@ PROJECT STARTUP NOTES (required php ver 7.2)
 
 git clone <project-name>
 mysql -u <user-name> -p <pass>
+	SHOW DATABASES;
 create database <db-name>
 use <db-name>
 source <sql-dump-file-in-same-dir>.sql
@@ -83,8 +84,25 @@ Hello, {!! $name !!}. // ect. get rid of <p> tag at beginning and the end
 
 <?= $post->body; ?>
 
-----------
+----------DATABASES
+---lesson 17
 
+mysql -uroot -p
+create database blog2;
+quit
+php artisan migrate
+
+
+mysql -uroot -p
+use blog2
+show tables;
+
+php artisan migrate:rollback
+
+php artisan migrate:fresh
+
+
+---lesson 19
 
 php artisan tinker
 $user = new User;
@@ -104,16 +122,25 @@ $users->first();
 $users[0];
 
 
-php artisan tinker
+---lesson 20
 
-App\Models\Post::count();
+php artisan help make:migration
+
+php artisan make:migration create_posts_table
+php artisan migrate:fresh
+php artisan make:model Post
+
+php artisan tinker
 App\Models\Post::all();
+App\Models\Post::count();
 
 $post = new App\Models\Post;
 $post->title = 'My First Post';
-$post->exerpt = 'First post Body exerpt';
+$post->excerpt = 'First post Body exerpt';
 $post->body = 'First post Body';
 $post->save();
+
+unset($post->exerpt); //in case of mistake
 
 use App\Models\Post;
 Post::count();
@@ -123,22 +150,54 @@ Post::find(1);
 
 $post->title;
 $post->body;
-$post->author->name;
+$post->author->name; // will not work no relationships.
 
-$post->fresh(); 	\\ gives fresh post instance; it is like undo; 
 
-$post-> update(['exerpt' => 'Changed']);
+---lesson 21
+
+php artisan tinker
 
 $post = App\Models\Post::first();
 $post->body;
 $post->body = '<p>' . $post->body . '</p>';
 $post->save();
 
-php artisan tinker
-use App\Models\Post;
-Post::create(['title' => 'My Third Post', 'exerpt' => 'somethig about third post', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.']);
+$post = App\Models\Post::find(2);
+$post->body = '<p>' . $post->body . '</p>';
+$post->save();
 
+---lesson 22 // really good tips about mass assignment vulnerability
+
+php artisan tinker
+
+use App\Models\Post;
+Post::create(['title' => 'My Third Post', 'excerpt' => 'somethig about third post', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.']);
+
+$post->fresh(); 	\\ gives fresh post instance; it is like undo; 
+$post->update(['exerpt' => 'Changed']);
+
+
+---lesson 23 (route model binding)
+
+php artisan migrate:fresh
+
+// my own to populate db
+use App\Models\Post;
+Post::create([ 'slug' => 'my-third-post', 'title' => 'My Third Post', 'excerpt' => 'somethig about third post', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.']);
+
+
+---lesson 24 (Eloquent relationship)
+
+
+php artisan make:migration create_categories_table
+php artisan make:model 
+php artisan help make:model
+
+// -m includes migration file
 php artisan make:model Category -m
+
+php artisan migrate:fresh
+
 php artisan tinker
 use App\Models\Category
 $c = new Category;
@@ -146,11 +205,32 @@ $c->name = 'Personal';
 $c->slug = 'personal';
 $c->save();
 
+use App\Models\Category
+$c = new Category;
+$c->name = 'Work';
+$c->slug = 'work';
+$c->save();
+
+use App\Models\Category
+$c = new Category;
+$c->name = 'Hobbies';
+$c->slug = 'hobbies';
+$c->save();
+
+use App\Models\Post;
+Post::create(['title' => 'My family post', 'excerpt' => 'excerpt for post', 'body' => 'Lorem ipsum dolor sit amet.', 'slug' => 'my-family-post', 'category_id' => 1]);
+
+Post::create(['title' => 'My work post', 'excerpt' => 'excerpt for work post', 'body' => 'Lorem ipsum dolor sit amet.', 'slug' => 'my-work-post', 'category_id' => 2]);
+
+Post::create(['title' => 'My hobby post', 'excerpt' => 'excerpt for hobby post', 'body' => 'Lorem ipsum dolor sit amet.', 'slug' => 'my-hobby-post', 'category_id' => 3]);
+
 php artisan tinker
 $post = App\Models\Post::first();
 $post->category(); 	//this returns instance
 $post->category; 	// access as property
 $post->category->name; 
+
+
 
 php artisan tinker
 App\Models\Category::first()
@@ -242,3 +322,14 @@ or native logging
     Illuminate\Support\Facades\DB::listen(function ($query){
         logger($query->sql, $query->bindings);
     });
+
+
+
+----------
+Possible Errors
+
+Illuminate\Database\QueryException with message 'SQLSTATE[HY000]: General error: 1364 Field 'category_id' doesn't have a default value
+
+add category_id to fillable property in Post Model, restart php artisan tinker to take effect
+
+ protected $fillable = ['slug', 'title', 'body', 'excerpt', 'category_id'];
