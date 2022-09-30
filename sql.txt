@@ -411,26 +411,6 @@ public static function getManufacturers($active = true, $idShop = 0)
 
 -----------
 
+ALTER TABLE `gg_pp_productvideo_description_product` ADD UNIQUE(`id_product`);
 
-
-INSERT INTO `ps_product_deposit_product` (`id_product_deposit_deposit`, `id_product`) VALUES ('2', '555');
-
-DELETE FROM `ps_product_deposit_product` WHERE `ps_product_deposit_product`.`id_product_deposit_deposit` = 2 AND `ps_product_deposit_product`.`id_product` = 555
-
-DELETE FROM `ps_product_deposit_product` WHERE `ps_product_deposit_product`.`id_product` = 555
-
-return  Db::getInstance()->execute('
-DELETE FROM `' . _DB_PREFIX_ . 'product_deposit_product` 
-WHERE `id_product` = ' . (int) $idProduct);
-
-
-
-
-
-GET TERMINAL NAME
-SELECT CONCAT (pl.`name`, " / ", pl.`street`, " / ", pl.`city`) AS "result"
-FROM `ps_orders` AS o
-LEFT JOIN `ps_kg_dpd_parcels_cart` AS pc ON ( o.id_cart = pc.id_cart)
-LEFT JOIN `ps_kg_dpd_parcels_list` AS pl ON ( pc.dpd_parcel_id = pl.id_paketshop)
-WHERE `id_order` = 2033;
 

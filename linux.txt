@@ -19,6 +19,7 @@ apt-get dist-upgrade		- distro update to newest version
 apt-get update && apt-get dist-upgrade - upgrade distro, might need to full upgrade before this one
 apt list --installed | wc -l	- display installed packages and pass it to word count with count lines flag
 sudo apt list --installed | grep php - show php packages only
+sudo apt-mark hold sublime-text - put package on exclude in update list
 
 flatpak --user uninstall glimpse
 sudo apt-get purge glimpse
@@ -615,4 +616,5 @@ alias stopfjb='docker stop fjb_prestashop_1 && docker stop fjb_phpmyadmin_1 && d
 alias stopskonis='docker stop skonis_prestashop_1 && docker stop skonis_phpmyadmin_1 && docker stop skonis_phpmyadmin_1'
 alias stopniekorimto='docker stop niekorimto_mariadb_1 && docker stop niekorimto_phpmyadmin_1 && docker stop niekorimto_prestashop_1'
 alias stopslides='docker stop slides_prestashop_1 && docker stop slides_phpmyadmin_1 && docker stop slides_mariadb_1'
+alias stopknitas='docker stop knitas_phpmyadmin_1 && docker stop knitas_prestashop_1 && docker stop knitas_mariadb_1'
 
