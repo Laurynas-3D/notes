@@ -19,7 +19,9 @@ apt-get dist-upgrade		- distro update to newest version
 apt-get update && apt-get dist-upgrade - upgrade distro, might need to full upgrade before this one
 apt list --installed | wc -l	- display installed packages and pass it to word count with count lines flag
 sudo apt list --installed | grep php - show php packages only
+
 sudo apt-mark hold sublime-text - put package on exclude in update list
+apt-mark showhold				- see packages are put on hold
 
 flatpak --user uninstall glimpse
 sudo apt-get purge glimpse
@@ -602,7 +604,8 @@ add to end of the file
 # my custom aliases
 alias dcu='docker-compose up -d'
 alias dcufr='docker-compose up --build -d --force-recreate'
-alias ddown='docker-compose down'
+alias dcuf='docker-compose up --build -d --force-recreate'
+alias down='docker-compose down'
 
 alias zipbackup='zip -v -r -9 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -9 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -9 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/ && zip -v -r -9 /home/laurynas/backup/repos.zip /home/laurynas/repos/'
 alias cleanbackup='rm /home/laurynas/backup/documents.zip && rm /home/laurynas/backup/pictures.zip && /home/laurynas/backup/downloads.zip && /home/laurynas/backup/repos.zip'
@@ -625,6 +628,8 @@ alias stoptobis='docker stop tobis_phpmyadmin_1 && docker stop tobis_prestashop_
 alias stopalbaservis='docker stop albaservis_phpmyadmin_1 && docker stop albaservis_prestashop_1 && docker stop albaservis_mariadb_1'
 alias stopalba='docker stop alba_phpmyadmin_1 && docker stop alba_prestashop_1 && docker stop alba_mariadb_1'
 alias stopacorus='docker stop acorus_phpmyadmin_1 && docker stop acorus_prestashop_1 && docker stop acorus_mariadb_1'
+alias stopstrainus='docker stop strainus_phpmyadmin_1 && docker stop strainus_prestashop_1 && docker stop strainus_mariadb_1'
+alias stop4coast='docker stop 4coast_prestashop_1 && docker stop 4coast_phpmyadmin_1 && docker stop 4coast_mariadb_1'
 
 alias up='cd ..'
 alias gonotes='cd /home/laurynas/repos/notes'
@@ -646,9 +651,12 @@ alias gomarabika='cd /home/laurynas/repos/marabika'
 alias gofjb='cd /home/laurynas/repos/fjb'
 alias goskonis='cd /home/laurynas/repos/skonis'
 alias goniekorimto='cd /home/laurynas/repos/niekorimto'
+alias gonieko='cd /home/laurynas/repos/niekorimto'
 alias goslides='cd /home/laurynas/repos/slides'
 alias goknitas='cd /home/laurynas/repos/knitas'
 alias gotobis='cd /home/laurynas/repos/tobis'
 alias goalbaservis='cd /home/laurynas/repos/albaservis'
 alias goalba='cd /home/laurynas/repos/alba'
 alias goacorus='cd /home/laurynas/repos/acorus'
+alias gostrainus='cd /home/laurynas/repos/strainus'
+alias gocoast='cd /home/laurynas/repos/4coast'

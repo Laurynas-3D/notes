@@ -253,6 +253,16 @@ $orderDetails = Db::getInstance()->getRow('
 
 
 
+// GET WITH IN (SELECTED VALUES IN COLUMN)
+$positive = Db::getInstance()->getValue('
+    SELECT COUNT(`id_service_feedback_shop`)
+    FROM `' . _DB_PREFIX_ . 'service_feedback_shop`
+    WHERE `id_shop` = ' . (int) $shopId .'
+    AND `rating` IN (5, 4)
+    ;');
+
+
+
 // INSERT
 Db::getInstance()->insert('configuration', [
     'id_shop_group' => NULL,
