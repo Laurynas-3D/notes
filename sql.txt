@@ -192,6 +192,21 @@ WHERE <column-name> REGEXP 'string1|str2' 	// | (pipe) sign to show one or other
 
 <?php
 
+
+// CHECK COLUMN NAME EXISTS
+$query = "
+    SELECT 
+        COUNT(*) 
+    FROM 
+        information_schema.COLUMNS 
+    WHERE 
+        TABLE_SCHEMA = 'prestashop'
+        AND TABLE_NAME = 'ps_shop' 
+        AND COLUMN_NAME = 'id_shop'
+    ;";
+$result = Db::getInstance()->getValue($query);
+
+
 // CREATE TABLE 
 return Db::getInstance()->execute('
             CREATE TABLE IF NOT EXISTS `'. _DB_PREFIX_ .'client_manager` (
@@ -424,3 +439,9 @@ public static function getManufacturers($active = true, $idShop = 0)
 ALTER TABLE `gg_pp_productvideo_description_product` ADD UNIQUE(`id_product`);
 
 
+
+
+SELECT id_order, count(id_order) 
+FROM `ps_order_invoice` 
+GROUP BY id_order 
+ORDER BY `count(id_order)` DESC
