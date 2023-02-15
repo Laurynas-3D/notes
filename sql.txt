@@ -433,6 +433,10 @@ public static function getManufacturers($active = true, $idShop = 0)
 
 
 
+//SEARCH WITH SUBSELECT IN WHERE
+$this->_where = 'AND (SELECT GROUP_CONCAT(ad.company SEPARATOR ", ") FROM ps_address ad WHERE ad.id_customer = a.id_customer ) LIKE "%' . pSQL($companyName) . '%"';
+
+
 
 -----------
 

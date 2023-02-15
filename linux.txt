@@ -637,6 +637,7 @@ alias stopssrent='docker stop ssrent_prestashop_1 && docker stop ssrent_phpmyadm
 alias stopakieron='docker stop akieron_prestashop_1 && docker stop akieron_phpmyadmin_1 && docker stop akieron_mariadb_1'
 alias stopdarbo='docker stop darbo_prestashop_1 && docker stop darbo_phpmyadmin_1 && docker stop darbo_mariadb_1'
 alias stopmeistrui='docker stop meistrui_prestashop_1 && docker stop meistrui_phpmyadmin_1 && docker stop meistrui_mariadb_1'
+alias stopmob='docker stop prmob_prestashop_1 && docker stop prmob_phpmyadmin_1 && docker stop prmob_mariadb_1'
 
 alias up='cd ..'
 alias gonotes='cd /home/laurynas/repos/notes'
@@ -673,3 +674,5 @@ alias gossrent='cd /home/laurynas/repos/ssrent'
 alias goakieron='cd /home/laurynas/repos/akieron'
 alias godarbo='cd /home/laurynas/repos/darbo'
 alias gomeistrui='cd /home/laurynas/repos/meistrui'
+alias gomob='cd /home/laurynas/repos/prmob'
+alias goprmob='cd /home/laurynas/repos/prmob'
