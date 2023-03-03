@@ -193,7 +193,7 @@ WHERE <column-name> REGEXP 'string1|str2' 	// | (pipe) sign to show one or other
 <?php
 
 
-// CHECK COLUMN NAME EXISTS
+--// CHECK COLUMN NAME EXISTS
 $query = "
     SELECT 
         COUNT(*) 
@@ -207,7 +207,7 @@ $query = "
 $result = Db::getInstance()->getValue($query);
 
 
-// CREATE TABLE 
+--// CREATE TABLE 
 return Db::getInstance()->execute('
             CREATE TABLE IF NOT EXISTS `'. _DB_PREFIX_ .'client_manager` (
             `client_manager_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -235,21 +235,34 @@ CREATE TABLE IF NOT EXISTS `ss_pp_product_delivery_carrier_lang` (
             ) DEFAULT CHARSET=utf8;
 
 
-//UPDATE All column values
+--// DB WITH FOREIGN KEY
+$sql[] = '
+    CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'pp_empty_stock_deleter` (
+        `id_pp_empty_stock_deleter` INT(11) NOT NULL AUTO_INCREMENT,
+        `id_product` int(10) unsigned NOT NULL,
+        `date_add` DATETIME NOT NULL,
+    PRIMARY KEY (`id_pp_empty_stock_deleter`),
+    FOREIGN KEY (`id_product`) REFERENCES  `' . _DB_PREFIX_ . 'product`(`id_product`) 
+    ON DELETE CASCADE ON UPDATE NO ACTION
+    ) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8;';
+
+
+
+--//UPDATE All column values
 UPDATE table SET column = NULL;
 
 
-// GET single value
+--// GET single value
 return (int)Db::getInstance()->getValue('SELECT `employee_id` FROM `'. _DB_PREFIX_ .'client_manager` WHERE `customer_id` = '.(int) $customerId);
 
-// GET single value WITH PSQL
+--// GET single value WITH PSQL
 $customerId = Db::getInstance()->getValue('
     SELECT `id_customer`
     FROM `'. _DB_PREFIX_ .'address`
     WHERE `phone_mobile` = "'.pSQL($phone).'"
     ;');
 
-// GET ARRAY VALUES  
+--// GET ARRAY VALUES  
 public function getOrderList($dateFrom, $dateTo){
     
     return Db::getInstance()->executeS('
@@ -268,7 +281,7 @@ $orderDetails = Db::getInstance()->getRow('
 
 
 
-// GET WITH IN (SELECTED VALUES IN COLUMN)
+--// GET WITH IN (SELECTED VALUES IN COLUMN)
 $positive = Db::getInstance()->getValue('
     SELECT COUNT(`id_service_feedback_shop`)
     FROM `' . _DB_PREFIX_ . 'service_feedback_shop`
@@ -278,7 +291,7 @@ $positive = Db::getInstance()->getValue('
 
 
 
-// INSERT
+--// INSERT
 Db::getInstance()->insert('configuration', [
     'id_shop_group' => NULL,
     'id_shop' => NULL,
@@ -313,11 +326,11 @@ Db::getInstance()->execute('
 
 
 
-// UPDATE
+--// UPDATE
 Db::getInstance()->update('client_manager', array('employee_id' => (int) $idEmployee), 'customer_id = '.(int) $idCustomer);
 
 
-// UPDATE WITH WHERE AND
+--// UPDATE WITH WHERE AND
 Db::getInstance()->update(
     'product_shop',
     array('active' => (int) $state),
@@ -325,15 +338,15 @@ Db::getInstance()->update(
 );
 
 
-//DELETE
+--//DELETE
 Db::getInstance()->delete('pp_product_delivery_product', 'id_product = ' .(int) $productId);
 
-// DELETE WITH AND
+--// DELETE WITH AND
 Db::getInstance()->delete('pp_product_delivery_product', '`id_product` = ' .(int) $productId .' AND `id_pp_product_delivery` = '.(int) $result, 1);
 
 
 
-//WITH TERNARY #1
+--//WITH TERNARY #1
 public static function getIdByProduct($productId, $combinationId = 0){
 
     $context = Context::getContext();
@@ -356,7 +369,7 @@ public static function getIdByProduct($productId, $combinationId = 0){
         ;');
 }
 
-//WITH TERNARY #2
+--//WITH TERNARY #2
 public static function getManufacturers($active = true, $idShop = 0)
 {
     $context = Context::getContext();
@@ -383,58 +396,59 @@ public static function getManufacturers($active = true, $idShop = 0)
 
 
 
-//WITH DELETE INSERT OR UPDATE LOGIC
+--//WITH DELETE INSERT OR UPDATE LOGIC
 
-    public function hookActionProductUpdate($params) {
+public function hookActionProductUpdate($params) {
 
-        if (Tools::isSubmit('ppproductdelivery_select')){
+    if (Tools::isSubmit('ppproductdelivery_select')){
 
-            $ppproductdeliveryId = Tools::getValue('ppproductdelivery_select');
-            
-            $productId = $params['id_product'];
+        $ppproductdeliveryId = Tools::getValue('ppproductdelivery_select');
+        
+        $productId = $params['id_product'];
 
-            if (!$productId){
-                return;
-            }
+        if (!$productId){
+            return;
+        }
 
-            $defaultId = PpProductDeliveryDelivery::getDefaultDeliveryId();
+        $defaultId = PpProductDeliveryDelivery::getDefaultDeliveryId();
 
-            if ($defaultId == $ppproductdeliveryId){
-                return;
-            }
+        if ($defaultId == $ppproductdeliveryId){
+            return;
+        }
 
-            $result = Db::getInstance()->getValue('
-                SELECT `id_pp_product_delivery` 
-                FROM `'. _DB_PREFIX_ .'pp_product_delivery_product` 
-                WHERE `id_product` = '.(int) $productId .'
-                ');
-            
+        $result = Db::getInstance()->getValue('
+            SELECT `id_pp_product_delivery` 
+            FROM `'. _DB_PREFIX_ .'pp_product_delivery_product` 
+            WHERE `id_product` = '.(int) $productId .'
+            ');
+        
 
-            if (!empty($result) && $ppproductdeliveryId == "0"){
-                return Db::getInstance()->delete('pp_product_delivery_product',
-                    '`id_product` = ' .(int) $productId .' AND `id_pp_product_delivery` = '.(int) $result, 1);
-            }
+        if (!empty($result) && $ppproductdeliveryId == "0"){
+            return Db::getInstance()->delete('pp_product_delivery_product',
+                '`id_product` = ' .(int) $productId .' AND `id_pp_product_delivery` = '.(int) $result, 1);
+        }
 
-            if (empty($result) && $ppproductdeliveryId != "0"){
+        if (empty($result) && $ppproductdeliveryId != "0"){
 
-                return Db::getInstance()->insert('pp_product_delivery_product', [
-                    'id_pp_product_delivery' => (int) $ppproductdeliveryId,
-                    'id_product' => (int) $productId,
-                ]);
+            return Db::getInstance()->insert('pp_product_delivery_product', [
+                'id_pp_product_delivery' => (int) $ppproductdeliveryId,
+                'id_product' => (int) $productId,
+            ]);
 
-            } else if (!empty($result) && $ppproductdeliveryId != "0"){
+        } else if (!empty($result) && $ppproductdeliveryId != "0"){
 
-                return Db::getInstance()->update('pp_product_delivery_product',
-                    array('id_pp_product_delivery' => (int) $ppproductdeliveryId), 'id_product = '.(int) $productId);
+            return Db::getInstance()->update('pp_product_delivery_product',
+                array('id_pp_product_delivery' => (int) $ppproductdeliveryId), 'id_product = '.(int) $productId);
 
-            }
         }
     }
+}
 
 
 
-//SEARCH WITH SUBSELECT IN WHERE
+--//SEARCH WITH SUBSELECT IN WHERE
 $this->_where = 'AND (SELECT GROUP_CONCAT(ad.company SEPARATOR ", ") FROM ps_address ad WHERE ad.id_customer = a.id_customer ) LIKE "%' . pSQL($companyName) . '%"';
+
 
 
 
@@ -449,3 +463,27 @@ SELECT id_order, count(id_order)
 FROM `ps_order_invoice` 
 GROUP BY id_order 
 ORDER BY `count(id_order)` DESC
+
+SELECT id_product, count(id_product) 
+FROM `ps_product_supplier`  
+GROUP by id_product  
+ORDER BY `count(id_product)`  DESC
+
+
+--DATA SYNC 
+--TABLE `ps_stock_available` values in column `ps_stock_available` where id_shop = 1 copy to id_shop = 4
+UPDATE ps_stock_available sa1
+INNER JOIN ps_stock_available sa2 ON sa1.id_product = sa2.id_product
+SET sa1.out_of_stock = sa2.out_of_stock
+WHERE sa1.id_shop = 4 AND sa2.id_shop = 1;
+
+
+
+SELECT `id_object`, `id_provider`
+FROM `ps_prsync_entity` 
+WHERE `id_object` IN (
+  SELECT `id_object` 
+  FROM `ps_prsync_entity` 
+  GROUP BY `id_object` 
+  HAVING COUNT(DISTINCT `id_provider`) > 1
+);
