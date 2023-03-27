@@ -640,6 +640,7 @@ alias stopmeistrui='docker stop meistrui_prestashop_1 && docker stop meistrui_ph
 alias stopmob='docker stop prmob_prestashop_1 && docker stop prmob_phpmyadmin_1 && docker stop prmob_mariadb_1'
 alias stopede='docker stop ede_prestashop_1 && docker stop ede_phpmyadmin_1 && docker stop ede_mariadb_1'
 alias stopkuckis='docker stop kuckis_prestashop_1 && docker stop kuckis_phpmyadmin_1 && docker stop kuckis_mariadb_1'
+alias stopauto='docker stop auto_prestashop_1 && docker stop auto_phpmyadmin_1 && docker stop auto_mariadb_1'
 
 alias up='cd ..'
 alias gonotes='cd /home/laurynas/repos/notes'
@@ -649,6 +650,7 @@ alias gopnotes='cd /home/laurynas/Documents/notes-by-project'
 alias prestanotes='cd /home/laurynas/Documents/notes-by-project'
 
 alias gotest='cd /home/laurynas/repos/testshop'
+alias gotestshop='cd /home/laurynas/repos/testshop'
 alias goalba='cd /home/laurynas/repos/albaservis'
 alias gofortakas='cd /home/laurynas/repos/fortakas'
 alias gogeros='cd /home/laurynas/repos/geros'
@@ -680,3 +682,5 @@ alias gomob='cd /home/laurynas/repos/prmob'
 alias goprmob='cd /home/laurynas/repos/prmob'
 alias goede='cd /home/laurynas/repos/ede'
 alias gokuckis='cd /home/laurynas/repos/kuckis'
+alias goauto='cd /home/laurynas/repos/auto'
+

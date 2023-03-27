@@ -487,3 +487,179 @@ WHERE `id_object` IN (
   GROUP BY `id_object` 
   HAVING COUNT(DISTINCT `id_provider`) > 1
 );
+
+
+
+SELECT * FROM `ps_product` WHERE id_product = 856 OR id_product = 2503 OR id_product = 2504;
+
+-- VISIBILITY
+UPDATE `ps_pp_empty_stock_deleter` SET date_add = '2023-03-11 09:00:00' LIMIT 8;
+
+-- DELETE
+UPDATE `ps_pp_empty_stock_deleter` SET date_add = '2022-02-22 22:22:22' LIMIT 3;
+
+
+
+
+
+
+
+
+--  ANON DB
+
+-- "DOCKER settings"
+
+update me_configuration set value = 2 where name ='PS_SMARTY_FORCE_COMPILE';
+update me_configuration set value = 0 where name ='PS_CIPHER_ALGORITHM';
+update me_configuration set value = 0 where name ='PS_SSL_ENABLED';
+update me_configuration set value = 0 where name ='PS_SSL_ENABLED_EVERYWHERE';
+update me_configuration set value = 0 where name ='PS_SMARTY_CACHE';
+update me_configuration set value = 0 where name ='PS_JS_THEME_CACHE';
+update me_configuration set value = 0 where name ='PS_CSS_THEME_CACHE';
+update me_configuration set value = 0 where name ='PS_HTACCESS_CACHE_CONTROL';
+update me_configuration set value = 3 where name ='PS_MAIL_METHOD';
+update me_configuration set value = 'http://localhost:1450/' where name ='PS_SHOP_DOMAIN';
+update me_configuration set value = 'http://localhost:1450/' where name ='PS_SHOP_DOMAIN_SSL';
+update me_shop_url set domain = 'localhost:1450', domain_ssl = 'localhost:1450', physical_uri = '/' where id_shop_url = 1 and id_shop = 1;
+
+-- "Database anonymization"
+
+TRUNCATE TABLE me_connections;
+TRUNCATE TABLE me_connections_source;
+TRUNCATE TABLE me_connections_page;
+TRUNCATE TABLE me_guest;
+TRUNCATE TABLE me_log;
+-- TRUNCATE TABLE me_referrer;
+-- TRUNCATE TABLE me_referrer_shop;
+-- TRUNCATE TABLE me_referrer_cache;
+TRUNCATE TABLE me_pagenotfound;
+TRUNCATE TABLE me_mail;
+DELETE FROM me_specific_price WHERE `to` != '0000-00-00 00:00:00' AND `to` < NOW();
+DELETE FROM me_specific_price_rule WHERE `to` != '0000-00-00 00:00:00' AND `to` < NOW();
+TRUNCATE TABLE me_statssearch;
+TRUNCATE TABLE me_smarty_cache;
+TRUNCATE TABLE me_smarty_last_flush;
+TRUNCATE TABLE me_smarty_lazy_cache;
+TRUNCATE TABLE me_search_index;
+TRUNCATE TABLE me_search_word;
+
+-- "Data is Truncated! "
+
+SET
+    lastname = CONCAT('lastname', '_', id_customer),
+    firstname = CONCAT('firstname', '_', id_customer),
+    address1 = CONCAT('address1', '_', id_customer),
+    address2 = CONCAT('address2', '_', id_customer),
+    postcode = 'LT-00000',
+    city = CONCAT('city', '_', id_customer),
+    other = CONCAT('other', '_', id_customer),
+    phone = CONCAT('phone', '_', id_customer),
+    phone_mobile = CONCAT('phone_mobile', '_', id_customer),
+    vat_number = CONCAT('vat_number', '_', id_customer),
+    dni = CONCAT('dni', '_', id_customer),
+    company = CONCAT('company', '_', id_customer),
+    id_country = 131;
+UPDATE
+    me_connections
+    
+SET
+    ip_address = NULL;
+UPDATE
+    me_customer
+    
+SET
+    lastname = CONCAT('lastname', '_', id_customer),
+    firstname = CONCAT('firstname', '_', id_customer),
+    siret = NULL,
+    ape = NULL,
+    company = NULL,
+    email = CONCAT('email', '_', id_customer,'@','email.com'),
+    passwd = MD5(CONCAT(RAND(), passwd)),
+    birthday = NULL,
+    newsletter = 0,
+    optin = 0,
+    website = NULL,
+    ip_registration_newsletter = NULL,
+    secure_key = MD5(CONCAT(RAND(), secure_key)),
+    active = 0,
+    newsletter_date_add = NULL;
+UPDATE
+    me_customer_message
+    
+SET
+    message = MD5(CONCAT(RAND(), message)),
+    ip_address = '',
+    user_agent = '';
+UPDATE
+    me_customer_thread
+SET
+    email = MD5(CONCAT(RAND(), email));
+UPDATE
+    me_message
+SET
+    message = MD5(CONCAT(RAND(), message));
+UPDATE
+    me_mail
+SET
+    recipient = MD5(CONCAT(RAND(), recipient));
+
+
+UPDATE
+    me_product_comment
+SET
+    title = NULL,
+    content = MD5(CONCAT(RAND(), content)),
+    customer_name = NULL;
+     
+
+-- "Data is anonymous!"
+
+DELETE FROM me_employee
+  WHERE me_employee.id_employee IN (
+      SELECT ppp.id_employee
+      FROM (
+          SELECT pp.id_employee
+          FROM me_employee pp
+          WHERE pp.email not
+          LIKE '%prestapro.lt'
+      )
+      AS ppp);
+      
+
+DELETE FROM me_employee_shop
+  WHERE me_employee_shop.id_employee IN (
+      SELECT ppp.id_employee
+      FROM (
+          SELECT pp.id_employee
+          FROM me_employee pp
+          WHERE pp.email not
+          LIKE '%prestapro.lt'
+      )
+      AS ppp);
+
+-- "Employees removed!"
+
+UPDATE me_configuration p1
+SET
+    p1.value = NULL WHERE p1.id_configuration
+IN
+    (SELECT p2.id_configuration
+    from (SELECT * FROM me_configuration) p2
+    WHERE p2.name LIKE '%api%');
+UPDATE me_configuration p1
+SET p1.value = NULL WHERE p1.id_configuration
+IN
+    (SELECT p2.id_configuration
+    from (SELECT * FROM me_configuration) p2
+    WHERE p2.name REGEXP '^._KEY.$');
+UPDATE me_configuration p1
+SET
+    p1.value = NULL WHERE p1.id_configuration
+IN
+    (SELECT p2.id_configuration
+    from (SELECT * FROM me_configuration) p2
+    WHERE p2.name REGEXP '^._PASSW.$');
+      
+-- "Sensitive data is removed!"
+
+
