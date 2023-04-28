@@ -451,6 +451,24 @@ $this->_where = 'AND (SELECT GROUP_CONCAT(ad.company SEPARATOR ", ") FROM ps_add
 
 
 
+--//SUBSELECT WITH CASE AND OTHER SUB SELECT INSIDE
+(
+    SELECT 
+        CASE
+            WHEN EXISTS (
+                SELECT reference
+                FROM ps_product
+                WHERE reference = a.reference 
+                AND a.id_product = 0
+                GROUP BY reference
+                HAVING MAX(id_product) = 0
+            ) THEN 1
+            ELSE 0
+        END
+) AS native_products
+
+
+
 
 -----------
 
