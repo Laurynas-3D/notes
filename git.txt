@@ -31,7 +31,7 @@ STORE USER NAME AND PSW / REMEMBER PASSWORD or TOKEN
 
 CREATE REPOSITORY
 
-Create a new repository on the command line (works best without creating README.me)
+Create a new repository on the command line (works best without creating README.md)
 	touch README.md
 	git init
 	git add .

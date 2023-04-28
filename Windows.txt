@@ -94,6 +94,10 @@ You are still facing this issue? I think this is not an usual problem and your c
 Try to look for a solution here or search further in the search box below. 
 
 
+---------------------------
+Code 10 Error in Device Manager for Bluetooth or Wireless (Wi-Fi) Devices
+https://www.intel.com/content/www/us/en/support/articles/000031150/wireless/intel-wireless-products.html
+
 
 
 
