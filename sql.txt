@@ -1,6 +1,6 @@
 
-
 sudo mysql -u <user-name> -p <password>
+
 
 ---CREATE NEW USER
 mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
@@ -9,19 +9,22 @@ mysql> FLUSH PRIVILEGES;
 
 
 
-
 ---IMPORT DB DUMP
 CREATE DATABASE worhan;
 USE worhan
 source <file-name>.sql
 
--------
 
+
+---ALTER AUTO INCREMENT
 alter table posts AUTO_INCREMENT = 6
 
--------
+
 
 USE <db-name>;
+
+
+
 
 SELECT <column-name> FROM <table-name>
 or
@@ -30,10 +33,13 @@ FROM <table-name>
 WHERE <column-name> = 1
 ORDER BY <column-name>
 
+
 SELECT <column-name>, <column-name> FROM <table-name>
+
 
 SELECT first_name, last_name, points, points + 10
 FROM <customers>
+
 
 SELECT 
 	first_name, 
@@ -42,6 +48,7 @@ SELECT
 	(points + 10)*100 AS discount_factor	// aliasing
 FROM <customers>
 
+
 SELECT 
 	first_name, 
 	last_name, 
@@ -49,27 +56,34 @@ SELECT
 	(points + 10)*100 AS "discount factor"	// with whitespace in name
 FROM <customers>
 
+
 SELECT DISTINCT <column-name>
 FROM <table-name>
+
 
 SELECT * FROM <table-name> 
 WHERE <column-name> > 3000
 
+
 SELECT * FROM <table-name> 
 WHERE <column-name> != 'LT'
+
 
 SELECT * FROM <table-name> 
 WHERE <column-name> > '1990-01-01'
 AND <table-name> > 1000
 
+
 SELECT * FROM <table-name> 
 WHERE <column-name> > '1990-01-01'
 OR <table-name> > 1000
+
 
 SELECT * FROM <table-name> 
 WHERE <column-name> > '1990-01-01'
 OR <table-name> > 1000
 AND <table-name> = "LT"  		// AND condition always evaluates first
+
 
 SELECT * 
 FROM <table-name> 
@@ -255,12 +269,14 @@ UPDATE table SET column = NULL;
 --// GET single value
 return (int)Db::getInstance()->getValue('SELECT `employee_id` FROM `'. _DB_PREFIX_ .'client_manager` WHERE `customer_id` = '.(int) $customerId);
 
+
 --// GET single value WITH PSQL
 $customerId = Db::getInstance()->getValue('
     SELECT `id_customer`
     FROM `'. _DB_PREFIX_ .'address`
     WHERE `phone_mobile` = "'.pSQL($phone).'"
     ;');
+
 
 --// GET ARRAY VALUES  
 public function getOrderList($dateFrom, $dateTo){

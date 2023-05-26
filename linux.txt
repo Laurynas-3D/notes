@@ -607,8 +607,22 @@ alias dcufr='docker-compose up --build -d --force-recreate'
 alias dcuf='docker-compose up --build -d --force-recreate'
 alias down='docker-compose down'
 
-alias zipbackup='zip -v -r -9 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -9 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -9 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/ && zip -v -r -9 /home/laurynas/backup/repos.zip /home/laurynas/repos/'
+
+
 alias cleanbackup='rm /home/laurynas/backup/documents.zip && rm /home/laurynas/backup/pictures.zip && /home/laurynas/backup/downloads.zip && /home/laurynas/backup/repos.zip'
+
+alias cleanbckpall='rm /home/laurynas/backup/documents.zip && rm /home/laurynas/backup/pictures.zip && rm /home/laurynas/backup/downloads.zip && rm /home/laurynas/backup/repos.zip && rm /home/laurynas/backup/projects/*.zip'
+
+alias zipbackup='zip -v -r -7 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -7 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -7 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/ && zip -v -r -7 /home/laurynas/backup/repos.zip /home/laurynas/repos/'
+
+alias zipnorep='zip -v -r -7 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -7 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -7 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/'
+
+alias zipnew='for dir in /home/laurynas/repos/*/; do base=$(basename "$dir"); zip -v -r -7 "/home/laurynas/backup/projects/${base}.zip" "$dir"; done'
+
+
+
+
+
 
 alias stoptest='docker stop testshop_prestashop_1 && docker stop testshop_phpmyadmin_1 && docker stop testshop_mariadb_1'
 alias stopfortakas='docker stop fortakas_prestashop_1 && docker stop fortakas_phpmyadmin_1 && docker stop fortakas_mariadb_1'
@@ -642,6 +656,8 @@ alias stopede='docker stop ede_prestashop_1 && docker stop ede_phpmyadmin_1 && d
 alias stopkuckis='docker stop kuckis_prestashop_1 && docker stop kuckis_phpmyadmin_1 && docker stop kuckis_mariadb_1'
 alias stopauto='docker stop auto_prestashop_1 && docker stop auto_phpmyadmin_1 && docker stop auto_mariadb_1'
 alias stopcraft='docker stop craft_prestashop_1 && docker stop craft_phpmyadmin_1 && docker stop craft_mariadb_1'
+alias stoptrade='docker stop aptrade_prestashop_1 && docker stop aptrade_phpmyadmin_1 && docker stop aptrade_mariadb_1'
+
 
 alias up='cd ..'
 alias gonotes='cd /home/laurynas/repos/notes'
@@ -649,6 +665,7 @@ alias gobackup='cd /home/laurynas/backup'
 alias godocs='cd /home/laurynas/Documents'
 alias gopnotes='cd /home/laurynas/Documents/notes-by-project'
 alias prestanotes='cd /home/laurynas/Documents/notes-by-project'
+
 
 alias gotest='cd /home/laurynas/repos/testshop'
 alias gotestshop='cd /home/laurynas/repos/testshop'
@@ -685,4 +702,5 @@ alias goede='cd /home/laurynas/repos/ede'
 alias gokuckis='cd /home/laurynas/repos/kuckis'
 alias goauto='cd /home/laurynas/repos/auto'
 alias gocraft='cd /home/laurynas/repos/craft'
-
+alias goaptrade='cd /home/laurynas/repos/aptrade'
+alias gotrade='cd /home/laurynas/repos/aptrade'
