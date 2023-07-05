@@ -6,7 +6,9 @@ echo "alias hello='echo hello'" >> ~/.bashrc	- save to bash
 alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> /home/laurynas/repos/time.txt'
 
 tlog	- (date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt
-dup 	- docker-compose up -d
+
+moonlight theme - PhpStorm Theme
+gnome sur theme dark
 
 #--------------------Basics 
 
@@ -657,6 +659,8 @@ alias stopkuckis='docker stop kuckis_prestashop_1 && docker stop kuckis_phpmyadm
 alias stopauto='docker stop auto_prestashop_1 && docker stop auto_phpmyadmin_1 && docker stop auto_mariadb_1'
 alias stopcraft='docker stop craft_prestashop_1 && docker stop craft_phpmyadmin_1 && docker stop craft_mariadb_1'
 alias stoptrade='docker stop aptrade_prestashop_1 && docker stop aptrade_phpmyadmin_1 && docker stop aptrade_mariadb_1'
+alias stopfame='docker stop fame_prestashop_1 && docker stop fame_phpmyadmin_1 && docker stop fame_mariadb_1'
+alias stopluko='docker stop luko_prestashop_1 && docker stop luko_phpmyadmin_1 && docker stop luko_mariadb_1'
 
 
 alias up='cd ..'

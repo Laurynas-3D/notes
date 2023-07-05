@@ -16,6 +16,28 @@ source <file-name>.sql
 
 
 
+
+---SHOW USERS
+mysql> SELECT User, Host FROM mysql.user;
+
+
+
+mysql> GRANT CREATE ON *.* TO 'username'@'localhost';
+mysql> exit
+sudo mysql
+mysql> FLUSH PRIVILEGES;
+mysql> exit
+mysql -u username -p
+
+sudo mysql
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost';
+mysql> SHOW GRANTS FOR 'username'@'localhost';
+mysql> FLUSH PRIVILEGES;
+mysql> exit
+mysql -u username -p
+
+
+
 ---ALTER AUTO INCREMENT
 alter table posts AUTO_INCREMENT = 6
 
