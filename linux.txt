@@ -600,6 +600,11 @@ Settings > Desktop > Dock > Icon Click Action -> Launch, Minimize, or Preview Wi
 
 
 ------Aliases
+// LOADING ALIAS CHANGES
+source ~/.bashrc
+// OR restart terminal
+
+
 add to end of the file
 /home/laurynas/.bashrc
 
