@@ -713,3 +713,8 @@ alias goauto='cd /home/laurynas/repos/auto'
 alias gocraft='cd /home/laurynas/repos/craft'
 alias goaptrade='cd /home/laurynas/repos/aptrade'
 alias gotrade='cd /home/laurynas/repos/aptrade'
+
+
+
+#copy back reqired files
+alias supfiles='cp -r /home/laurynas/Documents/supplements4muscle/projectRequiredFiles/db /home/laurynas/repos/sup && cp -r /home/laurynas/Documents/supplements4muscle/projectRequiredFiles/vendor /home/laurynas/repos/sup && cp /home/laurynas/Documents/supplements4muscle/projectRequiredFiles/.env /home/laurynas/repos/sup && rm -rf /home/laurynas/repos/sup/admin && rm -rf /home/laurynas/repos/sup/install'
