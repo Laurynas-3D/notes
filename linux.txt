@@ -62,6 +62,12 @@ chmod +x /path/to/your/file 	- make executable
 
 
 
+#--------------------HDD FOLDER OWNERSHIP
+
+ls -l "/media/laurynas/New Volume1/Lauryno"
+sudo chown -R laurynas:laurynas "/media/laurynas/New Volume1/Lauryno"
+chmod -R u+w "/media/laurynas/New Volume1/Lauryno"
+
 #--------------------Other Popular Commands
 
 uname -a			- prints Linux version
@@ -464,6 +470,7 @@ chmod 666 /var/run/docker.sock
 exit 0
 
 CTRL+O  -save
+enter
 CTRL+X 	-exit
 
 sudo chmod +x /etc/rc.local
@@ -595,7 +602,7 @@ sudo nano activecollab-timer.desktop
 Exec=/opt/active-collab-timer/Active
 
 
-------Programs Dock / 
+------POP_OS Programs Dock / 
 Settings > Desktop > Dock > Icon Click Action -> Launch, Minimize, or Preview Windows
 
 
@@ -607,6 +614,84 @@ source ~/.bashrc
 
 add to end of the file
 /home/laurynas/.bashrc
+
+
+
+
+
+
+// INVOYER
+
+# my custom aliases
+alias dcu='docker-compose up -d'
+alias dcufr='docker-compose up --build -d --force-recreate'
+alias dcuf='docker-compose up --build -d --force-recreate'
+alias down='docker-compose down'
+
+
+
+alias cleanbackup='rm /home/laurynas/backup/documents.zip && rm /home/laurynas/backup/pictures.zip && /home/laurynas/backup/downloads.zip && /home/laurynas/backup/repos.zip'
+
+alias cleanbckpall='rm /home/laurynas/backup/documents.zip && rm /home/laurynas/backup/pictures.zip && rm /home/laurynas/backup/downloads.zip && rm /home/laurynas/backup/repos.zip && rm /home/laurynas/backup/projects/*.zip'
+
+alias zipbackup='zip -v -r -7 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -7 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -7 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/ && zip -v -r -7 /home/laurynas/backup/repos.zip /home/laurynas/repos/'
+
+alias zipnorep='zip -v -r -7 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -7 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -7 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/'
+
+alias zipnew='for dir in /home/laurynas/repos/*/; do base=$(basename "$dir"); zip -v -r -7 "/home/laurynas/backup/projects/${base}.zip" "$dir"; done'
+
+
+
+
+
+alias stoptest='docker stop testshop_prestashop_1 && docker stop testshop_phpmyadmin_1 && docker stop testshop_mariadb_1'
+alias stopfort='docker stop fort_prestashop_1 && docker stop fort_phpmyadmin_1 && docker stop fort_mariadb_1'
+alias stopwusa='docker stop wusa_prestashop_1 && docker stop wusa_phpmyadmin_1 && docker stop wusa_mariadb_1'
+alias stopweu='docker stop weu_prestashop_1 && docker stop weu_phpmyadmin_1 && docker stop weu_mariadb_1'
+alias stopgrill='docker stop grill_phpmyadmin_1 && docker stop grill_prestashop_1 && docker stop grill_mariadb_1'
+alias stopapol='docker stop apol_prestashop_1 && docker stop apol_phpmyadmin_1 && docker stop apol_mariadb_1'
+alias stopdan='docker stop dan_prestashop_1 && docker stop dan_phpmyadmin_1 && docker stop dan_mariadb_1'
+alias stopsup='docker stop sup_prestashop_1 && docker stop sup_phpmyadmin_1 && docker stop sup_mariadb_1'
+alias stopsalna='docker stop salna_prestashop_1 && docker stop salna_phpmyadmin_1 && docker stop salna_mariadb_1'
+alias stoplot='docker stop lot_mariadb_1 && docker stop lot_phpmyadmin_1 && docker stop lot_prestashop_1'
+alias stopakie='docker stop akie_mariadb_1 && docker stop akie_phpmyadmin_1 && docker stop akie_prestashop_1'
+alias stopamsp='docker stop amsp_mariadb_1 && docker stop amsp_phpmyadmin_1 && docker stop amsp_prestashop_1'
+
+
+
+alias up='cd ..'
+alias gonotes='cd /home/laurynas/repos/notes'
+alias gobackup='cd /home/laurynas/backup'
+alias godocs='cd /home/laurynas/Documents'
+alias gopnotes='cd /home/laurynas/Documents/notes-by-project'
+alias prestanotes='cd /home/laurynas/Documents/notes-by-project'
+
+
+
+alias gotest='cd /home/laurynas/repos/testshop'
+alias gofort='cd /home/laurynas/repos/fort'
+alias gowusa='cd /home/laurynas/repos/wusa'
+alias goweu='cd /home/laurynas/repos/weu'
+alias gogrill='cd /home/laurynas/repos/grill'
+alias goapol='cd /home/laurynas/repos/apol'
+alias godan='cd /home/laurynas/repos/dan'
+alias gosup='cd /home/laurynas/repos/sup'
+alias gosalna='cd /home/laurynas/repos/salna'
+alias golot='cd /home/laurynas/repos/lot'
+alias goakie='cd /home/laurynas/repos/akie'
+alias goamsp='cd /home/laurynas/repos/amsp'
+
+
+
+
+
+
+
+
+
+
+||||||||||||||||||||||
+// PRESTAPRO
 
 # my custom aliases
 alias dcu='docker-compose up -d'

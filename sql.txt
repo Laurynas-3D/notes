@@ -561,49 +561,58 @@ UPDATE `ps_pp_empty_stock_deleter` SET date_add = '2022-02-22 22:22:22' LIMIT 3;
 
 
 
---  ANON DB
+INSERT INTO `ps_employee` (`id_employee`, `id_profile`, `id_lang`, `lastname`, `firstname`, `email`, `passwd`, `last_passwd_gen`, `stats_date_from`, `stats_date_to`, `stats_compare_from`, `stats_compare_to`, `stats_compare_option`, `preselect_date_range`, `bo_color`, `bo_theme`, `bo_css`, `default_tab`, `bo_width`, `bo_menu`, `active`, `optin`, `id_last_order`, `id_last_customer_message`, `id_last_customer`, `last_connection_date`, `reset_password_token`, `reset_password_validity`) VALUES (NULL, '1', '2', 'Demo', 'Account', 'demo@invoyer.com', '$2a$12$j.ZCXKm2XDNppTcsSs1Hi.ZOi1Stj5.RSlc6C.D3DKCZ9RZbv5NsG', '2023-08-25 05:06:51', '2023-07-24', '2023-08-24', '0000-00-00', '0000-00-00', '1', '', '', 'default', 'theme.css', '1', '0', '1', '1', '1', '28510', '1791', '30503', NULL, '', '0000-00-00 00:00:00');
+
+
+
+
+
+--  ANON DB - updated at 2023-08-03
 
 -- "DOCKER settings"
 
-update cr_configuration set value = 2 where name ='PS_SMARTY_FORCE_COMPILE';
-update cr_configuration set value = 0 where name ='PS_CIPHER_ALGORITHM';
-update cr_configuration set value = 0 where name ='PS_SSL_ENABLED';
-update cr_configuration set value = 0 where name ='PS_SSL_ENABLED_EVERYWHERE';
-update cr_configuration set value = 0 where name ='PS_SMARTY_CACHE';
-update cr_configuration set value = 0 where name ='PS_JS_THEME_CACHE';
-update cr_configuration set value = 0 where name ='PS_CSS_THEME_CACHE';
-update cr_configuration set value = 0 where name ='PS_HTACCESS_CACHE_CONTROL';
-update cr_configuration set value = 3 where name ='PS_MAIL_METHOD';
-update cr_configuration set value = 'http://localhost:5550/' where name ='PS_SHOP_DOMAIN';
-update cr_configuration set value = 'http://localhost:5550/' where name ='PS_SHOP_DOMAIN_SSL';
-update cr_shop_url set domain = 'localhost:5550', domain_ssl = 'localhost:5550', physical_uri = '/' where id_shop_url = 1 and id_shop = 1;
+update ps_configuration set value = 2 where name ='PS_SMARTY_FORCE_COMPILE';
+update ps_configuration set value = 0 where name ='PS_CIPHER_ALGORITHM';
+update ps_configuration set value = 0 where name ='PS_SSL_ENABLED';
+update ps_configuration set value = 0 where name ='PS_SSL_ENABLED_EVERYWHERE';
+update ps_configuration set value = 0 where name ='PS_SMARTY_CACHE';
+update ps_configuration set value = 0 where name ='PS_JS_THEME_CACHE';
+update ps_configuration set value = 0 where name ='PS_CSS_THEME_CACHE';
+update ps_configuration set value = 0 where name ='PS_HTACCESS_CACHE_CONTROL';
+update ps_configuration set value = 3 where name ='PS_MAIL_METHOD';
+update ps_configuration set value = 'http://localhost:7790/' where name ='PS_SHOP_DOMAIN';
+update ps_configuration set value = 'http://localhost:7790/' where name ='PS_SHOP_DOMAIN_SSL';
+update ps_shop_url set domain = 'localhost:7790', domain_ssl = 'localhost:7790', physical_uri = '/' where id_shop_url = 1 and id_shop = 1;
+    
 
 -- "Database anonymization"
 
-TRUNCATE TABLE cr_connections;
-TRUNCATE TABLE cr_connections_source;
-TRUNCATE TABLE cr_connections_page;
-TRUNCATE TABLE cr_guest;
-TRUNCATE TABLE cr_log;
--- TRUNCATE TABLE cr_referrer;
--- TRUNCATE TABLE cr_referrer_shop;
--- TRUNCATE TABLE cr_referrer_cache;
-TRUNCATE TABLE cr_pagenotfound;
-TRUNCATE TABLE cr_mail;
-DELETE FROM cr_specific_price WHERE `to` != '0000-00-00 00:00:00' AND `to` < NOW();
-DELETE FROM cr_specific_price_rule WHERE `to` != '0000-00-00 00:00:00' AND `to` < NOW();
-TRUNCATE TABLE cr_statssearch;
-TRUNCATE TABLE cr_smarty_cache;
-TRUNCATE TABLE cr_smarty_last_flush;
-TRUNCATE TABLE cr_smarty_lazy_cache;
-TRUNCATE TABLE cr_search_index;
-TRUNCATE TABLE cr_search_word;
+TRUNCATE TABLE ps_connections;
+TRUNCATE TABLE ps_connections_source;
+TRUNCATE TABLE ps_connections_page;
+TRUNCATE TABLE ps_guest;
+TRUNCATE TABLE ps_log;
+TRUNCATE TABLE ps_referrer;
+TRUNCATE TABLE ps_referrer_shop;
+TRUNCATE TABLE ps_referrer_cache;
+TRUNCATE TABLE ps_pagenotfound;
+TRUNCATE TABLE ps_mail;
+DELETE FROM ps_specific_price WHERE `to` != '0000-00-00 00:00:00' AND `to` < NOW();
+DELETE FROM ps_specific_price_rule WHERE `to` != '0000-00-00 00:00:00' AND `to` < NOW();
+TRUNCATE TABLE ps_statssearch;
+TRUNCATE TABLE ps_smarty_cache;
+TRUNCATE TABLE ps_smarty_last_flush;
+TRUNCATE TABLE ps_smarty_lazy_cache;
+TRUNCATE TABLE ps_search_index;
+TRUNCATE TABLE ps_search_word;
 
 -- "Data is Truncated! "
 
+UPDATE
+    `ps_address`
 SET
-    lastname = CONCAT('lastname', '_', id_customer),
-    firstname = CONCAT('firstname', '_', id_customer),
+    lastname = CONCAT('lastname'),
+    firstname = CONCAT('firstname'),
     address1 = CONCAT('address1', '_', id_customer),
     address2 = CONCAT('address2', '_', id_customer),
     postcode = 'LT-00000',
@@ -615,17 +624,20 @@ SET
     dni = CONCAT('dni', '_', id_customer),
     company = CONCAT('company', '_', id_customer),
     id_country = 131;
+
+
 UPDATE
-    cr_connections
-    
+    ps_connections
 SET
     ip_address = NULL;
+
+
+
 UPDATE
-    cr_customer
-    
+    ps_customer
 SET
-    lastname = CONCAT('lastname', '_', id_customer),
-    firstname = CONCAT('firstname', '_', id_customer),
+    lastname = CONCAT('lastname'),
+    firstname = CONCAT('firstname'),
     siret = NULL,
     ape = NULL,
     company = NULL,
@@ -639,29 +651,34 @@ SET
     secure_key = MD5(CONCAT(RAND(), secure_key)),
     active = 0,
     newsletter_date_add = NULL;
+
+
+
 UPDATE
-    cr_customer_message
-    
+    ps_customer_message
 SET
     message = MD5(CONCAT(RAND(), message)),
     ip_address = '',
     user_agent = '';
+
+
 UPDATE
-    cr_customer_thread
+    ps_customer_thread
 SET
     email = MD5(CONCAT(RAND(), email));
+
+
 UPDATE
-    cr_message
+    ps_message
 SET
     message = MD5(CONCAT(RAND(), message));
 UPDATE
-    cr_mail
+    ps_mail
 SET
     recipient = MD5(CONCAT(RAND(), recipient));
 
-
 UPDATE
-    cr_product_comment
+    ps_product_comment
 SET
     title = NULL,
     content = MD5(CONCAT(RAND(), content)),
@@ -670,50 +687,50 @@ SET
 
 -- "Data is anonymous!"
 
-DELETE FROM cr_employee
-  WHERE cr_employee.id_employee IN (
+DELETE FROM ps_employee
+  WHERE ps_employee.id_employee IN (
       SELECT ppp.id_employee
       FROM (
           SELECT pp.id_employee
-          FROM cr_employee pp
+          FROM ps_employee pp
           WHERE pp.email not
-          LIKE '%prestapro.lt'
+          LIKE '%invoyer.com'
       )
       AS ppp);
       
 
-DELETE FROM cr_employee_shop
-  WHERE cr_employee_shop.id_employee IN (
+DELETE FROM ps_employee_shop
+  WHERE ps_employee_shop.id_employee IN (
       SELECT ppp.id_employee
       FROM (
           SELECT pp.id_employee
-          FROM cr_employee pp
+          FROM ps_employee pp
           WHERE pp.email not
-          LIKE '%prestapro.lt'
+          LIKE '%invoyer.com'
       )
       AS ppp);
 
 -- "Employees removed!"
 
-UPDATE cr_configuration p1
+UPDATE ps_configuration p1
 SET
     p1.value = NULL WHERE p1.id_configuration
 IN
     (SELECT p2.id_configuration
-    from (SELECT * FROM cr_configuration) p2
+    from (SELECT * FROM ps_configuration) p2
     WHERE p2.name LIKE '%api%');
-UPDATE cr_configuration p1
+UPDATE ps_configuration p1
 SET p1.value = NULL WHERE p1.id_configuration
 IN
     (SELECT p2.id_configuration
-    from (SELECT * FROM cr_configuration) p2
+    from (SELECT * FROM ps_configuration) p2
     WHERE p2.name REGEXP '^._KEY.$');
-UPDATE cr_configuration p1
+UPDATE ps_configuration p1
 SET
     p1.value = NULL WHERE p1.id_configuration
 IN
     (SELECT p2.id_configuration
-    from (SELECT * FROM cr_configuration) p2
+    from (SELECT * FROM ps_configuration) p2
     WHERE p2.name REGEXP '^._PASSW.$');
       
 -- "Sensitive data is removed!"
