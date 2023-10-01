@@ -2,6 +2,7 @@ php -v			// display php version
 mysql -V		// display mysql version
 mysql -u root		// mysq monitor \q - quit; \? - help
 composer -v		// display composer version
+node -v			// must be at least 14 to support ES modules
 
 php artisan --version	// display Laravel framework version	
 
@@ -326,6 +327,57 @@ or native logging
 
 
 ----------
+
+Laravel BREEZE
+
+1.
+	composer create-project laravel/laravel breeze
+OR
+	laravel new breeze
+
+2.
+	cd breeze
+
+3.
+// might be a problem with CSS compilation, errro `@vite(['resources/css/app.css', 'resources/js/app.js'])`
+	composer require laravel/breeze --dev 
+//then use 
+	composer require laravel/breeze:1.9.2
+	composer require laravel/breeze:1.20.1
+	
+
+
+php artisan breeze (should see a new command "breeze:insatall")
+
+php artisan breeze:install
+
+npm install && npm run dev
+
+php artisan serve
+
+google out why i do not have a normal css when click on one of the links
+
+tutorial stop at 00:05:04 
+
+
+----------
+Possible Errors Breeze
+
+if you use sqlite database then check php plugins
+php -m | grep sqlite
+pdo_sqlite
+sqlite3
+
+in php.ini file uncomment this
+extension=pdo_sqlite
+extension=sqlite3
+
+// delete `;` symbol
+// restart
+
+
+
+----------
 Possible Errors
 
 Illuminate\Database\QueryException with message 'SQLSTATE[HY000]: General error: 1364 Field 'category_id' doesn't have a default value
@@ -333,3 +385,7 @@ Illuminate\Database\QueryException with message 'SQLSTATE[HY000]: General error:
 add category_id to fillable property in Post Model, restart php artisan tinker to take effect
 
  protected $fillable = ['slug', 'title', 'body', 'excerpt', 'category_id'];
+ 
+ 
+
+
