@@ -243,6 +243,10 @@ $query = "
 $result = Db::getInstance()->getValue($query);
 
 
+// DELETE IN BULK
+DELETE FROM `ps_product` WHERE `id_product` BETWEEN 0 AND 640000;
+
+
 --// CREATE TABLE 
 return Db::getInstance()->execute('
             CREATE TABLE IF NOT EXISTS `'. _DB_PREFIX_ .'client_manager` (

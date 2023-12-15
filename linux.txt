@@ -803,3 +803,6 @@ alias gotrade='cd /home/laurynas/repos/aptrade'
 
 #copy back reqired files
 alias supfiles='cp -r /home/laurynas/Documents/supplements4muscle/projectRequiredFiles/db /home/laurynas/repos/sup && cp -r /home/laurynas/Documents/supplements4muscle/projectRequiredFiles/vendor /home/laurynas/repos/sup && cp /home/laurynas/Documents/supplements4muscle/projectRequiredFiles/.env /home/laurynas/repos/sup && rm -rf /home/laurynas/repos/sup/admin && rm -rf /home/laurynas/repos/sup/install'
+
+
+alias fix="/home/laurynas/Documents/codefixer/tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./ --config=/home/laurynas/Documents/codefixer/tools/php-cs-fixers/.php_cs.dist.php"
