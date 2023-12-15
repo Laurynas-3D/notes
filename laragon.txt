@@ -12,3 +12,16 @@ http://localhost/phpmyadmin
 
 TERMINAL startup command
 -cur_console:f -cur_console:d:C:\laragon\www " cmd /k "%ConEmuDir%\..\init.bat"
+
+
+-----------------
+
+CHANGE PHP
+
+when updating Laragon php version, download php with thread safe option
+
+https://windows.php.net/download/
+
+unpack at C:\laragon\bin\php
+
+then Laragon will not give an error when launcing Apache server
