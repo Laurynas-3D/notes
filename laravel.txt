@@ -32,10 +32,15 @@ php artisan serve
 http://127.0.0.1:8000/admin/login
 
 
-
+START NEW PROJECT
 composer create-project laravel/laravel <project-name> // Start Laravel project
+composer create-project laravel/laravel <project-name> "8.5.*" // Install specific version of laravel
 laravel new <project-name>	// Start Laravel project if you can access laravel globally
-cd <project-name> 
+
+cd <project-name>
+php artisan -V
+
+npm install
 php artisan serve		// http://127.0.0.1:8000
 
 rm -rf <project-name>		// delete project
