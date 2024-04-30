@@ -291,6 +291,8 @@ $sql[] = '
 --//UPDATE All column values
 UPDATE table SET column = NULL;
 
+UPDATE ps_product_lang SET available_now = 'Yra sandėlyje' WHERE id_shop = 1 AND id_lang = 2;
+
 
 --// GET single value
 return (int)Db::getInstance()->getValue('SELECT `employee_id` FROM `'. _DB_PREFIX_ .'client_manager` WHERE `customer_id` = '.(int) $customerId);
