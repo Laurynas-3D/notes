@@ -243,6 +243,18 @@ $query = "
 $result = Db::getInstance()->getValue($query);
 
 
+
+// CHANGE COLUMN VALUES BELOW DEFINED ID
+UPDATE ps_customer
+SET lastname = 'LastName'
+WHERE id_customer < 195090;
+
+// CHANGE COLUMN VALUES WITH CUSTOMER ID
+UPDATE ps_customer
+SET email = CONCAT('email', id_customer, '@email.com')
+WHERE id_customer < 195090;
+
+
 // DELETE IN BULK
 DELETE FROM `ps_product` WHERE `id_product` BETWEEN 0 AND 640000;
 
