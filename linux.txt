@@ -148,10 +148,19 @@ ping linuxquestions.org 	- ping to website.
 
 
 
+
 --------------------ALIAS
 
 alias tlog='(date "+%Y-%m-%d %H:%M" && uptime -p && echo " ") >> time.txt'
 
+
+
+
+---------------------CHROME FLATPAK PERMISSIONS
+
+flatpak override --user --filesystem=~/.local/share/applications com.google.Chrome
+flatpak override --user --filesystem=~/.local/share/icons com.google.Chrome
+flatpak info --show-permissions com.google.Chrome
 
 
 --------------------Network

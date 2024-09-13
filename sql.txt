@@ -303,7 +303,15 @@ $sql[] = '
 --//UPDATE All column values
 UPDATE table SET column = NULL;
 
+UPDATE `ps_invr_action_import_category`
+SET `is_new` = 0
+WHERE `id` BETWEEN 1 AND 50;
+
+
 UPDATE ps_product_lang SET available_now = 'Yra sandėlyje' WHERE id_shop = 1 AND id_lang = 2;
+
+UPDATE ps_meta_lang SET title = 'Monora' WHERE title = "Elitsun";
+UPDATE ps_meta_lang SET description = 'Monora' WHERE description = "Elitsun";
 
 
 --// GET single value
