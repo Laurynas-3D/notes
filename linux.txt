@@ -645,6 +645,7 @@ alias cleanbckpall='rm /home/laurynas/backup/documents.zip && rm /home/laurynas/
 
 alias zipbackup='zip -v -r -7 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -7 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -7 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/ && zip -v -r -7 /home/laurynas/backup/repos.zip /home/laurynas/repos/'
 
+
 alias zipnorep='zip -v -r -7 /home/laurynas/backup/documents.zip /home/laurynas/Documents/ && zip -v -r -7 /home/laurynas/backup/pictures.zip /home/laurynas/Pictures/ && zip -v -r -7 /home/laurynas/backup/downloads.zip /home/laurynas/Downloads/'
 
 alias zipnew='for dir in /home/laurynas/repos/*/; do base=$(basename "$dir"); zip -v -r -7 "/home/laurynas/backup/projects/${base}.zip" "$dir"; done'
